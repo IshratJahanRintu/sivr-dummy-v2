@@ -1,0 +1,16 @@
+.g-nopermission-area{
+    background-color: #ffffff;
+    height: 95vh;
+}
+.g-nopermission-content{
+   display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    svg{
+        max-width: 400px;
+        width: 100%;
+        height: auto;
+    }
+}

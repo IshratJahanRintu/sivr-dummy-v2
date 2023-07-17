@@ -1,0 +1,129 @@
+/*============================
+         Main Login
+  ============================*/
+
+.g-main-login-area {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background-color: #CFFDE1;
+  background-image: url("../images/login/login-bg.jpg");
+  background-position: right center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  &:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.g-login-p-logo {
+    width: 200px;
+    margin: auto;
+}
+
+.g-main-login-form {
+    z-index: 3;
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    height: 100vh;
+    background: #355070; /* fallback for old browsers */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    box-shadow: 15px 0 15px -10px rgba(0, 0, 0, 0.25);
+}
+
+.g-main-login-form-main {
+    width: 100%;
+    padding: 0 3rem;
+    color: #ffffff;
+}
+
+.g-powered-by {
+    max-width: 450px;
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+}
+
+.g-main-login-right {
+    position: relative;
+    height: 100vh;
+    width: calc(100vw - 450px);
+}
+
+.g-login-brand-logo {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    z-index: 3;
+
+    a {
+        width: 120px;
+        display: block;
+    }
+}
+
+.g-signin-form {
+    input.form-control {
+        background-color: transparent;
+        color: #ffffff;
+    }
+
+    /* Change the white to any color */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active{
+        -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+    }
+}
+
+.g-form-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.g-f-password {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.g-input-error {
+    position: relative;
+    float: right;
+    color: #ff898b;
+}
+
+.g-password-redirect {
+    display: none;
+}
+
+.c-underline{
+    cursor: pointer;
+    text-align: center;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-skip-spaces:all;
+}

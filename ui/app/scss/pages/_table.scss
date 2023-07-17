@@ -1,0 +1,36 @@
+
+/*============================
+         All Table Style
+  ============================*/
+table {
+  font-size: 13px;
+  color: #355070 !important;
+  white-space: nowrap;
+}
+
+.g-table-action {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  span {
+    cursor: pointer;
+
+    i {
+      font-weight: 800;
+      display: inline-block;
+    }
+  }
+}
+thead.g-thead {
+  background-color: #577092;
+  color: #ffffff;
+  border-top: 1px solid #577092;
+  border-left: 1px solid #577092;
+  border-right: 1px solid #577092;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  tr th{
+    padding: 0.4rem 0.2rem;
+  }
+}

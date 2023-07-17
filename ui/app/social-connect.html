@@ -1,0 +1,2585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="ccpro | integrated software application for network solutions"/>
+    <meta name="keywords" content="mominriyadh, gulp, boilerplate, gulp boilerplate, live reload">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60/60" href="assets/images/favicon/apple-icon-60/60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/images/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <title>CCPRO | V-2</title>
+    <link rel="stylesheet" href="assets/css/vendors.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+</head>
+
+<body class="vertical-collpsed">
+
+<!--**********************************
+             Start Main Header
+  ***********************************-->
+<div class="g-top-bar fixed-top">
+    <!--Main Logo-->
+    <div class="g-logo">
+        <a href="">
+            <img class="img-fluid" src="assets/images/logo.svg" alt="">
+        </a>
+    </div>
+
+    <div class="g-sidebar-toggle">
+        <span class="border-1 p-1 mb-0 vertical-menu-btn h5 d-flex align-items-center">
+          <i class="bi bi-layout-text-sidebar-reverse"></i>
+        </span>
+    </div>
+
+    <div class="g-breadcrumb-area">
+        <h5 class="mb-0 fw-bold">Agent List</h5>
+    </div>
+
+    <div class="g-add-new">
+        <a href="login.html" class="btn btn-primary btn-sm text-white"><i class="bi bi-plus-lg"></i> Add New</a>
+    </div>
+
+
+    <!--        User Profile-->
+    <div class="g-topbar-user-profile">
+
+        <div aria-labelledby="icon" class="g-grid-icon">
+            <small>Filter Search</small>
+            <i class="bi bi-search"></i>
+        </div>
+
+        <div class="g-user-image dropdown">
+                <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+
+                <img class="img-fluid" src="assets/images/user.jpg" alt="">
+                </span>
+            <ul class="dropdown-menu g-dropdown-profile mt-4">
+                <li><a class="dropdown-item" href="#"><i class="bi bi-card-heading"></i> Profile</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-gear-fill"></i> Settings</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-toggles"></i> Status</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--        End User Profile-->
+
+    <!--Mobile Menu-->
+    <button class="g-mobile-trigger vertical-menu-btn">
+        <i class="bi bi-justify-right"></i>
+    </button>
+</div>
+
+
+<!--**********************************
+                Start Sidebar
+   ***********************************-->
+<aside class="">
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="vertical-menu mm-active">
+        <div data-simplebar class="sidebar-menu-scroll mm-show">
+
+            <!--- Sidemenu -->
+            <div id="sidebar-menu">
+                <!-- Left Menu Start -->
+                <ul class="metismenu list-unstyled" id="side-menu">
+                    <li>
+                        <a href="/">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="social-connect.html">
+                            <i class="ph-fill ph-planet"></i>
+                            <span>Social Connect</span>
+                        </a>
+
+                    </li>
+
+                    <li>
+                        <a href="sivr-tree.html">
+                            <i class="bi bi-menu-button-wide"></i>
+                            <span>SIVR Tree</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Invoices</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="invoices-list">Invoice List</a></li>
+                            <li><a href="invoices-detail">Invoice Detail</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Contacts</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="contacts-grid">User Grid</a></li>
+                            <li><a href="contacts-list">User List</a></li>
+                            <li><a href="contacts-profile">Profile</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Charts</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="charts-apex">Apex</a></li>
+                            <li><a href="charts-chartjs">Chartjs</a></li>
+                            <li><a href="charts-flot">Flot</a></li>
+                            <li><a href="charts-knob">Jquery Knob</a></li>
+                            <li><a href="charts-sparkline">Sparkline</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Icons</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="icons-unicons">Unicons</a></li>
+                            <li><a href="icons-boxicons">Boxicons</a></li>
+                            <li><a href="icons-materialdesign">Material Design</a></li>
+                            <li><a href="icons-dripicons">Dripicons</a></li>
+                            <li><a href="icons-fontawesome">Font Awesome</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Maps</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="maps-google">Google</a></li>
+                            <li><a href="maps-vector">Vector</a></li>
+                            <li><a href="maps-leaflet">Leaflet</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Multi Level</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="true">
+                            <li><a href="javascript: void(0);">Level 1.1</a></li>
+                            <li><a href="javascript: void(0);" class="has-arrow">Level 1.2</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a href="javascript: void(0);">Level 2.1</a></li>
+                                    <li><a href="javascript: void(0);">Level 2.2</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Layouts</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="true">
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">Vertical</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a href="layouts-dark-sidebar">Dark Sidebar</a></li>
+                                    <li><a href="layouts-compact-sidebar">Compact Sidebar</a></li>
+                                    <li><a href="layouts-icon-sidebar">Icon Sidebar</a></li>
+                                    <li><a href="layouts-boxed">Boxed Width</a></li>
+                                    <li><a href="layouts-preloader">Preloader</a></li>
+                                    <li><a href="layouts-colored-sidebar">Colored Sidebar</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">Horizontal</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a href="layouts-horizontal">Horizontal</a></li>
+                                    <li><a href="layouts-hori-topbar-dark">Topbar Dark</a></li>
+                                    <li><a href="layouts-hori-boxed-width">Boxed Width</a></li>
+                                    <li><a href="layouts-hori-preloader">Preloader</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- Sidebar -->
+        </div>
+    </div>
+    <!-- Left Sidebar End -->
+
+
+    <!-- Close Icon -->
+    <div class="g-close-icon">
+        <span class="bi bi-x-lg"></span>
+    </div>
+    <!-- end close Icon -->
+</aside>
+
+<!--End Sidebar-->
+
+<div class="g-main-wrap main-content">
+
+
+    <!--**********************************
+                  Main Page Wrapper
+     ***********************************-->
+    <main class="g-page-wrap">
+
+        <div class="g-page-content-area">
+
+            <div class="g-page-content-main">
+
+                <!--**********************************
+                            Social Connect Area
+                 ***********************************-->
+
+                <div class="container-fluid mb-3">
+                    <div class="g-social-connect-area">
+
+                        <!--Loader Section-->
+                        <div id="loading">
+                            <svg id="loading-main" x="0px" y="0px"
+                                 viewBox="0 0 100 100">
+                                <path fill="#E56B6F" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+  c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+                                    <animateTransform
+                                        attributeName="transform"
+                                        attributeType="XML"
+                                        type="rotate"
+                                        dur="2s"
+                                        from="0 50 50"
+                                        to="360 50 50"
+                                        repeatCount="indefinite"/>
+                                </path>
+                                <path fill="#E56B6F" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+  c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+                                    <animateTransform
+                                        attributeName="transform"
+                                        attributeType="XML"
+                                        type="rotate"
+                                        dur="1s"
+                                        from="0 50 50"
+                                        to="-360 50 50"
+                                        repeatCount="indefinite"/>
+                                </path>
+                                <path fill="#E56B6F" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+  L82,35.7z">
+                                    <animateTransform
+                                        attributeName="transform"
+                                        attributeType="XML"
+                                        type="rotate"
+                                        dur="2s"
+                                        from="0 50 50"
+                                        to="360 50 50"
+                                        repeatCount="indefinite"/>
+                                </path>
+                            </svg>
+                        </div>
+                        <!--End Loader Section-->
+                        <div class="g-social-main">
+                            <div class="card">
+
+
+                                <div class="card-body">
+                                    <!--*********************************************************
+                                          All Social Tabs And First Label Tabs Start From Here
+                                     *************************************************************-->
+                                    <div class="g-social-brand-area">
+                                        <div class="g-social-brand-main" role="tablist" id="social-tab">
+                                            <div class="g-social-single nav-link active" data-bs-toggle="tab"
+                                                 data-bs-target="#facebook"
+                                                 role="presentation" data-profile="facebook">
+                                                <i class="bi bi-facebook"></i>
+                                                Facebook
+                                            </div>
+                                            <div class="g-social-single nav-link" data-bs-toggle="tab"
+                                                 data-bs-target="#twitter"
+                                                 role="presentation" data-profile="twitter">
+                                                <i class="bi bi-twitter"></i>
+                                                Twitter
+                                            </div>
+                                            <div class="g-social-single nav-link" data-bs-toggle="tab"
+                                                 data-bs-target="#instagram" data-profile="instagram"
+                                                 role="presentation">
+                                                <i class="bi bi-instagram"></i>
+                                                Instagram
+                                            </div>
+                                            <div class="g-social-single nav-link" data-bs-toggle="tab"
+                                                 data-bs-target="#whatsapp" data-profile="whatsapp"
+                                                 role="presentation">
+                                                <i class="bi bi-whatsapp"></i>
+                                                Whatsapp
+                                            </div>
+                                        </div>
+
+                                        <div class="g-social-disposition-area me-1">
+                                            <select class="form-select form-select-sm bg-warning text-bg-warning"
+                                                    aria-label=".form-select-sm example">
+                                                <option selected value="ready">Ready</option>
+                                                <option value="busy">Busy</option>
+                                                <option value="idle">Idle</option>
+                                                <option value="logout">Logout</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="g-social-profile-area tab-content" id="social-tab-content">
+
+                                        <div class="tab-pane fade show active" id="facebook" role="tabpanel"
+                                             aria-labelledby="social-facebook-tab">
+
+                                            <!--********************************************
+                                                   Start Second and Inner First Label
+                                                   Tabs Start Here
+                                            *********************************************-->
+                                            <!-- All registered profile against social brands-->
+                                            <div class="g-social-individual-profile" role="tablist">
+                                                <div class="g-social-individual-main active" data-bs-toggle="tab"
+                                                     data-bs-target="#genuity">
+                                                    <i class="bi bi-exclude"></i>
+                                                    Genuity Systems Limited
+                                                    <sup class="badge badge-success rounded-pill bg-danger">8</sup>
+                                                </div>
+                                                <div class="g-social-individual-main" data-bs-toggle="tab"
+                                                     data-bs-target="#gplex">
+                                                    <i class="bi bi-exclude"></i>
+                                                    gPlex
+                                                    <sup class="badge badge-success rounded-pill bg-danger">3</sup>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="tab-content">
+
+                                                <div class="g-social-profile-single-details tab-pane fade show active"
+                                                     id="genuity" role="tablist">
+                                                    <!-- All social meta for each social profile-->
+                                                    <div class="g-social-meta-area">
+
+                                                        <!--********************************************
+                                                               Start Third and Inner Second Label
+                                                                       Tabs Start Here
+                                                         *********************************************-->
+                                                        <div class="g-meta-single active" data-bs-toggle="tab"
+                                                             data-bs-target="#post">
+                                                            <i class="bi bi-send-fill"></i> Post
+                                                            <sup
+                                                                class="badge badge-success rounded-pill bg-danger">5</sup>
+                                                        </div>
+
+                                                        <div class="g-meta-single" data-bs-toggle="tab"
+                                                             data-bs-target="#message">
+                                                            <i class="bi bi-chat-left-fill"></i> Message
+                                                            <sup
+                                                                class="badge badge-success rounded-pill bg-danger">3</sup>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="tab-content">
+                                                        <!-- Each Profile Chat Items Area-->
+                                                        <div class="tab-pane fade show active" role="tabpanel"
+                                                             id="post">
+                                                            <div class="g-social-chat-area">
+
+                                                                <!-- Post Items-->
+                                                                <div class="g-social-post-item-area">
+
+                                                                    <div class="g-social-common-header">
+                                                                        <div class="g-social-registered-brand">
+                                                                            <img src="https://picsum.photos/55/55"
+                                                                                 alt="">
+                                                                        </div>
+
+                                                                        <div>
+                                                                            <button
+                                                                                class="btn btn-outline-primary btn-sm"
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#social-create-post">
+                                                                                create post
+                                                                            </button>
+                                                                        </div>
+
+                                                                    </div>
+
+
+                                                                    <!-- Search Form-->
+                                                                    <div class="g-search-form-area">
+                                                                        <form action="">
+                                                                            <div class="form-group">
+                                                                                <label for="g-post-search"
+                                                                                       class="w-100">
+                                                                                    <input class="form-control"
+                                                                                           type="search" name=""
+                                                                                           id="g-post-search">
+                                                                                    <i class="bi bi-search g-search-icon"></i>
+                                                                                </label>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                    <!-- End Search Form-->
+
+                                                                    <div class="g-social-post-list" role="tablist">
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                            <button data-bs-toggle="tab"
+                                                                                    data-bs-target="#preview-1"
+                                                                                    class="g-post-preview-link float-end fade show active">
+                                                                                preview
+                                                                            </button>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                            <button data-bs-toggle="tab"
+                                                                                    data-bs-target="#preview-2"
+                                                                                    class="g-post-preview-link float-end fade show">
+                                                                                preview
+                                                                            </button>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                                <!-- End Post Items-->
+
+                                                                <!-- Comments Items-->
+                                                                <div class="g-social-comment-list-area">
+
+                                                                    <div class="g-social-common-header">
+                                                                        <h5>Post Preview</h5>
+                                                                        <span></span>
+                                                                    </div>
+                                                                    <hr/>
+                                                                    <!-- Search Form-->
+                                                                    <div class="g-search-form-area">
+                                                                        <form action="" class="visually-hidden">
+                                                                            <div class="form-group">
+                                                                                <label for="g-comment-search"
+                                                                                       class="w-100">
+                                                                                    <input class="form-control"
+                                                                                           type="search" name=""
+                                                                                           id="g-comment-search">
+                                                                                    <i class="bi bi-search g-search-icon"></i>
+                                                                                </label>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                    <!-- End Search Form-->
+
+                                                                    <div
+                                                                        class="g-social-comment-list flex-shrink-0 tab-content">
+
+                                                                        <div
+                                                                            class="g-post-preview tab-pane fade show active"
+                                                                            id="preview-1"
+                                                                            role="tabpanel">
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur
+                                                                                adipisicing elit. Ab maiores minima
+                                                                                minus quam tempora temporibus!</p>
+                                                                            <img class="img-fluid"
+                                                                                 src="https://picsum.photos/500/300"
+                                                                                 alt="">
+                                                                        </div>
+
+                                                                        <div class="g-post-review tab-pane fade show"
+                                                                             id="preview-2"
+                                                                             role="tabpanel">
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur
+                                                                                adipisicing elit.</p>
+                                                                            <img class="img-fluid"
+                                                                                 src="https://picsum.photos/550/300"
+                                                                                 alt="">
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                                <!-- End Comments Items-->
+
+                                                                <!--Comments Reply-->
+                                                                <div class="g-social-comment-reply-area">
+                                                                    <div class="g-social-common-header">
+                                                                        <div class="g-social-registered-brand">
+                                                                            <img src="https://picsum.photos/55/55"
+                                                                                 alt="">
+                                                                            <h5>
+                                                                                Genuity
+                                                                                Systems
+                                                                                Limited</h5>
+                                                                        </div>
+
+                                                                        <div>
+                                                                            Comments
+                                                                            <sup
+                                                                                class="badge badge-success rounded-pill bg-danger">5</sup>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr/>
+
+                                                                    <div class="g-social-comment-reply-main">
+
+                                                                        <div class="g-social-messages">
+
+                                                                            <div class="g-social-msg-self">
+                                                                                <div class="g-social-msg-self-image">
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div class="g-social-msg-self-text">
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                    Consectetur consequuntur eaque
+                                                                                    explicabo harum iusto non nulla
+                                                                                    numquam, obcaecati odio voluptas!
+
+                                                                                    <div
+                                                                                        class="d-flex justify-content-between align-items-baseline w-100">
+
+                                                                                        <div class="g-message-datetime">
+                                                                                            <small>12-20-23 <span>10:20 am</span></small>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="g-social-msg-self-meta">
+
+                                                                                        <span
+                                                                                            class="badge bg-warning cursor-pointer"> hide</span>
+                                                                                            <span
+                                                                                                class="badge bg-danger cursor-pointer"> delete</span>
+                                                                                            <span
+                                                                                                class="badge bg-primary cursor-pointer">reply</span>
+                                                                                            <span
+                                                                                                class="badge bg-success cursor-pointer"> private reply</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="g-social-msg-self">
+                                                                                <div class="g-social-msg-self-image">
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div class="g-social-msg-self-text">
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                    Consectetur consequuntur eaque
+                                                                                    explicabo harum iusto non nulla
+                                                                                    numquam, obcaecati odio voluptas!
+
+                                                                                    <div
+                                                                                        class="d-flex justify-content-between align-items-baseline w-100">
+
+                                                                                        <div class="g-message-datetime">
+                                                                                            <small>12-20-23 <span>10:20 am</span></small>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="g-social-msg-self-meta">
+
+                                                                                        <span
+                                                                                            class="badge bg-warning cursor-pointer"> hide</span>
+                                                                                            <span
+                                                                                                class="badge bg-danger cursor-pointer"> delete</span>
+                                                                                            <span
+                                                                                                class="badge bg-primary cursor-pointer">reply</span>
+                                                                                            <span
+                                                                                                class="badge bg-success cursor-pointer"> private reply</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="g-social-msg-self">
+                                                                                <div class="g-social-msg-self-image">
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div class="g-social-msg-self-text">
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                    Consectetur consequuntur eaque
+                                                                                    explicabo harum iusto non nulla
+                                                                                    numquam, obcaecati odio voluptas!
+
+                                                                                    <div
+                                                                                        class="d-flex justify-content-between align-items-baseline w-100">
+
+                                                                                        <div class="g-message-datetime">
+                                                                                            <small>12-20-23 <span>10:20 am</span></small>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="g-social-msg-self-meta">
+
+                                                                                        <span
+                                                                                            class="badge bg-warning cursor-pointer"> hide</span>
+                                                                                            <span
+                                                                                                class="badge bg-danger cursor-pointer"> delete</span>
+                                                                                            <span
+                                                                                                class="badge bg-primary cursor-pointer">reply</span>
+                                                                                            <span
+                                                                                                class="badge bg-success cursor-pointer"> private reply</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="g-social-msg-other">
+                                                                        <span class="g-social-msg-other-image">
+                                                                            <img src="https://picsum.photos/60/60"
+                                                                                 alt="">
+                                                                        </span>
+                                                                                <span class="g-social-msg-other-text">
+                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur eaque explicabo harum iusto non nulla numquam, obcaecati odio voluptas!
+                                                                </span>
+                                                                            </div>
+
+                                                                            <div class="g-social-msg-other">
+                                                                        <span class="g-social-msg-other-image">
+                                                                            <img src="https://picsum.photos/60/60"
+                                                                                 alt="">
+                                                                        </span>
+                                                                                <span class="g-social-msg-other-text">
+                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur eaque explicabo harum iusto non nulla numquam, obcaecati odio voluptas!
+                                                                </span>
+                                                                            </div>
+                                                                            <div class="g-social-msg-other">
+                                                                        <span class="g-social-msg-other-image">
+                                                                            <img src="https://picsum.photos/60/60"
+                                                                                 alt="">
+                                                                        </span>
+                                                                                <span class="g-social-msg-other-text">
+                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur eaque explicabo harum iusto non nulla numquam, obcaecati odio voluptas!
+                                                                </span>
+                                                                            </div>
+                                                                            <div class="g-social-msg-other">
+                                                                        <span class="g-social-msg-other-image">
+                                                                            <img src="https://picsum.photos/60/60"
+                                                                                 alt="">
+                                                                        </span>
+                                                                                <span class="g-social-msg-other-text">
+                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur eaque explicabo harum iusto non nulla numquam, obcaecati odio voluptas!
+                                                                </span>
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                        <div class="g-social-messages-footer">
+                                                                            <div class="g-disposition-select mb-2 w-25">
+                                                                                <select class="form-select"
+                                                                                        aria-label="Default select example">
+                                                                                    <option selected>Select
+                                                                                        Disposition
+                                                                                    </option>
+                                                                                    <option value="1">One</option>
+                                                                                    <option value="2">Two</option>
+                                                                                    <option value="3">Three</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <textarea class="form-control" name=""
+                                                                                      cols="30"
+                                                                                      rows="3"
+                                                                                      placeholder="Write here..."></textarea>
+                                                                            <button
+                                                                                class="btn btn-primary text-white w-100 mt-2">
+                                                                                Reply
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <!--End Comments Reply-->
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="tab-pane fade show" role="tabpanel"
+                                                             id="message">
+
+                                                            <div class="g-social-chat-area">
+
+                                                                <!-- Post Items-->
+                                                                <div class="g-social-post-item-area">
+
+                                                                    <div class="g-social-common-header">
+                                                                        <div class="g-social-registered-brand">
+                                                                            <img src="https://picsum.photos/55/55"
+                                                                                 alt="">
+                                                                        </div>
+
+                                                                        <div>
+                                                                            <button
+                                                                                class="btn btn-outline-primary btn-sm"
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#social-create-post">
+                                                                                create post test
+                                                                            </button>
+                                                                        </div>
+
+                                                                    </div>
+
+
+                                                                    <!-- Search Form-->
+                                                                    <div class="g-search-form-area">
+                                                                        <form action="">
+                                                                            <div class="form-group">
+                                                                                <label for="g-post-search"
+                                                                                       class="w-100">
+                                                                                    <input class="form-control"
+                                                                                           type="search" name=""
+                                                                                    >
+                                                                                    <i class="bi bi-search g-search-icon"></i>
+                                                                                </label>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                    <!-- End Search Form-->
+
+                                                                    <div class="g-social-post-list">
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                                <!-- End Post Items-->
+
+                                                                <!--Comments Reply-->
+                                                                <div class="g-social-chatapp-area g-flex-grow">
+                                                                    <div class="g-social-common-header">
+                                                                        <div class="g-social-registered-brand">
+                                                                            <img src="https://picsum.photos/55/55"
+                                                                                 alt="">
+                                                                            <h5>Genuity Systems Limited</h5>
+                                                                        </div>
+
+                                                                        <div>
+                                                                            Details Profile
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr/>
+
+                                                                    <div class="g-social-chatapp-main">
+
+                                                                        <div class="g-chatapp-messages">
+                                                                            <div class="g-chatapp-msg-self">
+                                                                                <div class="g-chatapp-msg-self-image">
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div class="g-chatapp-msg-self-text">
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                    Consectetur consequuntur eaque
+                                                                                    explicabo harum iusto non nulla
+                                                                                    numquam, obcaecati odio voluptas!
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    <div
+                                                                                        class="d-flex justify-content-between align-items-baseline w-100">
+
+                                                                                        <div class="g-message-datetime">
+                                                                                            <small>12-20-23 <span>10:20 am</span></small>
+                                                                                        </div>
+
+                                                                                        <div
+                                                                                            class="g-chatapp-msg-self-meta">
+
+                                                                                        <span
+                                                                                            class="badge bg-warning cursor-pointer"> hide</span>
+                                                                                            <span
+                                                                                                class="badge bg-danger cursor-pointer"> delete</span>
+                                                                                            <span
+                                                                                                class="badge bg-primary cursor-pointer">reply</span>
+                                                                                            <span
+                                                                                                class="badge bg-success cursor-pointer"> private reply</span>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <div class="g-chatapp-msg-self">
+                                                                                <div class="g-chatapp-msg-self-image">
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div class="g-chatapp-msg-self-text">
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                    Consectetur consequuntur eaque
+                                                                                    explicabo harum iusto non nulla
+                                                                                    numquam, obcaecati odio voluptas!
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    <div
+                                                                                        class="d-flex justify-content-between align-items-baseline w-100">
+
+                                                                                        <div class="g-message-datetime">
+                                                                                            <small>12-20-23 <span>10:20 am</span></small>
+                                                                                        </div>
+
+                                                                                        <div
+                                                                                            class="g-chatapp-msg-self-meta">
+
+                                                                                        <span
+                                                                                            class="badge bg-warning cursor-pointer"> hide</span>
+                                                                                            <span
+                                                                                                class="badge bg-danger cursor-pointer"> delete</span>
+                                                                                            <span
+                                                                                                class="badge bg-primary cursor-pointer">reply</span>
+                                                                                            <span
+                                                                                                class="badge bg-success cursor-pointer"> private reply</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <div class="g-chatapp-msg-self">
+                                                                                <div class="g-chatapp-msg-self-image">
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div class="g-chatapp-msg-self-text">
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                    Consectetur consequuntur eaque
+                                                                                    explicabo harum iusto non nulla
+                                                                                    numquam, obcaecati odio voluptas!
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    <div
+                                                                                        class="d-flex justify-content-between align-items-baseline w-100">
+
+                                                                                        <div class="g-message-datetime">
+                                                                                            <small>12-20-23 <span>10:20 am</span></small>
+                                                                                        </div>
+
+                                                                                        <div
+                                                                                            class="g-chatapp-msg-self-meta">
+
+                                                                                        <span
+                                                                                            class="badge bg-warning cursor-pointer"> hide</span>
+                                                                                            <span
+                                                                                                class="badge bg-danger cursor-pointer"> delete</span>
+                                                                                            <span
+                                                                                                class="badge bg-primary cursor-pointer">reply</span>
+                                                                                            <span
+                                                                                                class="badge bg-success cursor-pointer"> private reply</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+
+                                                                            <div class="g-chatapp-msg-other">
+                                                                        <span class="g-chatapp-msg-other-image">
+                                                                            <img src="https://picsum.photos/60/60"
+                                                                                 alt="">
+                                                                        </span>
+                                                                                <span class="g-chatapp-msg-other-text">
+                                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque est excepturi iste molestias natus officiis perferendis tempore voluptates. Accusantium delectus deleniti dignissimos distinctio dolor explicabo facilis laudantium molestiae necessitatibus, nesciunt non quod saepe tempore totam vel voluptas, voluptates. Aliquam consequuntur doloribus est illum magnam non perspiciatis quia? Laboriosam, nulla.
+
+                                                                                     <small>17/05/2023</small>
+                                                                </span>
+                                                                            </div>
+
+                                                                            <div class="g-chatapp-msg-other">
+                                                                        <span class="g-chatapp-msg-other-image">
+                                                                            <img src="https://picsum.photos/60/60"
+                                                                                 alt="">
+                                                                        </span>
+                                                                                <span class="g-chatapp-msg-other-text">
+                                                                    .
+                                                                </span>
+                                                                            </div>
+
+                                                                            <div class="g-chatapp-msg-other">
+                                                                        <span class="g-chatapp-msg-other-image">
+                                                                            <img src="https://picsum.photos/60/60"
+                                                                                 alt="">
+                                                                        </span>
+                                                                                <span class="g-chatapp-msg-other-text">
+                                                                    .
+                                                                </span>
+                                                                            </div>
+                                                                            <div class="g-chatapp-msg-other">
+                                                                        <span class="g-chatapp-msg-other-image">
+                                                                            <img src="https://picsum.photos/60/60"
+                                                                                 alt="">
+                                                                        </span>
+                                                                                <span class="g-chatapp-msg-other-text">
+                                                                    .
+                                                                </span>
+                                                                            </div>
+
+
+                                                                        </div>
+
+
+                                                                        <div class="g-chatapp-messages-footer">
+
+
+                                                                            <form action="" class="w-100">
+                                                                                <div
+                                                                                    class="g-disposition-select w-25 mb-2">
+                                                                                    <select class="form-select"
+                                                                                            aria-label="Default select example"
+                                                                                            id="">
+                                                                                        <option selected>Select
+                                                                                            Disposition
+                                                                                        </option>
+                                                                                        <option value="1">One</option>
+                                                                                        <option value="2">Two</option>
+                                                                                        <option value="3">Three</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="g-chat-bottom-write">
+                                                                                    <div class="g-chat-bottom-textarea">
+                                                                                    <textarea class="form-control"
+                                                                                              name=""
+                                                                                              id="g-disposition-textarea"
+                                                                                              placeholder="Write here..."
+                                                                                              required></textarea>
+                                                                                    </div>
+                                                                                    <div class="g-chat-submit-btn">
+                                                                                        <button type="submit">
+                                                                                            <i class="ph-fill ph-paper-plane"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </form>
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <!--End Comments Reply-->
+
+                                                            </div>
+                                                        </div>
+                                                        <!--End Each Profile Chat Items Area-->
+                                                    </div>
+
+                                                    <!--End Third and Inner Second Label
+                                                    Tabs Here-->
+
+                                                </div>
+
+
+                                                <div class="g-social-profile-single-details tab-pane" id="gplex"
+                                                     role="tabpanel">
+
+
+                                                    <!-- All social meta for each social profile-->
+                                                    <div class="g-social-meta-area" role="tablist">
+                                                        <div class="g-meta-single active" data-bs-toggle="tab"
+                                                             data-bs-target="#gplex-post">
+                                                            <i class="bi bi-send-fill"></i> Post
+                                                            <sup
+                                                                class="badge badge-success rounded-pill bg-danger">50</sup>
+                                                        </div>
+
+                                                        <div class="g-meta-single" data-bs-toggle="tab"
+                                                             data-bs-target="#gplex-message">
+                                                            <i class="bi bi-chat-left-fill"></i> Message
+                                                            <sup
+                                                                class="badge badge-success rounded-pill bg-danger">5</sup>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="tab-content">
+                                                        <!-- Each Profile Chat Items Area-->
+                                                        <div class="tab-pane fade show active" role="tabpanel"
+                                                             id="gplex-post">
+                                                            <div class="g-social-chat-area">
+
+                                                                <!-- Post Items-->
+                                                                <div class="g-social-post-item-area">
+
+                                                                    <div class="g-social-common-header">
+                                                                        <div class="g-social-registered-brand">
+                                                                            <img src="https://picsum.photos/55/55"
+                                                                                 alt="">
+                                                                        </div>
+
+                                                                        <div>
+                                                                            <button
+                                                                                class="btn btn-outline-primary btn-sm"
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#social-create-post">
+                                                                                create post
+                                                                            </button>
+                                                                        </div>
+
+                                                                    </div>
+
+
+                                                                    <!-- Search Form-->
+                                                                    <div class="g-search-form-area">
+                                                                        <form action="">
+                                                                            <div class="form-group">
+                                                                                <label for="g-post-searching"
+                                                                                       class="w-100">
+                                                                                    <input class="form-control"
+                                                                                           type="search" name=""
+                                                                                           id="g-post-searching">
+                                                                                    <i class="bi bi-search g-search-icon"></i>
+                                                                                </label>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                    <!-- End Search Form-->
+
+                                                                    <div class="g-social-post-list" role="tablist">
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                            <button data-bs-toggle="tab"
+                                                                                    data-bs-target="#preview-11"
+                                                                                    class="g-post-preview-link float-end fade show active">
+                                                                                preview
+                                                                            </button>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                            <button data-bs-toggle="tab"
+                                                                                    data-bs-target="#preview-22"
+                                                                                    class="g-post-preview-link float-end fade show">
+                                                                                preview
+                                                                            </button>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                                <!-- End Post Items-->
+
+                                                                <!-- Comments Items-->
+                                                                <div class="g-social-comment-list-area">
+
+                                                                    <div class="g-social-common-header">
+                                                                        <h5>Post Preview</h5>
+                                                                        <span></span>
+                                                                    </div>
+                                                                    <hr/>
+                                                                    <!-- Search Form-->
+                                                                    <div class="g-search-form-area">
+                                                                        <form action="" class="visually-hidden">
+                                                                            <div class="form-group">
+                                                                                <label for="g-comment-searching"
+                                                                                       class="w-100">
+                                                                                    <input class="form-control"
+                                                                                           type="search" name=""
+                                                                                           id="g-comment-searching">
+                                                                                    <i class="bi bi-search g-search-icon"></i>
+                                                                                </label>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                    <!-- End Search Form-->
+
+                                                                    <div
+                                                                        class="g-social-comment-list flex-shrink-0 tab-content">
+
+                                                                        <div
+                                                                            class="g-post-preview tab-pane fade show active"
+                                                                            id="preview-11"
+                                                                            role="tabpanel">
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur
+                                                                                adipisicing elit. Ab maiores minima
+                                                                                minus quam tempora temporibus!</p>
+                                                                            <img class="img-fluid"
+                                                                                 src="https://picsum.photos/500/300"
+                                                                                 alt="">
+                                                                        </div>
+
+                                                                        <div class="g-post-review tab-pane fade show"
+                                                                             id="preview-22"
+                                                                             role="tabpanel">
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur
+                                                                                adipisicing elit.</p>
+                                                                            <img class="img-fluid"
+                                                                                 src="https://picsum.photos/550/300"
+                                                                                 alt="">
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                                <!-- End Comments Items-->
+
+                                                                <!--Comments Reply-->
+                                                                <div class="g-social-comment-reply-area">
+                                                                    <div class="g-social-common-header">
+                                                                        <div class="g-social-registered-brand">
+                                                                            <img src="https://picsum.photos/55/55"
+                                                                                 alt="">
+                                                                            <h5>
+                                                                                Genuity
+                                                                                Systems
+                                                                                Limited</h5>
+                                                                        </div>
+
+                                                                        <div>
+                                                                            Comments
+                                                                            <sup
+                                                                                class="badge badge-success rounded-pill bg-danger">5</sup>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr/>
+
+                                                                    <div class="g-social-comment-reply-main">
+
+                                                                        <div class="g-social-messages">
+
+                                                                            <div class="g-social-msg-self">
+                                                                                <div class="g-social-msg-self-image">
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div class="g-social-msg-self-text">
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                    Consectetur consequuntur eaque
+                                                                                    explicabo harum iusto non nulla
+                                                                                    numquam, obcaecati odio voluptas!
+
+                                                                                    <div
+                                                                                        class="d-flex justify-content-between align-items-baseline w-100">
+
+                                                                                        <div class="g-message-datetime">
+                                                                                            <small>12-20-23 <span>10:20 am</span></small>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="g-social-msg-self-meta">
+
+                                                                                        <span
+                                                                                            class="badge bg-warning cursor-pointer"> hide</span>
+                                                                                            <span
+                                                                                                class="badge bg-danger cursor-pointer"> delete</span>
+                                                                                            <span
+                                                                                                class="badge bg-primary cursor-pointer">reply</span>
+                                                                                            <span
+                                                                                                class="badge bg-success cursor-pointer"> private reply</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="g-social-msg-self">
+                                                                                <div class="g-social-msg-self-image">
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div class="g-social-msg-self-text">
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                    Consectetur consequuntur eaque
+                                                                                    explicabo harum iusto non nulla
+                                                                                    numquam, obcaecati odio voluptas!
+
+                                                                                    <div
+                                                                                        class="d-flex justify-content-between align-items-baseline w-100">
+
+                                                                                        <div class="g-message-datetime">
+                                                                                            <small>12-20-23 <span>10:20 am</span></small>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="g-social-msg-self-meta">
+
+                                                                                        <span
+                                                                                            class="badge bg-warning cursor-pointer"> hide</span>
+                                                                                            <span
+                                                                                                class="badge bg-danger cursor-pointer"> delete</span>
+                                                                                            <span
+                                                                                                class="badge bg-primary cursor-pointer">reply</span>
+                                                                                            <span
+                                                                                                class="badge bg-success cursor-pointer"> private reply</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="g-social-msg-self">
+                                                                                <div class="g-social-msg-self-image">
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div class="g-social-msg-self-text">
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                    Consectetur consequuntur eaque
+                                                                                    explicabo harum iusto non nulla
+                                                                                    numquam, obcaecati odio voluptas!
+
+                                                                                    <div
+                                                                                        class="d-flex justify-content-between align-items-baseline w-100">
+
+                                                                                        <div class="g-message-datetime">
+                                                                                            <small>12-20-23 <span>10:20 am</span></small>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="g-social-msg-self-meta">
+
+                                                                                        <span
+                                                                                            class="badge bg-warning cursor-pointer"> hide</span>
+                                                                                            <span
+                                                                                                class="badge bg-danger cursor-pointer"> delete</span>
+                                                                                            <span
+                                                                                                class="badge bg-primary cursor-pointer">reply</span>
+                                                                                            <span
+                                                                                                class="badge bg-success cursor-pointer"> private reply</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="g-social-msg-other">
+                                                                        <span class="g-social-msg-other-image">
+                                                                            <img src="https://picsum.photos/60/60"
+                                                                                 alt="">
+                                                                        </span>
+                                                                                <span class="g-social-msg-other-text">
+                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur eaque explicabo harum iusto non nulla numquam, obcaecati odio voluptas!
+                                                                </span>
+                                                                            </div>
+
+                                                                            <div class="g-social-msg-other">
+                                                                        <span class="g-social-msg-other-image">
+                                                                            <img src="https://picsum.photos/60/60"
+                                                                                 alt="">
+                                                                        </span>
+                                                                                <span class="g-social-msg-other-text">
+                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur eaque explicabo harum iusto non nulla numquam, obcaecati odio voluptas!
+                                                                </span>
+                                                                            </div>
+                                                                            <div class="g-social-msg-other">
+                                                                        <span class="g-social-msg-other-image">
+                                                                            <img src="https://picsum.photos/60/60"
+                                                                                 alt="">
+                                                                        </span>
+                                                                                <span class="g-social-msg-other-text">
+                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur eaque explicabo harum iusto non nulla numquam, obcaecati odio voluptas!
+                                                                </span>
+                                                                            </div>
+                                                                            <div class="g-social-msg-other">
+                                                                        <span class="g-social-msg-other-image">
+                                                                            <img src="https://picsum.photos/60/60"
+                                                                                 alt="">
+                                                                        </span>
+                                                                                <span class="g-social-msg-other-text">
+                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur eaque explicabo harum iusto non nulla numquam, obcaecati odio voluptas!
+                                                                </span>
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                        <div class="g-social-messages-footer">
+                                                                            <div class="g-disposition-select mb-2 w-25">
+                                                                                <select class="form-select"
+                                                                                        aria-label="Default select example">
+                                                                                    <option selected>Select
+                                                                                        Disposition
+                                                                                    </option>
+                                                                                    <option value="1">One</option>
+                                                                                    <option value="2">Two</option>
+                                                                                    <option value="3">Three</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <textarea class="form-control" name=""
+                                                                                      cols="30"
+                                                                                      rows="3"
+                                                                                      placeholder="Write here..."></textarea>
+                                                                            <button
+                                                                                class="btn btn-primary text-white w-100 mt-2">
+                                                                                Reply
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <!--End Comments Reply-->
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="tab-pane fade show" role="tabpanel"
+                                                             id="gplex-message">
+
+                                                            <div class="g-social-chat-area">
+
+                                                                <!-- Post Items-->
+                                                                <div class="g-social-post-item-area">
+
+                                                                    <div class="g-social-common-header">
+                                                                        <div class="g-social-registered-brand">
+                                                                            <img src="https://picsum.photos/55/55"
+                                                                                 alt="">
+                                                                        </div>
+
+                                                                        <div>
+                                                                            <button
+                                                                                class="btn btn-outline-primary btn-sm"
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#social-create-post">
+                                                                                create post test
+                                                                            </button>
+                                                                        </div>
+
+                                                                    </div>
+
+
+                                                                    <!-- Search Form-->
+                                                                    <div class="g-search-form-area">
+                                                                        <form action="">
+                                                                            <div class="form-group">
+                                                                                <label for="g-post-search"
+                                                                                       class="w-100">
+                                                                                    <input class="form-control"
+                                                                                           type="search" name=""
+                                                                                    >
+                                                                                    <i class="bi bi-search g-search-icon"></i>
+                                                                                </label>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                    <!-- End Search Form-->
+
+                                                                    <div class="g-social-post-list">
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="g-social-post-single position-relative clearfix">
+                                                                            <div class="g-social-post-single-content">
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                                <!-- End Post Items-->
+
+                                                                <!--Comments Reply-->
+                                                                <div class="g-social-chatapp-area g-flex-grow">
+                                                                    <div class="g-social-common-header">
+                                                                        <div class="g-social-registered-brand">
+                                                                            <img src="https://picsum.photos/55/55"
+                                                                                 alt="">
+                                                                            <h5>Genuity Systems Limited</h5>
+                                                                        </div>
+
+                                                                        <div>
+                                                                            Details Profile
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr/>
+
+                                                                    <div class="g-social-chatapp-main">
+
+                                                                        <div class="g-chatapp-messages">
+                                                                            <div class="g-chatapp-msg-self">
+                                                                                <div class="g-chatapp-msg-self-image">
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div class="g-chatapp-msg-self-text">
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                    Consectetur consequuntur eaque
+                                                                                    explicabo harum iusto non nulla
+                                                                                    numquam, obcaecati odio voluptas!
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    <div
+                                                                                        class="d-flex justify-content-between align-items-baseline w-100">
+
+                                                                                        <div class="g-message-datetime">
+                                                                                            <small>12-20-23 <span>10:20 am</span></small>
+                                                                                        </div>
+
+                                                                                        <div
+                                                                                            class="g-chatapp-msg-self-meta">
+
+                                                                                        <span
+                                                                                            class="badge bg-warning cursor-pointer"> hide</span>
+                                                                                            <span
+                                                                                                class="badge bg-danger cursor-pointer"> delete</span>
+                                                                                            <span
+                                                                                                class="badge bg-primary cursor-pointer">reply</span>
+                                                                                            <span
+                                                                                                class="badge bg-success cursor-pointer"> private reply</span>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <div class="g-chatapp-msg-self">
+                                                                                <div class="g-chatapp-msg-self-image">
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div class="g-chatapp-msg-self-text">
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                    Consectetur consequuntur eaque
+                                                                                    explicabo harum iusto non nulla
+                                                                                    numquam, obcaecati odio voluptas!
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    <div
+                                                                                        class="d-flex justify-content-between align-items-baseline w-100">
+
+                                                                                        <div class="g-message-datetime">
+                                                                                            <small>12-20-23 <span>10:20 am</span></small>
+                                                                                        </div>
+
+                                                                                        <div
+                                                                                            class="g-chatapp-msg-self-meta">
+
+                                                                                        <span
+                                                                                            class="badge bg-warning cursor-pointer"> hide</span>
+                                                                                            <span
+                                                                                                class="badge bg-danger cursor-pointer"> delete</span>
+                                                                                            <span
+                                                                                                class="badge bg-primary cursor-pointer">reply</span>
+                                                                                            <span
+                                                                                                class="badge bg-success cursor-pointer"> private reply</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <div class="g-chatapp-msg-self">
+                                                                                <div class="g-chatapp-msg-self-image">
+                                                                                    <img
+                                                                                        src="https://picsum.photos/60/60"
+                                                                                        alt="">
+                                                                                </div>
+                                                                                <div class="g-chatapp-msg-self-text">
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    consectetur adipisicing elit.
+                                                                                    Consectetur consequuntur eaque
+                                                                                    explicabo harum iusto non nulla
+                                                                                    numquam, obcaecati odio voluptas!
+                                                                                    Lorem ipsum dolor sit amet,
+                                                                                    <div
+                                                                                        class="d-flex justify-content-between align-items-baseline w-100">
+
+                                                                                        <div class="g-message-datetime">
+                                                                                            <small>12-20-23 <span>10:20 am</span></small>
+                                                                                        </div>
+
+                                                                                        <div
+                                                                                            class="g-chatapp-msg-self-meta">
+
+                                                                                        <span
+                                                                                            class="badge bg-warning cursor-pointer"> hide</span>
+                                                                                            <span
+                                                                                                class="badge bg-danger cursor-pointer"> delete</span>
+                                                                                            <span
+                                                                                                class="badge bg-primary cursor-pointer">reply</span>
+                                                                                            <span
+                                                                                                class="badge bg-success cursor-pointer"> private reply</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+
+                                                                            <div class="g-chatapp-msg-other">
+                                                                        <span class="g-chatapp-msg-other-image">
+                                                                            <img src="https://picsum.photos/60/60"
+                                                                                 alt="">
+                                                                        </span>
+                                                                                <span class="g-chatapp-msg-other-text">
+                                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque est excepturi iste molestias natus officiis perferendis tempore voluptates. Accusantium delectus deleniti dignissimos distinctio dolor explicabo facilis laudantium molestiae necessitatibus, nesciunt non quod saepe tempore totam vel voluptas, voluptates. Aliquam consequuntur doloribus est illum magnam non perspiciatis quia? Laboriosam, nulla.
+
+                                                                                     <small>17/05/2023</small>
+                                                                </span>
+                                                                            </div>
+
+                                                                            <div class="g-chatapp-msg-other">
+                                                                        <span class="g-chatapp-msg-other-image">
+                                                                            <img src="https://picsum.photos/60/60"
+                                                                                 alt="">
+                                                                        </span>
+                                                                                <span class="g-chatapp-msg-other-text">
+                                                                    .
+                                                                </span>
+                                                                            </div>
+
+                                                                            <div class="g-chatapp-msg-other">
+                                                                        <span class="g-chatapp-msg-other-image">
+                                                                            <img src="https://picsum.photos/60/60"
+                                                                                 alt="">
+                                                                        </span>
+                                                                                <span class="g-chatapp-msg-other-text">
+                                                                    .
+                                                                </span>
+                                                                            </div>
+                                                                            <div class="g-chatapp-msg-other">
+                                                                        <span class="g-chatapp-msg-other-image">
+                                                                            <img src="https://picsum.photos/60/60"
+                                                                                 alt="">
+                                                                        </span>
+                                                                                <span class="g-chatapp-msg-other-text">
+                                                                    .
+                                                                </span>
+                                                                            </div>
+
+
+                                                                        </div>
+
+
+                                                                        <div class="g-chatapp-messages-footer">
+
+
+                                                                            <form action="" class="w-100">
+                                                                                <div
+                                                                                    class="g-disposition-select w-25 mb-2">
+                                                                                    <select class="form-select"
+                                                                                            aria-label="Default select example">
+                                                                                        <option selected>Select
+                                                                                            Disposition
+                                                                                        </option>
+                                                                                        <option value="1">One</option>
+                                                                                        <option value="2">Two</option>
+                                                                                        <option value="3">Three</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="g-chat-bottom-write">
+                                                                                    <div class="g-chat-bottom-textarea">
+                                                                                    <textarea class="form-control"
+                                                                                              name=""
+                                                                                              id="g-disposition-textareas"
+                                                                                              placeholder="Write here..."
+                                                                                              required></textarea>
+                                                                                    </div>
+                                                                                    <div class="g-chat-submit-btn">
+                                                                                        <button type="submit">
+                                                                                            <i class="ph-fill ph-paper-plane"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </form>
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <!--End Comments Reply-->
+
+                                                            </div>
+                                                        </div>
+                                                        <!--End Each Profile Chat Items Area-->
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <!-- End Second and Inner First Label
+                                             Tabs  Here-->
+                                        </div>
+
+
+                                        <div class="tab-pane fade show" id="twitter" role="tabpanel"
+                                             aria-labelledby="social-twitter-tab">
+                                            <!-- All registered profile against social brands-->
+                                            <div class="g-social-individual-profile">
+                                                <div class="g-social-individual-main">
+                                                    <i class="bi bi-exclude"></i>
+                                                    Genuity Systems Limited
+                                                    <sup class="badge badge-success rounded-pill bg-danger">3</sup>
+                                                </div>
+                                                <div class="g-social-individual-main">
+                                                    <i class="bi bi-exclude"></i>
+                                                    gPlex
+                                                    <sup class="badge badge-success rounded-pill bg-danger">3</sup>
+                                                </div>
+                                                <div class="g-social-individual-main">
+                                                    <i class="bi bi-exclude"></i>
+                                                    gPlex SMS
+                                                    <sup class="badge badge-success rounded-pill bg-danger">3</sup>
+                                                </div>
+                                            </div>
+
+                                            <!-- All social meta for each social profile-->
+                                            <div class="g-social-meta-area">
+                                                <div class="g-meta-single">
+                                                    <i class="bi bi-send-fill"></i> Post
+                                                    <sup class="badge badge-success rounded-pill bg-danger">5</sup>
+                                                </div>
+
+                                                <div class="g-meta-single">
+                                                    <i class="bi bi-chat-left-fill"></i> Message
+                                                    <sup class="badge badge-success rounded-pill bg-danger">5</sup>
+                                                </div>
+                                            </div>
+
+                                            <!-- Each Profile Chat Items Area-->
+                                            <div class="g-social-chat-area">
+
+                                                <!-- Post Items-->
+                                                <div class="g-social-post-item-area">
+
+                                                    <div class="g-social-common-header">
+                                                        <div class="g-social-registered-brand">
+                                                            <img src="https://picsum.photos/55/55" alt=""> <h5>Genuity
+                                                            Systems
+                                                            Limited</h5>
+                                                        </div>
+
+                                                        <div>
+                                                            Post Item
+                                                        </div>
+
+                                                    </div>
+                                                    <hr/>
+                                                    <div class="g-social-post-list">
+                                                        <div
+                                                            class="g-social-post-single position-relative clearfix">
+                                                            <div class="g-social-post-single-content">
+                                                                <div>
+                                                                    <img
+                                                                        src="https://picsum.photos/60/60"
+                                                                        alt="">
+                                                                </div>
+                                                                <div>
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div
+                                                            class="g-social-post-single position-relative clearfix">
+                                                            <div class="g-social-post-single-content">
+                                                                <div>
+                                                                    <img
+                                                                        src="https://picsum.photos/60/60"
+                                                                        alt="">
+                                                                </div>
+                                                                <div>
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div
+                                                            class="g-social-post-single position-relative clearfix">
+                                                            <div class="g-social-post-single-content">
+                                                                <div>
+                                                                    <img
+                                                                        src="https://picsum.photos/60/60"
+                                                                        alt="">
+                                                                </div>
+                                                                <div>
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div
+                                                            class="g-social-post-single position-relative clearfix">
+                                                            <div class="g-social-post-single-content">
+                                                                <div>
+                                                                    <img
+                                                                        src="https://picsum.photos/60/60"
+                                                                        alt="">
+                                                                </div>
+                                                                <div>
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div
+                                                            class="g-social-post-single position-relative clearfix">
+                                                            <div class="g-social-post-single-content">
+                                                                <div>
+                                                                    <img
+                                                                        src="https://picsum.photos/60/60"
+                                                                        alt="">
+                                                                </div>
+                                                                <div>
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div
+                                                            class="g-social-post-single position-relative clearfix">
+                                                            <div class="g-social-post-single-content">
+                                                                <div>
+                                                                    <img
+                                                                        src="https://picsum.photos/60/60"
+                                                                        alt="">
+                                                                </div>
+                                                                <div>
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div
+                                                            class="g-social-post-single position-relative clearfix">
+                                                            <div class="g-social-post-single-content">
+                                                                <div>
+                                                                    <img
+                                                                        src="https://picsum.photos/60/60"
+                                                                        alt="">
+                                                                </div>
+                                                                <div>
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div
+                                                            class="g-social-post-single position-relative clearfix">
+                                                            <div class="g-social-post-single-content">
+                                                                <div>
+                                                                    <img
+                                                                        src="https://picsum.photos/60/60"
+                                                                        alt="">
+                                                                </div>
+                                                                <div>
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!-- End Post Items-->
+
+
+                                                <!-- Comments Items-->
+                                                <div class="g-social-comment-list-area">
+
+                                                    <div class="g-social-common-header">
+                                                        <h5>Comment-list</h5>
+                                                        <span>
+
+                                                        </span>
+                                                    </div>
+
+                                                    <hr/>
+
+                                                    <div class="g-social-comment-list">
+                                                        <div
+                                                            class="g-social-post-single position-relative clearfix">
+                                                            <div class="g-social-post-single-content">
+                                                                <div>
+                                                                    <img
+                                                                        src="https://picsum.photos/60/60"
+                                                                        alt="">
+                                                                </div>
+                                                                <div>
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div
+                                                            class="g-social-post-single position-relative clearfix">
+                                                            <div class="g-social-post-single-content">
+                                                                <div>
+                                                                    <img
+                                                                        src="https://picsum.photos/60/60"
+                                                                        alt="">
+                                                                </div>
+                                                                <div>
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div
+                                                            class="g-social-post-single position-relative clearfix">
+                                                            <div class="g-social-post-single-content">
+                                                                <div>
+                                                                    <img
+                                                                        src="https://picsum.photos/60/60"
+                                                                        alt="">
+                                                                </div>
+                                                                <div>
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div
+                                                            class="g-social-post-single position-relative clearfix">
+                                                            <div class="g-social-post-single-content">
+                                                                <div>
+                                                                    <img
+                                                                        src="https://picsum.photos/60/60"
+                                                                        alt="">
+                                                                </div>
+                                                                <div>
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div
+                                                            class="g-social-post-single position-relative clearfix">
+                                                            <div class="g-social-post-single-content">
+                                                                <div>
+                                                                    <img
+                                                                        src="https://picsum.photos/60/60"
+                                                                        alt="">
+                                                                </div>
+                                                                <div>
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div
+                                                            class="g-social-post-single position-relative clearfix">
+                                                            <div class="g-social-post-single-content">
+                                                                <div>
+                                                                    <img
+                                                                        src="https://picsum.photos/60/60"
+                                                                        alt="">
+                                                                </div>
+                                                                <div>
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div
+                                                            class="g-social-post-single position-relative clearfix">
+                                                            <div class="g-social-post-single-content">
+                                                                <div>
+                                                                    <img
+                                                                        src="https://picsum.photos/60/60"
+                                                                        alt="">
+                                                                </div>
+                                                                <div>
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div
+                                                            class="g-social-post-single position-relative clearfix">
+                                                            <div class="g-social-post-single-content">
+                                                                <div>
+                                                                    <img
+                                                                        src="https://picsum.photos/60/60"
+                                                                        alt="">
+                                                                </div>
+                                                                <div>
+                                                                    Lorem ipsum dolor sit amet,
+                                                                    consectetur adipisicing elit.
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!-- End Comments Items-->
+
+
+                                                <!--Comments Reply-->
+                                                <div class="g-social-comment-reply-area">
+                                                    <div class="g-social-common-header">
+                                                        <div class="g-social-registered-brand">
+                                                            <img src="https://picsum.photos/55/55" alt=""> <h5>Genuity
+                                                            Systems
+                                                            Limited</h5>
+                                                        </div>
+
+                                                        <div>
+                                                            Comments
+                                                            <sup
+                                                                class="badge badge-success rounded-pill bg-danger">5</sup>
+                                                        </div>
+                                                    </div>
+                                                    <hr/>
+
+                                                    <div class="g-social-comment-reply-main">
+
+                                                        <div class="g-social-messages">
+                                                            <div class="g-social-msg-self">
+                                                                <span class="g-social-msg-self-image">
+                                                                    <img src="https://picsum.photos/60/60" alt="">
+                                                                </span>
+                                                                <span class="g-social-msg-self-text">
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur eaque explicabo harum iusto non nulla numquam, obcaecati odio voluptas!
+                                                        </span>
+                                                            </div>
+                                                            <div class="g-social-msg-self">
+                                                                <span class="g-social-msg-self-image">
+                                                                    <img src="https://picsum.photos/60/60" alt="">
+                                                                </span>
+                                                                <span class="g-social-msg-self-text">
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur eaque explicabo harum iusto non nulla numquam, obcaecati odio voluptas!
+                                                        </span>
+                                                            </div>
+                                                            <div class="g-social-msg-self">
+                                                                <span class="g-social-msg-self-image">
+                                                                    <img src="https://picsum.photos/60/60" alt="">
+                                                                </span>
+                                                                <span class="g-social-msg-self-text">
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur eaque explicabo harum iusto non nulla numquam, obcaecati odio voluptas!
+                                                        </span>
+                                                            </div>
+                                                            <div class="g-social-msg-other">
+                                                                <span class="g-social-msg-other-image">
+                                                                    <img src="https://picsum.photos/60/60" alt="">
+                                                                </span>
+                                                                <span class="g-social-msg-other-text">
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur eaque explicabo harum iusto non nulla numquam, obcaecati odio voluptas!
+                                                        </span>
+                                                            </div>
+                                                            <div class="g-social-msg-other">
+                                                                <span class="g-social-msg-other-image">
+                                                                    <img src="https://picsum.photos/60/60" alt="">
+                                                                </span>
+                                                                <span class="g-social-msg-other-text">
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur eaque explicabo harum iusto non nulla numquam, obcaecati odio voluptas!
+                                                        </span>
+                                                            </div>
+                                                            <div class="g-social-msg-other">
+                                                                <span class="g-social-msg-other-image">
+                                                                    <img src="https://picsum.photos/60/60" alt="">
+                                                                </span>
+                                                                <span class="g-social-msg-other-text">
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur eaque explicabo harum iusto non nulla numquam, obcaecati odio voluptas!
+                                                        </span>
+                                                            </div>
+                                                            <div class="g-social-msg-other">
+                                                                <span class="g-social-msg-other-image">
+                                                                    <img src="https://picsum.photos/60/60" alt="">
+                                                                </span>
+                                                                <span class="g-social-msg-other-text">
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequuntur eaque explicabo harum iusto non nulla numquam, obcaecati odio voluptas!
+                                                        </span>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="g-social-messages-footer">
+                                                            <div class="g-disposition-select w-25 mb-2">
+                                                                <select class="form-select"
+                                                                        aria-label="Default select example"
+                                                                        id="g-disposition-type">
+                                                                    <option selected>Select
+                                                                        Disposition
+                                                                    </option>
+                                                                    <option value="1">One</option>
+                                                                    <option value="2">Two</option>
+                                                                    <option value="3">Three</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <textarea class="form-control" name="" cols="30" rows="3"
+                                                                      placeholder="Write here..."></textarea>
+                                                            <button class="btn btn-primary w-100 mt-2">Reply</button>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!--End Comments Reply-->
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade show" id="instagram" role="tabpanel"
+                                             aria-labelledby="social-instagram-tab">
+
+                                            <h1>Instagram</h1>
+
+                                        </div>
+                                        <div class="tab-pane fade show" id="whatsapp" role="tabpanel"
+                                             aria-labelledby="social-whatsapp-tab">
+
+                                            <h1>Whatsapp</h1>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!-- End First Label Tabs-->
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--End Social Connect Area-->
+
+            </div>
+        </div>
+
+    </main>
+
+
+</div>
+
+<!--**********************************
+              Main Footer Sections
+    ***********************************-->
+<footer class="g-main-footer mt-3">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-12 text-center py-2">
+                <small>
+                    Copyright &copy; 2003 -
+                    <script>document.write(new Date().getFullYear())</script>
+                    <strong class="text-danger"> g</strong>Plex All rights reserved
+                </small>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+
+<!--**********************************
+              Filter Form
+ ***********************************-->
+<!--Start FilterForm-->
+<div class="g-filter-form">
+    <div class="container-fluid">
+        <form action="">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="label#1" class="form-label">Email
+                            address</label>
+                        <input type="email" class="form-control" id="label#1"
+                               placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="label#2" class="form-label">Email
+                            address</label>
+                        <input type="email" class="form-control" id="label#2"
+                               placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="label#3" class="form-label">Email
+                            address</label>
+                        <input type="email" class="form-control" id="label#3"
+                               placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="label#4" class="form-label">Email
+                            address</label>
+                        <input type="email" class="form-control" id="label#4"
+                               placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="label#5" class="form-label">Email
+                            address</label>
+                        <input type="email" class="form-control" id="label#5"
+                               placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="g-formdate" class="form-label">Date
+                            From</label>
+                        <input type="date" class="form-control" id="g-formdate"
+                               placeholder="select date">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="g-todate" class="form-label">Date
+                            To</label>
+                        <input type="date" class="form-control" id="g-todate"
+                               placeholder="select-date">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="">
+                        <label for="label#1" class="form-label invisible">.</label>
+                        <div class="g-btn-group">
+                            <button type="submit" class="btn btn-primary text-white">Submit
+                            </button>
+                            <button type="reset" class="btn btn-secondary">Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--End Filter Form-->
+
+
+<!--**********************************
+             Modals / PopUp
+ ***********************************-->
+
+<!--Create Post-->
+<div class="modal modal-lg fade" id="social-create-post" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create New Post</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <textarea class="form-control mb-3" name="" cols="30" rows="8"></textarea>
+                    <input class="form-control" type="file" name="" placeholder="attachment">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Create Post</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Modals PopUp-->
+
+<!-- Scripts -->
+<script defer src="/assets/js/vendors.min.js"></script>
+<script defer src="/assets/js/app.min.js"></script>
+
+<script>
+    /**
+     * @script  For Social App Loading Animations
+     */
+    window.addEventListener("load", function () {
+
+        setTimeout(function () {
+            let gLoading = document.getElementById("loading");
+            if (gLoading) {
+                gLoading.style.opacity = '0';
+                gLoading.addEventListener("transitionend", function () {
+                    gLoading.style.display = "none";
+                }, {once: true});
+            }
+
+        }, 3000);
+    });
+</script>
+</body>
+
+</html>

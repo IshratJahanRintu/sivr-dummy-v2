@@ -1,0 +1,177 @@
+$color-grey: #354f6f;
+$color-grey-medium: #fbfbfb;
+$color-grey-dark: #364962;
+$color-orange: #fd6722;
+$color-white: #373737;
+$color-white-dark: #373737;
+
+
+.g-tree-view-area {
+    font-size: 1rem;
+}
+
+.heading {
+    font-weight: 400;
+    text-align: center;
+    background: $color-grey-dark;
+    margin: 0;
+    color: white;
+    padding: 10px 0;
+}
+
+.g-tree-view-area {
+    margin: -15px;
+    min-width: 300px;
+    border-radius: 10px;
+}
+
+.file-browser {
+    background: $color-grey-medium;
+    color: $color-white-dark;
+    padding: 20px 10px;
+    width: auto;
+    min-height: 85vh;
+
+    ul {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+
+}
+
+.file {
+    color: $color-white-dark;
+    display: block;
+    list-style: none;
+}
+
+.folder {
+    list-style: none;
+    cursor: pointer;
+    margin: 4px 0;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+
+    > ul {
+        display: none;
+    }
+
+    &:before {
+        padding: 5px;
+        height: 20px;
+        width: 20px;
+        text-align: center;
+        line-height: 10px;
+        background: $color-grey;
+        border-radius: 1px;
+        display: inline-block;
+        content: '+';
+        color: $color-grey-medium;
+    }
+
+    &.folder-open {
+        transition-property: all;
+        transition-duration: 0.3s;
+        transition-timing-function: ease;
+
+        > ul {
+            display: block;
+            padding-left: 15px;
+            margin-left: 9px;
+            border-left: 1px dashed $color-grey;
+        }
+
+        &::before {
+            content: '-';
+        }
+
+    }
+}
+
+.context-menu {
+    position: absolute;
+    display: none;
+    min-width: 140px;
+    z-index: 1000;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+
+    ul {
+
+        li {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            list-style: none;
+            cursor: pointer;
+            transition: all 0.4s ease-in-out;
+            padding: 0.5rem 1rem;
+
+            &:hover {
+                background-color: $color-grey;
+                color: #ffffff;
+
+                > i {
+                    color: #fff;
+                }
+            }
+
+            i {
+                color: #c60c30;
+            }
+        }
+
+        li:not(:last-child) {
+            border-bottom: 1px solid #dddddd;
+        }
+    }
+}
+
+.highlight {
+    background-color: #eff1f2;
+    border-radius: 4px;
+}
+
+#audioList {
+    li {
+        list-style-type: none;
+        cursor: pointer;
+        position: relative;
+        padding: 0.1rem 0.3rem;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -20px;
+            transform: translateY(-50%);
+            background-image: url('../images/file-audio-fill.svg');
+            width: 16px;
+            height: 16px;
+        }
+
+    }
+}
+
+.g-player {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.g-player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    button{
+        display:grid;
+        place-items: center;
+    }
+}

@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="ccpro | integrated software application for network solutions"/>
+    <meta name="keywords" content="mominriyadh, gulp, boilerplate, gulp boilerplate, live reload">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/images/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <title>SIVR | V-2</title>
+    <link rel="stylesheet" href="assets/css/vendors.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<body class="vertical-collpsed">
+
+<!--**********************************
+             Start Main Header
+  ***********************************-->
+<div class="g-top-bar fixed-top">
+    <!--Main Logo-->
+    <div class="g-logo">
+        <a href="">
+            <img class="img-fluid" src="assets/images/logo.svg" alt="">
+        </a>
+    </div>
+
+    <div class="g-sidebar-toggle">
+        <span class="border-1 p-1 mb-0 vertical-menu-btn h5 d-flex align-items-center">
+          <i class="bi bi-layout-text-sidebar-reverse"></i>
+        </span>
+    </div>
+
+    <div class="g-breadcrumb-area">
+        <h5 class="mb-0 fw-bold">Agent List</h5>
+    </div>
+
+    <div class="g-add-new">
+        <a href="login.html" class="btn btn-primary btn-sm text-white"><i class="bi bi-plus-lg"></i> Add New</a>
+    </div>
+
+
+    <!--        User Profile-->
+    <div class="g-topbar-user-profile">
+
+        <div aria-labelledby="icon" class="g-grid-icon">
+            <small>Filter Search</small>
+            <i class="bi bi-search"></i>
+        </div>
+
+        <div class="g-user-image dropdown">
+                <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+
+                <img class="img-fluid" src="assets/images/user.jpg" alt="">
+                </span>
+            <ul class="dropdown-menu g-dropdown-profile mt-4">
+                <li><a class="dropdown-item" href="#"><i class="bi bi-card-heading"></i> Profile</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-gear-fill"></i> Settings</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-toggles"></i> Status</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--        End User Profile-->
+
+    <!--Mobile Menu-->
+    <button class="g-mobile-trigger vertical-menu-btn">
+        <i class="bi bi-justify-right"></i>
+    </button>
+</div>
+
+
+<!--**********************************
+                Start Sidebar
+   ***********************************-->
+<aside class="">
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="vertical-menu mm-active">
+        <div data-simplebar class="sidebar-menu-scroll mm-show">
+
+            <!--- Sidemenu -->
+            <div id="sidebar-menu">
+                <!-- Left Menu Start -->
+                <ul class="metismenu list-unstyled" id="side-menu">
+                    <li>
+                        <a href="/">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="social-connect.html">
+                            <i class="ph-fill ph-planet"></i>
+                            <span>Social Connect</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="sivr-tree.html">
+                            <i class="bi bi-menu-button-wide"></i>
+                            <span>SIVR Tree</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Invoices</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="invoices-list">Invoice List</a></li>
+                            <li><a href="invoices-detail">Invoice Detail</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Contacts</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="contacts-grid">User Grid</a></li>
+                            <li><a href="contacts-list">User List</a></li>
+                            <li><a href="contacts-profile">Profile</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Charts</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="charts-apex">Apex</a></li>
+                            <li><a href="charts-chartjs">Chartjs</a></li>
+                            <li><a href="charts-flot">Flot</a></li>
+                            <li><a href="charts-knob">Jquery Knob</a></li>
+                            <li><a href="charts-sparkline">Sparkline</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Icons</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="icons-unicons">Unicons</a></li>
+                            <li><a href="icons-boxicons">Boxicons</a></li>
+                            <li><a href="icons-materialdesign">Material Design</a></li>
+                            <li><a href="icons-dripicons">Dripicons</a></li>
+                            <li><a href="icons-fontawesome">Font Awesome</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Maps</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="maps-google">Google</a></li>
+                            <li><a href="maps-vector">Vector</a></li>
+                            <li><a href="maps-leaflet">Leaflet</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Multi Level</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="true">
+                            <li><a href="javascript: void(0);">Level 1.1</a></li>
+                            <li><a href="javascript: void(0);" class="has-arrow">Level 1.2</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a href="javascript: void(0);">Level 2.1</a></li>
+                                    <li><a href="javascript: void(0);">Level 2.2</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Layouts</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="true">
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">Vertical</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a href="layouts-dark-sidebar">Dark Sidebar</a></li>
+                                    <li><a href="layouts-compact-sidebar">Compact Sidebar</a></li>
+                                    <li><a href="layouts-icon-sidebar">Icon Sidebar</a></li>
+                                    <li><a href="layouts-boxed">Boxed Width</a></li>
+                                    <li><a href="layouts-preloader">Preloader</a></li>
+                                    <li><a href="layouts-colored-sidebar">Colored Sidebar</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">Horizontal</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a href="layouts-horizontal">Horizontal</a></li>
+                                    <li><a href="layouts-hori-topbar-dark">Topbar Dark</a></li>
+                                    <li><a href="layouts-hori-boxed-width">Boxed Width</a></li>
+                                    <li><a href="layouts-hori-preloader">Preloader</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- Sidebar -->
+        </div>
+    </div>
+    <!-- Left Sidebar End -->
+
+
+    <!-- Close Icon -->
+    <div class="g-close-icon">
+        <span class="bi bi-x-lg"></span>
+    </div>
+    <!-- end close Icon -->
+</aside>
+
+<!--End Sidebar-->
+
+<div class="g-main-wrap main-content">
+
+
+    <!--**********************************
+                  Main Page Wrapper
+     ***********************************-->
+    <main class="g-page-wrap">
+
+        <div class="g-page-content-area">
+
+            <div class="g-page-content-main">
+
+
+                <!--**********************************
+                              SIVR TREE MENU
+                 ***********************************-->
+                <div class="container-fluid mb-3">
+                    <div class="g-sivr-tree-area">
+                        <div class="g-sivr-tree-main">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="g-tree-view-area">
+                                        <h3 class="heading">SIVR Tree Menu</h3>
+                                        <div class="file-browser">
+                                            <ul>
+                                                <li class="folder folder-open"> Main Menu
+                                                    <ul>
+                                                        <li class="folder">
+                                                            Dashboard
+                                                            <ul>
+                                                                <li class="file">Accounts Module</li>
+                                                                <li class="file">Help Module</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="folder">
+                                                            Transfers
+                                                            <ul>
+                                                                <li class="folder folder-open">
+                                                                    Quick
+                                                                    <ul>
+                                                                        <li class="file">Disclosures</li>
+                                                                        <li class="file">Modals</li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li class="file">Classic</li>
+                                                                <li class="folder">
+                                                                    Scheduled
+                                                                    <ul>
+                                                                        <li class="folder"> Calendar
+                                                                            <ul>
+                                                                                <li class="file"> Days</li>
+                                                                                <li class="folder"> Months
+                                                                                    <ul>
+                                                                                        <li class="file"> Days2</li>
+                                                                                        <li class="folder"> Months2
+                                                                                            <ul>
+                                                                                                <li class="file">
+                                                                                                    Days3
+                                                                                                </li>
+                                                                                                <li class="folder">
+                                                                                                    Months3
+                                                                                                    <ul>
+                                                                                                        <li class="file">
+                                                                                                            Days4
+                                                                                                        </li>
+                                                                                                        <li class="folder">
+                                                                                                            Months4
+
+                                                                                                            <ul>
+                                                                                                                <li class="file">
+                                                                                                                    Days5
+                                                                                                                </li>
+                                                                                                                <li class="folder">
+                                                                                                                    Months5
+                                                                                                                    <ul>
+                                                                                                                        <li class="file">
+                                                                                                                            Days6
+                                                                                                                        </li>
+                                                                                                                        <li class="file">
+                                                                                                                            Months6
+                                                                                                                        </li>
+                                                                                                                    </ul>
+                                                                                                                </li>
+                                                                                                            </ul>
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="file">Modals</li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li class="folder"> History
+                                                                    <ul>
+                                                                        <li class="folder"> Sub Menu
+                                                                            <ul>
+                                                                                <li class="file">Sub Menu</li>
+                                                                                <li class="file">Sub Menu</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="folder"> Sub Menu
+                                                                            <ul>
+                                                                                <li class="file">Sub Menu</li>
+                                                                                <li class="file">Sub Menu</li>
+                                                                                <li class="file">Sub Menu</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="folder"> Sub Menu
+                                                                            <ul>
+                                                                                <li class="file">Sub Menu</li>
+                                                                                <li class="file">Sub Menu</li>
+                                                                                <li class="file">Sub Menu</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="folder"> Sub Menu
+                                                                            <ul>
+                                                                                <li class="file">Sub Menu</li>
+                                                                                <li class="file">Sub Menu</li>
+                                                                                <li class="file">Sub Menu</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                        <li class="folder"> Sub Menu
+                                                                            <ul>
+                                                                                <li class="file">Sub Menu</li>
+                                                                                <li class="file">Sub Menu</li>
+                                                                                <li class="file">Sub Menu</li>
+                                                                            </ul>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <!--**********************************
+                                    Right Context Menu
+                         ***********************************-->
+                        <div id="contextMenu" class="context-menu">
+                            <ul class="list-group">
+                                <li class="" data-bs-toggle="modal"
+                                    data-bs-target="#g-sivr-edit-modal"><i class="ph-fill ph-pencil-simple"></i>
+                                    Edit
+                                </li>
+                                <li class="" data-bs-target="#g-sivr-add-modal" data-bs-toggle="modal">
+                                    <i class="ph-fill ph-plus"></i> Add Branch
+                                </li>
+                                <li class="" data-bs-target="#g-sivr-audio-upload-modal" data-bs-toggle="modal"><i
+                                    class="ph-fill ph-upload"></i> Upload
+                                    File
+                                </li>
+                                <li class="" data-bs-toggle="modal"
+                                    data-bs-target="#g-modal-node-element"><i class="ph-fill ph-circles-three-plus"></i>
+                                    Node Element
+                                </li>
+                                <li class="" id="jsDeleteTreeConfirm"><i class="ph-fill ph-trash-simple"></i>
+                                    Delete Tree
+                                </li>
+                            </ul>
+                        </div>
+                        <!--End Right Context Menu-->
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+</div>
+
+<!--**********************************
+              Main Footer Sections
+    ***********************************-->
+<footer class="g-main-footer mt-3">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-12 text-center py-2">
+                <small>
+                    Copyright &copy; 2003 -
+                    <script>document.write(new Date().getFullYear())</script>
+                    <strong class="text-danger"> g</strong>Plex All rights reserved
+                </small>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+
+<!--**********************************
+              Filter Form
+ ***********************************-->
+<!--Start FilterForm-->
+<div class="g-filter-form">
+    <div class="container-fluid">
+        <form action="">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="label#1" class="form-label">Email
+                            address</label>
+                        <input type="email" class="form-control" id="label#1"
+                               placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="label#2" class="form-label">Email
+                            address</label>
+                        <input type="email" class="form-control" id="label#2"
+                               placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="label#3" class="form-label">Email
+                            address</label>
+                        <input type="email" class="form-control" id="label#3"
+                               placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="label#4" class="form-label">Email
+                            address</label>
+                        <input type="email" class="form-control" id="label#4"
+                               placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="label#5" class="form-label">Email
+                            address</label>
+                        <input type="email" class="form-control" id="label#5"
+                               placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="g-formdate" class="form-label">Date
+                            From</label>
+                        <input type="date" class="form-control" id="g-formdate"
+                               placeholder="select date">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="g-todate" class="form-label">Date
+                            To</label>
+                        <input type="date" class="form-control" id="g-todate"
+                               placeholder="select-date">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="">
+                        <label for="label#1" class="form-label invisible">.</label>
+                        <div class="g-btn-group">
+                            <button type="submit" class="btn btn-primary text-white">Submit
+                            </button>
+                            <button type="reset" class="btn btn-secondary">Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--End Filter Form-->
+
+
+<!--**********************************
+      Modal For Audio File Upload
+ ***********************************-->
+<div class="modal fade" tabindex="-1" id="g-sivr-audio-upload-modal" aria-lebeledby="audiofileupload">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Audio <i class="ph-fill ph-music-note"></i> File Upload</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>  Audio Upload Here</h6>
+
+                <form class="d-inline-flex gap-2 mb-3 w-100" id="audioForm" enctype="multipart/form-data" multiple>
+                    <input class="form-control" type="file" accept="audio/*" id="audioInput"/>
+                    <button class="btn btn-success btn-sm" type="submit">Upload</button>
+                </form>
+
+                <h6>Uploaded Audio List</h6>
+                <ul id="audioList"></ul>
+
+                <hr/>
+                <div class="g-player">
+                    <audio class="w-100" id="audioPlayer" controls>
+                        <source id="audioSource" src="" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="g-player-controls">
+                        <button class="btn btn-sm btn-secondary" id="previousButton"><i
+                            class="ph-fill ph-skip-back"></i></button>
+                        <button class="btn btn-sm btn-secondary" id="nextButton"><i class="ph-fill ph-skip-forward"></i>
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-primary text-white">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--**********************************
+          Modal For Page Edit
+ ***********************************-->
+<div class="modal fade" tabindex="-1" id="g-sivr-edit-modal" aria-lebeledby="editfile">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">SIVR Page Edit</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="form-group mb-3">
+                        <label for="g-service-title">Service Title</label>
+                        <select class="form-control" name="g-service-title" id="g-service-title">
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="g-report-title">Report Title</label>
+                        <select class="form-control" name="g-service-title" id="g-report-title">
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="g-sivr-task">Task</label>
+                        <select class="form-control" name="g-service-title" id="g-sivr-task">
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="g-page-heading-en">Page Heading (EN)</label>
+                        <input type="text" class="form-control" name="" id="g-page-heading-en"
+                               placeholder="PIN Generation & Card Activation">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="g-page-heading-bn">Page Heading (BN)</label>
+                        <input type="text" class="form-control" name="" id="g-page-heading-bn"
+                               placeholder="পিন জেনারেশন ও কার্ড অ্যাক্টিভেশন">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="g-navigate-to-main">Navigate To Main Page</label>
+                        <select class="form-control" name="g-service-title" id="g-navigate-to-main">
+                            <option value="">YES</option>
+                            <option value="">NO</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="g-navigate-to-previous">Navigate To Previous Page</label>
+                        <select class="form-control" name="g-service-title" id="g-navigate-to-previous">
+                            <option value="">YES</option>
+                            <option value="">NO</option>
+                        </select>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-primary text-white">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--End Modal For Page Edit-->
+
+
+<!--**********************************
+          Modal For Page Add
+ ***********************************-->
+<div class="modal fade" tabindex="-1" id="g-sivr-add-modal" aria-lebeledby="editfile">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">SIVR Page ADD</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="form-group mb-3">
+                        <label for="g-service-a-title">Service Title</label>
+                        <select class="form-control" name="g-service-title" id="g-service-a-title">
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="g-report-a-title">Report Title</label>
+                        <select class="form-control" name="g-service-title" id="g-report-a-title">
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="g-sivr-a-task">Task</label>
+                        <select class="form-control" name="g-service-title" id="g-sivr-a-task">
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                            <option value="">12212</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="g-page-heading-a-en">Page Heading (EN)</label>
+                        <input type="text" class="form-control" name="" id="g-page-heading-a-en"
+                               placeholder="PIN Generation & Card Activation">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="g-page-heading-a-bn">Page Heading (BN)</label>
+                        <input type="text" class="form-control" name="" id="g-page-heading-a-bn"
+                               placeholder="পিন জেনারেশন ও কার্ড অ্যাক্টিভেশন">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="g-navigate-to-a-main">Navigate To Main Page</label>
+                        <select class="form-control" name="g-service-title" id="g-navigate-to-a-main">
+                            <option value="">YES</option>
+                            <option value="">NO</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="g-navigate-to-a-previous">Navigate To Previous Page</label>
+                        <select class="form-control" name="g-service-title" id="g-navigate-to-a-previous">
+                            <option value="">YES</option>
+                            <option value="">NO</option>
+                        </select>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-primary text-white">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--End Modal For Page Edit-->
+
+
+<!--**********************************
+         Modal For Node Element
+ ***********************************-->
+<div class="modal fade" tabindex="-1" id="g-modal-node-element" aria-lebeledby="node-element">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">SIVR PAGE ELEMENTS</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+
+                <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="element-tab" data-bs-toggle="tab"
+                                data-bs-target="#element-tab-pane" type="button" role="tab"
+                                aria-controls="element-tab-pane" aria-selected="true"><i class="ph-fill ph-stack"></i>
+                            Element Info
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#edit-tab-pane"
+                                type="button" role="tab" aria-controls="edit-tab-pane" aria-selected="true"><i
+                            class="ph-fill ph-pencil-simple-line"></i> Edit
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#upload-tab-pane"
+                                type="button" role="tab" aria-controls="upload-tab-pane" aria-selected="false"><i
+                            class="ph-fill ph-upload"></i> Upload Menu Icon
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="disabled-tab" data-bs-toggle="tab"
+                                data-bs-target="#delete-tab-pane" type="button" role="tab"
+                                aria-controls="delete-tab-pane" aria-selected="false"><i
+                            class="ph-fill ph-trash-simple"></i> Delete
+                        </button>
+                    </li>
+                </ul>
+
+
+                <div class="tab-content" id="nodeTabContent">
+
+                    <div class="tab-pane fade show active" id="element-tab-pane" role="tabpanel"
+                         aria-labelledby="element-tab" tabindex="0">
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-sm border-secondary">
+                                <thead>
+                                <tr>
+                                    <th scope="row">Element Type</th>
+                                    <th scope="row">Element Order</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>paragraph</td>
+                                    <td>1</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                    <div class="tab-pane fade" id="edit-tab-pane" role="tabpanel" aria-labelledby="edit-tab"
+                         tabindex="0">EDIT
+                    </div>
+                    <div class="tab-pane fade" id="upload-tab-pane" role="tabpanel" aria-labelledby="upload-tab"
+                         tabindex="0">Upload
+                    </div>
+                    <div class="tab-pane fade" id="delete-tab-pane" role="tabpanel" aria-labelledby="delete-tab"
+                         tabindex="0">Edit
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--**********************************
+        Delete Node Element Alert
+ ***********************************-->
+<div class="toast-container top-0 start-50 translate-middle-x m-3 p-3"></div>
+
+
+<!-- Scripts -->
+<script defer src="./assets/js/vendors.min.js"></script>
+<script defer src="./assets/js/app.min.js"></script>
+
+<script>
+    // Get the delete tree menu item element
+    const deleteTreeMenuItem = document.getElementById('jsDeleteTreeConfirm');
+    // Add a click event listener to the delete tree menu item
+    deleteTreeMenuItem.addEventListener('click', () => {
+        // Create a new toast container element
+        const toastContainer = document.querySelector('.toast-container');
+
+        // Set the title and body of the toast
+        toastContainer.innerHTML = `
+                                <div class="toast bg-white" role="alert" aria-live="assertive" aria-atomic="true">
+
+                                  <div class="toast-header">
+                                    <strong class="me-auto">Delete Node</strong>
+                                  </div>
+
+                                  <div class="toast-body">
+                                    <h6>Are you sure you want to delete the tree?</h6>
+                                      <div class="pt-2 border-top">
+                                       <button type="button" class="btn btn-primary btn-sm text-white">Confirm</button>
+                                       <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">No</button>
+                                   </div>
+                                  </div>
+
+                                </div>
+                                    `;
+
+        // Create a new Bootstrap toast instance
+        const toast = new bootstrap.Toast(toastContainer.querySelector('.toast'), {
+            animation: true,
+            autohide: false,
+            delay: 1000 // Set the desired display duration in milliseconds (e.g., 5000ms = 5 seconds)
+        });
+
+        // Show the toast
+        toast.show();
+
+        // Handle close button click
+        // const closeButton = toastContainer.querySelector('.btn-close');
+        // closeButton.addEventListener('click', () => {
+        //     toast.hide(); // Hide the toast when the close button is clicked
+        // });
+
+
+    });
+
+</script>
+<script>
+    let audioFiles = [];
+    let currentAudioIndex = -1;
+
+    function highlightCurrentAudio() {
+        let listItems = document.querySelectorAll('#audioList li');
+        for (let i = 0; i < listItems.length; i++) {
+            listItems[i].classList.remove('highlight');
+        }
+
+        if (currentAudioIndex >= 0 && currentAudioIndex < listItems.length) {
+            listItems[currentAudioIndex].classList.add('highlight');
+        }
+    }
+
+    function playAudio(index) {
+        currentAudioIndex = index;
+        highlightCurrentAudio();
+
+        if (index >= 0 && index < audioFiles.length) {
+            let file = audioFiles[index];
+            document.getElementById('audioSource').src = file.url;
+            document.getElementById('audioPlayer').load();
+            document.getElementById('audioPlayer').play();
+        }
+    }
+
+    document.getElementById('audioForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        let fileInput = document.getElementById('audioInput');
+        let fileList = fileInput.files;
+
+        for (let i = 0; i < fileList.length; i++) {
+            let file = fileList[i];
+            let listItem = document.createElement('li');
+            listItem.textContent = file.name;
+            listItem.addEventListener('click', function (index) {
+                return function () {
+                    playAudio(index);
+                };
+            }(audioFiles.length));
+            document.getElementById('audioList').appendChild(listItem);
+
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                audioFiles.push({
+                    name: file.name,
+                    url: e.target.result
+                });
+            };
+            reader.readAsDataURL(file);
+        }
+
+        fileInput.value = '';
+    });
+
+    document.getElementById('audioPlayer').addEventListener('ended', function () {
+        if (currentAudioIndex < audioFiles.length - 1) {
+            playAudio(currentAudioIndex + 1);
+        }
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') {
+            if (currentAudioIndex > 0) {
+                playAudio(currentAudioIndex - 1);
+            }
+        } else if (e.key === 'ArrowRight') {
+            if (currentAudioIndex < audioFiles.length - 1) {
+                playAudio(currentAudioIndex + 1);
+            }
+        }
+    });
+
+    document.getElementById('audioPlayer').addEventListener('ended', function () {
+        if (currentAudioIndex < audioFiles.length - 1) {
+            playAudio(currentAudioIndex + 1);
+        }
+    });
+
+
+    document.getElementById('audioPlayer').addEventListener('play', function () {
+        if (currentAudioIndex >= 0 && currentAudioIndex < audioFiles.length) {
+            highlightCurrentAudio();
+        }
+    });
+
+    document.getElementById('audioPlayer').addEventListener('ended', function () {
+        if (currentAudioIndex < audioFiles.length - 1) {
+            playAudio(currentAudioIndex + 1);
+        }
+    });
+
+    function playNext() {
+        if (currentAudioIndex < audioFiles.length - 1) {
+            playAudio(currentAudioIndex + 1);
+        }
+    }
+
+    function playPrevious() {
+        if (currentAudioIndex > 0) {
+            playAudio(currentAudioIndex - 1);
+        }
+    }
+
+    document.getElementById('nextButton').addEventListener('click', playNext);
+    document.getElementById('previousButton').addEventListener('click', playPrevious);
+
+</script>
+</body>
+
+</html>

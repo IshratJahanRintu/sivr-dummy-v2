@@ -1,0 +1,26 @@
+.g-chart-area{
+  margin-bottom: 1rem;
+}
+
+.g-chart-main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap:1rem;
+  flex:1;
+  @media all and (max-width: 768px) {
+    flex-direction: column;
+  }
+  .card{
+    flex:1;
+    max-height: 400px;
+    align-items: center;
+    @media all and (max-width: 768px) {
+      max-height: none;
+    }
+  }
+}
+
+#vdi-pie-chart{
+
+}

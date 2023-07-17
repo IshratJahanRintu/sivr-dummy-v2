@@ -1,0 +1,1 @@
+{"version":3,"sources":["custom.css"],"names":[],"mappings":"AAIA,YACI,YACJ","file":"custom.css","sourcesContent":["/*============================\r\n   All plugins overwrite and\r\n   custom css will be write here\r\n  ============================*/\r\n.custom-css{\r\n    display: none;\r\n}\r\n"]}

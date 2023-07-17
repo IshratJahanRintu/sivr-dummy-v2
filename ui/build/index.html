@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="ccpro | integrated software application for network solutions"/>
+    <meta name="keywords" content="mominriyadh, gulp, boilerplate, gulp boilerplate, live reload">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/images/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <title>SIVR | V-2</title>
+    <link rel="stylesheet" href="assets/css/vendors.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<body class="vertical-collpsed">
+
+<!--**********************************
+             Start Main Header
+  ***********************************-->
+<div class="g-top-bar fixed-top">
+    <!--Main Logo-->
+    <div class="g-logo">
+        <a href="">
+            <img class="img-fluid" src="assets/images/logo.svg" alt="">
+        </a>
+    </div>
+
+    <div class="g-sidebar-toggle">
+        <span class="border-1 p-1 mb-0 vertical-menu-btn h5 d-flex align-items-center">
+          <i class="bi bi-layout-text-sidebar-reverse"></i>
+        </span>
+    </div>
+
+    <div class="g-breadcrumb-area">
+        <h5 class="mb-0 fw-bold">Agent List</h5>
+    </div>
+
+    <div class="g-add-new">
+        <a href="login.html" class="btn btn-primary btn-sm text-white"><i class="bi bi-plus-lg"></i> Add New</a>
+    </div>
+
+
+    <!--        User Profile-->
+    <div class="g-topbar-user-profile">
+
+        <div aria-labelledby="icon" class="g-grid-icon">
+            <small>Filter Search</small>
+            <i class="bi bi-search"></i>
+        </div>
+
+        <div class="g-user-image dropdown">
+                <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+
+                <img class="img-fluid" src="assets/images/user.jpg" alt="">
+                </span>
+            <ul class="dropdown-menu g-dropdown-profile mt-4">
+                <li><a class="dropdown-item" href="#"><i class="bi bi-card-heading"></i> Profile</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-gear-fill"></i> Settings</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-toggles"></i> Status</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--        End User Profile-->
+
+    <!--Mobile Menu-->
+    <button class="g-mobile-trigger vertical-menu-btn">
+        <i class="bi bi-justify-right"></i>
+    </button>
+</div>
+
+
+<!--**********************************
+                Start Sidebar
+   ***********************************-->
+<aside class="">
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="vertical-menu mm-active">
+        <div data-simplebar class="sidebar-menu-scroll mm-show">
+
+            <!--- Sidemenu -->
+            <div id="sidebar-menu">
+                <!-- Left Menu Start -->
+                <ul class="metismenu list-unstyled" id="side-menu">
+                    <li>
+                        <a href="/">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="social-connect.html">
+                            <i class="ph-fill ph-planet"></i>
+                            <span>Social Connect</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="sivr-tree.html">
+                            <i class="bi bi-menu-button-wide"></i>
+                            <span>SIVR Tree</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Invoices</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="invoices-list">Invoice List</a></li>
+                            <li><a href="invoices-detail">Invoice Detail</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Contacts</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="contacts-grid">User Grid</a></li>
+                            <li><a href="contacts-list">User List</a></li>
+                            <li><a href="contacts-profile">Profile</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Charts</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="charts-apex">Apex</a></li>
+                            <li><a href="charts-chartjs">Chartjs</a></li>
+                            <li><a href="charts-flot">Flot</a></li>
+                            <li><a href="charts-knob">Jquery Knob</a></li>
+                            <li><a href="charts-sparkline">Sparkline</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Icons</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="icons-unicons">Unicons</a></li>
+                            <li><a href="icons-boxicons">Boxicons</a></li>
+                            <li><a href="icons-materialdesign">Material Design</a></li>
+                            <li><a href="icons-dripicons">Dripicons</a></li>
+                            <li><a href="icons-fontawesome">Font Awesome</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Maps</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="maps-google">Google</a></li>
+                            <li><a href="maps-vector">Vector</a></li>
+                            <li><a href="maps-leaflet">Leaflet</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Multi Level</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="true">
+                            <li><a href="javascript: void(0);">Level 1.1</a></li>
+                            <li><a href="javascript: void(0);" class="has-arrow">Level 1.2</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a href="javascript: void(0);">Level 2.1</a></li>
+                                    <li><a href="javascript: void(0);">Level 2.2</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bi bi-box-fill"></i>
+                            <span>Layouts</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="true">
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">Vertical</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a href="layouts-dark-sidebar">Dark Sidebar</a></li>
+                                    <li><a href="layouts-compact-sidebar">Compact Sidebar</a></li>
+                                    <li><a href="layouts-icon-sidebar">Icon Sidebar</a></li>
+                                    <li><a href="layouts-boxed">Boxed Width</a></li>
+                                    <li><a href="layouts-preloader">Preloader</a></li>
+                                    <li><a href="layouts-colored-sidebar">Colored Sidebar</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow">Horizontal</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a href="layouts-horizontal">Horizontal</a></li>
+                                    <li><a href="layouts-hori-topbar-dark">Topbar Dark</a></li>
+                                    <li><a href="layouts-hori-boxed-width">Boxed Width</a></li>
+                                    <li><a href="layouts-hori-preloader">Preloader</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- Sidebar -->
+        </div>
+    </div>
+    <!-- Left Sidebar End -->
+
+
+
+    <!-- Close Icon -->
+    <div class="g-close-icon">
+        <span class="bi bi-x-lg"></span>
+    </div>
+    <!-- end close Icon -->
+</aside>
+
+<!--End Sidebar-->
+
+<div class="g-main-wrap main-content">
+
+
+    <!--**********************************
+                  Main Page Wrapper
+     ***********************************-->
+    <main class="g-page-wrap">
+
+        <div class="g-page-content-area">
+
+            <div class="g-page-content-main">
+
+
+                <!--**********************************
+                        Visualization & Graph
+                 ***********************************-->
+                <div class="container-fluid mb-3">
+                    <div class="g-chart-area">
+                        <div class="g-chart-main">
+                            <div class="card">
+                                <canvas id="vdi-line-chart"></canvas>
+                            </div>
+
+                            <div class="card">
+                                <canvas id="vdi-pie-chart"></canvas>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="container-fluid position-relative">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+
+                                <div class="card-body p-0">
+
+                                    <div class="table-responsive">
+                                        <table
+                                            class="table table-bordered align-middle table-striped align-middle table-sm">
+                                            <thead class="g-thead">
+                                            <tr>
+                                                <th scope="col">S/N</th>
+                                                <th scope="col">Agent ID</th>
+                                                <th scope="col">Alternative ID</th>
+                                                <th scope="col">Nick Name</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Skills</th>
+                                                <th scope="col">DID</th>
+                                                <th scope="col">Supervisor ID</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">01</th>
+                                                <td>1002</td>
+                                                <td>10022145</td>
+                                                <td>Iqbal</td>
+                                                <td>Iqbal Ahmed</td>
+                                                <td>Lorem ipsum dolor sit amet.</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Manager</td>
+                                                <td>Manager</td>
+                                                <td>
+                                                    <div class="g-table-action">
+                                                        <span class="text-success"><i
+                                                            class="bi bi-plus-square"></i></span>
+                                                        <span class="text-primary"><i
+                                                            class="bi bi-pencil-square"></i></span>
+                                                        <span class="text-danger"><i
+                                                            class="bi bi-trash3-fill"></i></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="card-footer bg-white text-center d-flex flex-column flex-md-row gap-3 justify-content-between align-items-center">
+                                    <div class="g-page-count">
+                                        Page <strong class="text-primary"> 8</strong> out of <strong
+                                        class="text-primary"> 50</strong>
+                                    </div>
+
+                                    <div class="g-pagination">
+                                        <nav aria-label="page navigation">
+                                            <ul class="pagination pagination-sm mb-0">
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#" aria-label="Previous">
+                                                        <span aria-hidden="true">&laquo;</span>
+                                                    </a>
+                                                </li>
+                                                <li class="page-item active" aria-current="page">
+                                                    <span class="page-link">1</span>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#" aria-label="Next">
+                                                        <span aria-hidden="true">&raquo;</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+
+                                    <div class="g-page-c-dropdown">
+                                        <select class="form-select form-select-sm" aria-label=".form-select-sm">
+                                            <option selected>10</option>
+                                            <option value="1">50</option>
+                                            <option value="2">100</option>
+                                            <option value="3">150</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+
+</div>
+
+<!--**********************************
+              Main Footer Sections
+    ***********************************-->
+<footer class="g-main-footer mt-3">
+    <div class="container-fluid">
+        <div class="row">
+
+                <div class="col-md-12 text-center py-2">
+                    <small>
+                        Copyright &copy; 2003 -
+                        <script>document.write(new Date().getFullYear())</script>
+                        <strong class="text-danger"> g</strong>Plex All rights reserved
+                    </small>
+                </div>
+            </div>
+        </div>
+
+</footer>
+
+
+<!--**********************************
+              Filter Form
+ ***********************************-->
+<!--Start FilterForm-->
+<div class="g-filter-form">
+    <div class="container-fluid">
+        <form action="">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="label#1" class="form-label">Email
+                            address</label>
+                        <input type="email" class="form-control" id="label#1"
+                               placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="label#2" class="form-label">Email
+                            address</label>
+                        <input type="email" class="form-control" id="label#2"
+                               placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="label#3" class="form-label">Email
+                            address</label>
+                        <input type="email" class="form-control" id="label#3"
+                               placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="label#4" class="form-label">Email
+                            address</label>
+                        <input type="email" class="form-control" id="label#4"
+                               placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="label#5" class="form-label">Email
+                            address</label>
+                        <input type="email" class="form-control" id="label#5"
+                               placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="g-formdate" class="form-label">Date
+                            From</label>
+                        <input type="date" class="form-control" id="g-formdate"
+                               placeholder="select date">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="g-todate" class="form-label">Date
+                            To</label>
+                        <input type="date" class="form-control" id="g-todate"
+                               placeholder="select-date">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="">
+                        <label for="label#1" class="form-label invisible">.</label>
+                        <div class="g-btn-group">
+                            <button type="submit" class="btn btn-primary text-white">Submit
+                            </button>
+                            <button type="reset" class="btn btn-secondary">Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--End Filter Form-->
+
+<!-- Scripts -->
+<script defer src="/assets/js/vendors.min.js"></script>
+<script defer src="/assets/js/app.min.js"></script>
+</body>
+
+</html>
