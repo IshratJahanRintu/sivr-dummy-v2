@@ -31,8 +31,8 @@ class SivrPageController extends Controller
             $data = $result->data;
             $sivrPages = $data[0];
             $allPages = $data[1];
-            $sivrPagesJson = $allPages->toJson();
-            return view('sivr.sivrPages.index', compact('sivrPages', 'sivrPagesJson'));
+
+            return view('sivr.sivrPages.index', compact('sivrPages', 'allPages'));
 
         }
         }
@@ -105,13 +105,12 @@ class SivrPageController extends Controller
         /**
          * Show the form for editing the specified resource.
          *
-         * @param int $id
-         * @return Response
+         *
          */
         public
-        function edit(Request $request)
+        function edit(SivrPage $sivrPage)
         {
-
+            return view('sivr.sivrPages.edit', compact('sivrPage'));
         }
 
 
@@ -119,10 +118,17 @@ class SivrPageController extends Controller
         function update(Request $request, SivrPage $sivrPage)
         {
 
-            $updated =$this->sivrPageService->updateItem($request,$sivrPage);
-            if ($updated) {
-                return back();
+            $result =$this->sivrPageService->updateItem($request,$sivrPage);
+
+            if ($result->status == 208) {
+                session()->flash('success', 'Sivr Page '. $result->messages. ' successfully!');
+                return redirect(route('sivr-pages.index'));
+            } else {
+                session()->flash('error', 'Cannot Edit !');
+                return redirect()->route('sivr-pages.edit',$sivrPage)->withInput();
             }
+
+
         }
 
         /**

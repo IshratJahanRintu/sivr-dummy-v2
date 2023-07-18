@@ -7,6 +7,7 @@ use App\Repositories\SivrPageRepository;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class SivrPageService
 {
@@ -26,29 +27,29 @@ class SivrPageService
 
         DB::beginTransaction();
 
-        try{
+        try {
 
             $listing = $this->sivrPageRepository->listing();
 
 
-        }catch (Exception $e) {
+        } catch (Exception $e) {
 
             DB::rollBack();
             Log::error('Found Exception: ' . $e->getMessage() . ' [Script: ' . __CLASS__ . '@' . __FUNCTION__ . '] [Origin: ' . $e->getFile() . '-' . $e->getLine() . ']');
 
             return (object)[
-                'status'            => 424,
-                'messages'          => config('status.status_code.424'),
-                'error'             => $e->getMessage()
+                'status' => 424,
+                'messages' => config('status.status_code.424'),
+                'error' => $e->getMessage()
             ];
         }
 
         DB::commit();
 
         return (object)[
-            'status'                => 200,
-            'messages'              => config('status.status_code.200'),
-            'data'                  => $listing
+            'status' => 200,
+            'messages' => config('status.status_code.200'),
+            'data' => $listing
         ];
     }
 //
@@ -95,7 +96,7 @@ class SivrPageService
 //
 //        Validator::make($request->all(),$rules)->validate();
 
-        $data   = $request->all();
+        $data = $request->all();
 
 
 //         return $data;
@@ -112,39 +113,46 @@ class SivrPageService
             Log::error('Found Exception: ' . $e->getMessage() . ' [Script: ' . __CLASS__ . '@' . __FUNCTION__ . '] [Origin: ' . $e->getFile() . '-' . $e->getLine() . ']');
 
             return (object)[
-                'status'            => 424,
-                'messages'          => config('status.status_code.424'),
-                'error'             => $e->getMessage()
+                'status' => 424,
+                'messages' => config('status.status_code.424'),
+                'error' => $e->getMessage()
             ];
         }
 
         DB::commit();
 
         return (object)[
-            'status'                => 201,
-            'messages'              => config('status.status_code.201'),
+            'status' => 201,
+            'messages' => config('status.status_code.201'),
 
         ];
     }
 
-    public function updateItem($request,SivrPage $sivrPage)
+    public function updateItem($request, SivrPage $sivrPage)
     {
 
-//        $rules = [
-//            'business_name'     => 'required|string|max:50|min:2',
-//            'email'             => 'nullable|email|string|max:30',
-//            'contact_phone'     => 'nullable|numeric|digits_between:10,15',
-//            'expire_date'       => 'required|date',
-//            'seat'              => 'required|numeric'
-//        ];
-//
-//
-//        Validator::make($request->all(),$rules)->validate();
+        $rules = [
+            'vivr_id' => 'required|numeric',
+            'page_heading_ban' => 'required|string|max:30|min:3',
+            'page_heading_en' =>  'required|string|max:30|min:3',
+            'task' =>'required|string|max:30|min:3',
+            'has_previous_menu' =>'required|string|max:1|min:1',
+            'has_main_menu' => 'required|string|max:1|min:1',
+            'service_title_id' =>'required|numeric',
+        ];
 
+
+        $validator= Validator::make($request->all(), $rules)->validate();
+        if ($validator->fails()) {
+            // Redirect back to the edit form with errors and old input
+            return redirect()->route('sivr-pages.edit', $sivrPage)
+                ->withErrors($validator)
+                ->withInput();
+        }
         $data = $request->all();
         DB::beginTransaction();
 
-        try{
+        try {
 
             $this->sivrPageRepository->update($data, $sivrPage);
 
@@ -155,17 +163,17 @@ class SivrPageService
             Log::error('Found Exception: ' . $e->getMessage() . ' [Script: ' . __CLASS__ . '@' . __FUNCTION__ . '] [Origin: ' . $e->getFile() . '-' . $e->getLine() . ']');
 
             return (object)[
-                'status'            => 424,
-                'messages'          => config('status.status_code.424'),
-                'errors'            => [$e->getMessage()]
+                'status' => 424,
+                'messages' => config('status.status_code.424'),
+                'errors' => [$e->getMessage()]
             ];
         }
 
         DB::commit();
 
         return (object)[
-            'status'                => 208,
-            'messages'              => config('status.status_code.208'),
+            'status' => 208,
+            'messages' => config('status.status_code.208'),
         ];
 
     }
@@ -175,14 +183,14 @@ class SivrPageService
 
         DB::beginTransaction();
 
-        try{
+        try {
 
             $delete = $this->sivrPageRepository->deleteItem($sivrPage);
 
-            if( $delete<1 ){
+            if ($delete < 1) {
                 return (object)[
-                    'status'    => 404,
-                    'messages'   => config('status.status_code.404')
+                    'status' => 404,
+                    'messages' => config('status.status_code.404')
                 ];
             }
 
@@ -192,18 +200,18 @@ class SivrPageService
             Log::error('Found Exception: ' . $e->getMessage() . ' [Script: ' . __CLASS__ . '@' . __FUNCTION__ . '] [Origin: ' . $e->getFile() . '-' . $e->getLine() . ']');
 
             return (object)[
-                'status'    => 424,
-                'messages'   => config('status.status_code.424'),
-                'error'     => $e->getMessage()
+                'status' => 424,
+                'messages' => config('status.status_code.424'),
+                'error' => $e->getMessage()
             ];
         }
 
         DB::commit();
 
         return (object)[
-            'status'    => 209,
-            'messages'   => config('status.status_code.209'),
-            'data'      => $delete
+            'status' => 209,
+            'messages' => config('status.status_code.209'),
+            'data' => $delete
         ];
 
     }
