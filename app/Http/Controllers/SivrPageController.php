@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SivrPage;
 use App\Services\SivrPageService;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
@@ -37,7 +38,18 @@ class SivrPageController extends Controller
         }
         }
 
+    public function create( )
+    {
+        $result = $this->sivrPageService->listItems();
 
+        if ($result->status == 200) {
+            $data = $result->data;
+            $sivrPages = $data[1];
+
+
+            return view('sivr.sivrPages.create', compact('sivrPages'));
+        }
+    }
 
         /**
          * Store a newly created resource in storage.
@@ -54,6 +66,8 @@ class SivrPageController extends Controller
                 session()->flash('success', 'Record '. $result->messages. ' successfully!');
             }else{
                 session()->flash('error', 'Can not Create !');
+                return redirect()->route('sivr-pages.create')->withInput()->withErrors($result->validator);
+
             }
 
             return redirect(route('sivr-pages.index'));
@@ -125,7 +139,7 @@ class SivrPageController extends Controller
                 return redirect(route('sivr-pages.index'));
             } else {
                 session()->flash('error', 'Cannot Edit !');
-                return redirect()->route('sivr-pages.edit',$sivrPage)->withInput();
+                return redirect()->route('sivr-pages.edit',$sivrPage)->withInput()->withErrors($result->validator);
             }
 
 

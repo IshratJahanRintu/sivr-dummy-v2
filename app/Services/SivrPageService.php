@@ -86,15 +86,27 @@ class SivrPageService
 //
     public function createItem($request)
     {
-//        $rules = [
-//            'business_name'     => 'required|string|max:50|min:2',
-//            'email'             => 'nullable|email|string|max:30',
-//            'contact_phone'     => 'nullable|numeric|digits_between:10,15',
-//            'expire_date'       => 'required|date',
-//            'seat'              => 'required|numeric'
-//        ];
-//
-//        Validator::make($request->all(),$rules)->validate();
+        $rules = [
+            'vivr_id' => 'required|numeric',
+            'page_heading_ban' => 'required|string|max:30|min:3',
+            'page_heading_en' =>  'required|string|max:30|min:3',
+            'task' =>'required|string|max:30|min:3',
+            'has_previous_menu' =>'required|string|max:1|min:1',
+            'has_main_menu' => 'required|string|max:1|min:1',
+            'service_title_id' =>'required|numeric',
+        ];
+
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            // Redirect back to the edit form with errors and old input
+           return (object)[
+                'status' => '422',
+                'validator' => $validator,
+               'messages' => config('status.status_code.422'),
+            ];
+        }
 
         $data = $request->all();
 
@@ -142,12 +154,15 @@ class SivrPageService
         ];
 
 
-        $validator= Validator::make($request->all(), $rules)->validate();
+        $validator = Validator::make($request->all(), $rules);
+
         if ($validator->fails()) {
             // Redirect back to the edit form with errors and old input
-            return redirect()->route('sivr-pages.edit', $sivrPage)
-                ->withErrors($validator)
-                ->withInput();
+            return (object)[
+                'status' => 424,
+                'messages' => config('status.status_code.424'),
+               'validator'=>$validator
+            ];
         }
         $data = $request->all();
         DB::beginTransaction();
