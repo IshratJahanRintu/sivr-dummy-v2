@@ -102,9 +102,9 @@ class SivrPageService
         if ($validator->fails()) {
             // Redirect back to the edit form with errors and old input
            return (object)[
-                'status' => '422',
+                'status' => '424',
                 'validator' => $validator,
-               'messages' => config('status.status_code.422'),
+               'messages' => config('status.status_code.424'),
             ];
         }
 

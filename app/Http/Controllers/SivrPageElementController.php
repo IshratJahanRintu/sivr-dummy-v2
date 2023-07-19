@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SivrPage;
 use App\Models\SivrPageElement;
 use App\Services\SivrPageElementService;
 use Illuminate\Http\Request;
@@ -22,37 +23,36 @@ class SivrPageElementController extends Controller
 
     public function index()
     {
-        //
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return  view('sivr.PageElements.create');
     }
 
 
     public function store(Request $request)
     {
 
-        $this->sivrPageElementService->createItem($request);
-        return redirect(route('sivr-pages.index'));
+      $result=  $this->sivrPageElementService->createItem($request);
+        if($result->status == 201){
+            session()->flash('success', 'Record '. $result->messages. ' successfully!');
+        }else{
+            session()->flash('error', 'Can not Create !');
+            return redirect()->route('sivr-page-elements.create')->withInput()->withErrors($result->validator??$result->error);
+
+        }
+        return redirect(route('sivr-page-elements.show',['sivr_page_element'=> session('sivrPage')]));
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+    public function show( SivrPage $sivr_page_element)
     {
-        //
+
+        return view('sivr.PageElements.index',['sivrPage'=>$sivr_page_element]);
     }
 
     /**

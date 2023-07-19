@@ -90,7 +90,7 @@
 
 <script defer src="{{asset('assets/js/vendors.min.js')}}"></script>
 <script defer src="{{asset('assets/js/main.js')}}"></script>
-<script src="{{asset('assets/js/nodes.js')}}"></script>
+<script type="module" src="{{asset('assets/js/custom.js')}}"></script>
 @yield('pagination')
 @yield('footerScript')
 </body>

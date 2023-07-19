@@ -7,6 +7,7 @@ use Exception;
 use http\Client\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class SivrPageElementService
 {
@@ -36,7 +37,30 @@ class SivrPageElementService
     public function createItem($request)
     {
 
+        $rules = [
+            'display_name_en'=>'required|max:50|string',
+            'display_name_bn'=>'required|max:50|string',
+            'page_id' => 'required|numeric',
+            'type' => 'required',
+            'background_color'=>'required' ,
+            'text_color'=>'required',
+            'element_order'=>'required|numeric|min:1',
+            'is_visible'=>'required|string|min:1|max:1',
+            'data_provider_function'=>'required|string|max:20' ,
+        ];
 
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+
+            // Redirect back to the edit form with errors and old input
+            return (object)[
+                'status' => '424',
+                'validator' => $validator,
+                'messages' => config('status.status_code.424'),
+            ];
+        }
         $data   = $request->all();
 
 //         return $data;

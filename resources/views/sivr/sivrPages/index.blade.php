@@ -16,16 +16,18 @@
                          ***********************************-->
                 <div id="contextMenu-{{$sivrPage->id}}" class="context-menu">
                     <ul class="list-group">
+
                         <li id="edit-option" class=""
                         ><a href="{{route("sivr-pages.edit", $sivrPage)}}"> <i class="ph-fill ph-pencil-simple"></i>
                                 Edit</a>
                         </li>
 
                         <li class=""  id="node-element-option"
-                            ><i class="ph-fill ph-circles-three-plus"></i>
-                            Node Element
+
+                            ><a href="{{route("sivr-page-elements.show",['sivr_page_element'=> $sivrPage])}}"><i class="ph-fill ph-circles-three-plus"></i>
+                            Node Element</a>
                         </li>
-                        <li class="" id="jsDeleteTreeConfirm"><i class="ph-fill ph-trash-simple"></i>
+                        <li  class="jsDeleteTreeConfirm"> <i class="ph-fill ph-trash-simple"></i>
                             Delete Tree
                         </li>
                     </ul>
@@ -172,122 +174,8 @@
             </div>
         </div>
 
-        <!--**********************************
-                 Modal For page Element
-         ***********************************-->
-        <div id="node-element-modal" class="modal fade" tabindex="-1" aria-lebeledby="node-element">
-
-        </div>
-
-        <!--**********************************
-      Add New Page Element Modal
- ***********************************-->
-        <div class="modal fade" id="addNewPageElement" aria-hidden="true" aria-labelledby="addNewPageElement"
-             tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Add New Page Element</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form method="POST" action="{{route("sivr-page-elements.store")}}">
-                        <div class="modal-body">
-
-                            <div class="add-new-page-element">
-
-                                @csrf
-                                <input type="text" name="page_id" id="page_element_add_page_id">
-                                <div class="form-group mb-2">
-                                    <label for="g-element-type">Element Type</label>
-                                    <select name="type" id="g-element-type" class="form-control">
-                                        <option value="button" selected>Button</option>
-                                        <option value="input">Input</option>
-                                        <option value="table">Table</option>
-                                    </select>
-                                </div>
-                                <div class="form-group mb-2">
-                                    <label for="g-element-order">Element Order</label>
-                                    <input class="form-control" type="number" name="element_order" id="g-element-order">
-                                </div>
-
-                                <div class="form-group mb-2">
-                                    <label for="g-element-text-en">Text (EN)</label>
-                                    <input class="form-control" type="text" name="display_name_en"
-                                           id="g-element-text-en">
-                                </div>
-
-                                <div class="form-group mb-2">
-                                    <label for="g-element-text-bn">Text (BN)</label>
-                                    <input class="form-control" type="text" name="display_name_bn"
-                                           id="g-element-text-bn">
-                                </div>
-
-                                <div class="d-flex justify-content-between">
-                                    <div class="form-group mb-2">
-                                        <label for="g-element-color">Text Color</label>
-                                        <input class="form-control" type="color" name="text_color" id="g-element-color">
-                                    </div>
-
-                                    <div class="form-group mb-2">
-                                        <label for="g-element-bg-color">Background Color</label>
-                                        <input class="form-control" type="color" name="background_color"
-                                               id="g-element-bg-color">
-                                    </div>
-                                </div>
-
-                                <div id="element-name-area" style="display: none">
-
-                                    <div class="form-group mb-2">
-                                        <label for="g-element-text-name">Element Name</label>
-                                        <input class="form-control" type="text" name="name" id="g-element-text-name">
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <label for="g-element-value">Element Value</label>
-                                        <input class="form-control" type="text" name="value" id="g-element-value">
-                                    </div>
-                                </div>
-
-                                <div id="no-row-column-area" style="display: none">
-
-                                    <div class="form-group mb-2">
-                                        <label for="g-element-no-rows">No Of Rows</label>
-                                        <input class="form-control" type="number" name="rows" id="g-element-no-rows">
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <label for="g-element-no-columns">No Of Columns</label>
-                                        <input class="form-control" type="number" name="" id="g-element-no-columns">
-                                    </div>
-
-                                </div>
-
-                                <div class="form-group mb-2">
-                                    <label for="g-element-visibility">Element Visibility</label>
-                                    <select name="is_visible" id="g-element-visibility" class="form-control">
-                                        <option value="Y">Visible</option>
-                                        <option value="N">Invisible</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group mb-2">
-                                    <label for="g-element-provider-function">Data Provider Function</label>
-                                    <input class="form-control" type="text" name="data_provider_function"
-                                           id="g-element-provider-function">
-                                </div>
 
 
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-success" type="submit">Save</button>
-                            <button class="btn btn-primary" data-bs-target="node-element-modal" data-bs-toggle="modal">
-                                Back
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
 
         <!--**********************************
 Edit  New Page Element Modal

@@ -66,7 +66,7 @@ class SivrPageController extends Controller
                 session()->flash('success', 'Record '. $result->messages. ' successfully!');
             }else{
                 session()->flash('error', 'Can not Create !');
-                return redirect()->route('sivr-pages.create')->withInput()->withErrors($result->validator);
+                return redirect()->route('sivr-pages.create')->withInput()->withErrors($result->validator??'');
 
             }
 
@@ -153,6 +153,7 @@ class SivrPageController extends Controller
         public
         function destroy(SivrPage $sivrPage)
         {
+
             $result = $this->sivrPageService->deleteItem($sivrPage);
 
             if($result->status == 209){
