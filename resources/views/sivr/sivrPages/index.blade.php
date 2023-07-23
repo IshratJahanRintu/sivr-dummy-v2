@@ -7,6 +7,7 @@
     <script>
         let sivrPagesJson = {!!   $sivrPagesJson !!};
     </script>
+    <main>
     <div class="g-page-content-area">
 
         <div class="g-page-content-main">
@@ -17,12 +18,12 @@
                 <div id="contextMenu-{{$sivrPage->id}}" class="context-menu">
                     <ul class="list-group">
 
-                        <li id="edit-option" class=""
+                        <li  class=""
                         ><a href="{{route("sivr-pages.edit", $sivrPage)}}"> <i class="ph-fill ph-pencil-simple"></i>
                                 Edit</a>
                         </li>
 
-                        <li class=""  id="node-element-option"
+                        <li class=""
 
                             ><a href="{{route("sivr-page-elements.show",['sivr_page_element'=> $sivrPage])}}"><i class="ph-fill ph-circles-three-plus"></i>
                             Node Element</a>
@@ -54,8 +55,8 @@
                                             <li id="add-option"><a href="{{route('sivr-pages.create')}}">
                                                     <i class="ph-fill ph-plus"></i> Add Branch
                                                 </a></li>
-                                            <li id="" class=""><i class="ph-fill ph-upload"></i> Upload
-                                                File
+                                            <li ><a href="{{ route('sivr-pages.upload-audio')}}"><i class="ph-fill ph-upload"></i> Upload
+                                                File</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -118,7 +119,7 @@
         <!--**********************************
       Modal For Audio File Upload
          ***********************************-->
-        <div class="modal fade" tabindex="-1" id="g-sivr-audio-upload-modal" aria-lebeledby="audiofileupload">
+        <div class="modal fade" tabindex="-1" id="g-sivr-audio-upload-modal" >
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content modal-lg">
                     <div class="modal-header">
@@ -174,121 +175,6 @@
             </div>
         </div>
 
-
-
-
-        <!--**********************************
-Edit  New Page Element Modal
-***********************************-->
-        <div class="modal fade" id="edit-page-element-modal" aria-hidden="true" aria-labelledby="addNewPageElement"
-             tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Add New Page Element</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form method="POST" id="edit-element-form"
-                          action="{{route("sivr-page-elements.update", ['sivr_page_element' => 'PAGE_ELEMENT'])}}">
-                        <div class="modal-body">
-
-                            <div class="edit-page-element">
-
-                                @csrf
-                                @method('PUT')
-                                <div class="form-group mb-2">
-                                    <label for="edit-element-type">Element Type</label>
-                                    <select name="type" id="edit-element-type" class="form-control">
-                                        <option value="button" selected>Button</option>
-                                        <option value="input">Input</option>
-                                        <option value="table">Table</option>
-                                    </select>
-                                </div>
-                                <div class="form-group mb-2">
-                                    <label for="edit-element-order">Element Order</label>
-                                    <input class="form-control" type="number" name="element_order"
-                                           id="edit-element-order">
-                                </div>
-
-                                <div class="form-group mb-2">
-                                    <label for="edit-element-text-en">Text (EN)</label>
-                                    <input class="form-control" type="text" name="display_name_en"
-                                           id="edit-element-text-en">
-                                </div>
-
-                                <div class="form-group mb-2">
-                                    <label for="edit-element-text-bn">Text (BN)</label>
-                                    <input class="form-control" type="text" name="display_name_bn"
-                                           id="edit-element-text-bn">
-                                </div>
-
-                                <div class="d-flex justify-content-between">
-                                    <div class="form-group mb-2">
-                                        <label for="edit-element-color">Text Color</label>
-                                        <input class="form-control" type="color" name="text_color"
-                                               id="edit-element-color">
-                                    </div>
-
-                                    <div class="form-group mb-2">
-                                        <label for="edit-element-bg-color">Background Color</label>
-                                        <input class="form-control" type="color" name="background_color"
-                                               id="edit-element-bg-color">
-                                    </div>
-                                </div>
-
-                                <div id="edit-element-name-area" style="display: none">
-
-                                    <div class="form-group mb-2">
-                                        <label for="edit-element-name">Element Name</label>
-                                        <input class="form-control" type="text" name="name" id="edit-element-name">
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <label for="edit-element-value">Element Value</label>
-                                        <input class="form-control" type="text" name="value" id="edit-element-value">
-                                    </div>
-                                </div>
-
-                                <div id="edit-no-row-column-area" style="display: none">
-
-                                    <div class="form-group mb-2">
-                                        <label for="edit-element-no-rows">No Of Rows</label>
-                                        <input class="form-control" type="number" name="rows" id="edit-element-no-rows">
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <label for="edit-element-no-columns">No Of Columns</label>
-                                        <input class="form-control" type="number" name="columns"
-                                               id="edit-element-no-columns">
-                                    </div>
-
-                                </div>
-
-                                <div class="form-group mb-2">
-                                    <label for="edit-element-visibility">Element Visibility</label>
-                                    <select name="is_visible" id="edit-element-visibility" class="form-control">
-                                        <option value="Y">Visible</option>
-                                        <option value="N">Invisible</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group mb-2">
-                                    <label for="edit-element-provider-function">Data Provider Function</label>
-                                    <input class="form-control" type="text" name="data_provider_function"
-                                           id="edit-element-provider-function">
-                                </div>
-
-
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-success" type="submit">Save</button>
-                            <button class="btn btn-primary" data-bs-target="node-element-modal" data-bs-toggle="modal">
-                                Back
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
+    </main>
 @endsection

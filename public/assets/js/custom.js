@@ -106,7 +106,7 @@ const deletePageForm = document.getElementById('delete-sivrPage-form');
 const deleteConfirmButton = document.getElementById('delete-confirm');
 const cancelButton = document.getElementById('delete-cancel');
 
-deleteTreeMenuItems.forEach(deleteTreeMenuItem=>{
+Array.from(deleteTreeMenuItems).forEach(deleteTreeMenuItem=>{
     deleteTreeMenuItem.addEventListener('click', () => {
         deleteToast.classList.toggle('d-none');
         const formAction = deletePageForm.getAttribute('action').replace(':sivrpageid', sivrPageId);
@@ -272,61 +272,3 @@ deleteTreeMenuItems.forEach(deleteTreeMenuItem=>{
 //
 //
 
-
-//
-// function populateEditElementForm(pageElementString) {
-//     const editElementForm = document.getElementById('edit-element-form')
-//     let pageElement = JSON.parse(pageElementString);
-//     console.log(pageElement.type);
-//     const elementType = document.getElementById('edit-element-type');
-//     const elementName = document.getElementById('edit-element-name');
-//     const elementValue = document.getElementById('edit-element-value');
-//     const elementRows = document.getElementById('edit-element-no-rows');
-//     const elementColumns = document.getElementById('edit-element-no-columns');
-//     const elementNames = document.getElementById('edit-element-name-area');
-//     const elementRowColumns = document.getElementById('edit-no-row-column-area');
-//     elementType.value = pageElement.type;
-//     document.getElementById('edit-element-order').value = pageElement.element_order;
-//     document.getElementById('edit-element-text-bn').value = pageElement.display_name_bn;
-//     document.getElementById('edit-element-text-en').value = pageElement.display_name_en;
-//     document.getElementById('edit-element-bg-color').value = pageElement.background_color;
-//     document.getElementById('edit-element-color').value = pageElement.text_color;
-//     document.getElementById('edit-element-visibility').value = pageElement.is_visible;
-//     document.getElementById('edit-element-provider-function').value = pageElement.data_provider_function;
-//
-//
-//     if (pageElement.type === 'table') {
-//         elementRows.value = pageElement.rows;
-//         elementColumns.value = pageElement.columns;
-//         elementRowColumns.style.display = 'block';
-//     } else if (pageElement.type === 'input') {
-//         elementName.value = pageElement.name;
-//         elementValue.value = pageElement.value;
-//         elementNames.style.display = 'block';
-//     }
-//     const formAction = editElementForm.getAttribute('action').replace('PAGE_ELEMENT', pageElement.id);
-//     editElementForm.setAttribute('action', formAction);
-//
-//     elementType.addEventListener('change', function () {
-//         const elementTypeValue = elementType.value;
-//         if (elementTypeValue === "input") {
-//             elementNames.style.display = "block";
-//             elementRowColumns.style.display = "none";
-//             elementRows.value = 0;
-//             elementColumns.value = 0;
-//
-//         } else if (elementTypeValue === "table") {
-//             elementNames.style.display = "none";
-//             elementRowColumns.style.display = "block";
-//             elementName.value = null;
-//             elementValue.value = null;
-//         } else if (elementTypeValue === "button") {
-//             elementNames.style.display = "none";
-//             elementRowColumns.style.display = "none";
-//             elementRows.value = 0;
-//             elementColumns.value = 0;
-//             elementName.value = null;
-//             elementValue.value = null;
-//         }
-//     })
-// }

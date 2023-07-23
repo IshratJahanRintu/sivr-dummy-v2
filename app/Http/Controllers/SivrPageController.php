@@ -36,9 +36,9 @@ class SivrPageController extends Controller
             return view('sivr.sivrPages.index', compact('sivrPages', 'allPages'));
 
         }
-        }
+    }
 
-    public function create( )
+    public function create()
     {
         $result = $this->sivrPageService->listItems();
 
@@ -51,122 +51,128 @@ class SivrPageController extends Controller
         }
     }
 
-        /**
-         * Store a newly created resource in storage.
-         *
-         * @param Request $request
-         *
-         */
-        public
-        function store(Request $request)
-        {
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     *
+     */
+    public
+    function store(Request $request)
+    {
 
-            $result = $this->sivrPageService->createItem($request);
-            if($result->status == 201){
-                session()->flash('success', 'Record '. $result->messages. ' successfully!');
-            }else{
-                session()->flash('error', 'Can not Create !');
-                return redirect()->route('sivr-pages.create')->withInput()->withErrors($result->validator??'');
-
-            }
-
-            return redirect(route('sivr-pages.index'));
-        }
-
-        public function saveAudio(Request $request)
-        {
-            $pageId = $request->page_id;
-            $sivrPage = SivrPage::find($pageId);
-            $audio_file_ban = $request->file('audio_file_ban');
-            $audio_file_en = $request->file('audio_file_en');
-
-            // Validate and store the audio files
-            if ($audio_file_ban && $audio_file_en) {
-                $path_ban = $audio_file_ban->storeAs('audio_files', $audio_file_ban->getClientOriginalName());
-                $path_en = $audio_file_en->storeAs('audio_files', $audio_file_en->getClientOriginalName());
-
-
-                // Save the file paths to the database
-                $updated = $sivrPage->update([
-                    'audio_file_ban' => $path_ban,
-                    'audio_file_en' => $path_en,
-                ]);
-                if ($updated) {
-
-                    return redirect()->back();
-                } else {
-                    echo "audio file upload failed";
-                }
-
-            }
-
-            return redirect()->back()->withErrors('Please upload both audio files.');
-        }
-
-
-        /**
-         * Display the specified resource.
-         *
-         * @param int $id
-         * @return Response
-         */
-        public
-        function show($id)
-        {
-            //
-        }
-
-        /**
-         * Show the form for editing the specified resource.
-         *
-         *
-         */
-        public
-        function edit(SivrPage $sivrPage)
-        {
-            return view('sivr.sivrPages.edit', compact('sivrPage'));
-        }
-
-
-        public
-        function update(Request $request, SivrPage $sivrPage)
-        {
-
-            $result =$this->sivrPageService->updateItem($request,$sivrPage);
-
-            if ($result->status == 208) {
-                session()->flash('success', 'Sivr Page '. $result->messages. ' successfully!');
-                return redirect(route('sivr-pages.index'));
-            } else {
-                session()->flash('error', 'Cannot Edit !');
-                return redirect()->route('sivr-pages.edit',$sivrPage)->withInput()->withErrors($result->validator);
-            }
-
+        $result = $this->sivrPageService->createItem($request);
+        if ($result->status == 201) {
+            session()->flash('success', 'Record ' . $result->messages . ' successfully!');
+        } else {
+            session()->flash('error', 'Can not Create !');
+            return redirect()->route('sivr-pages.create')->withInput()->withErrors($result->validator ?? '');
 
         }
 
-        /**
-         * Remove the specified resource from storage.
-         *
-         *
-         */
-        public
-        function destroy(SivrPage $sivrPage)
-        {
-
-            $result = $this->sivrPageService->deleteItem($sivrPage);
-
-            if($result->status == 209){
-
-                session()->flash('success', 'Record '. $result->messages. ' successfully!');
-
-            }else{
-
-                session()->flash('error', 'Can not Delete !');
-            }
-            return redirect(route('sivr-pages.index'));
-        }
+        return redirect(route('sivr-pages.index'));
     }
+
+    public function uploadAudio ()
+    {
+
+        return view('sivr.sivrPages.audioUpload');
+    }
+
+    public function saveAudio(Request $request)
+    {
+        $pageId = $request->page_id;
+        $sivrPage = SivrPage::find($pageId);
+        $audio_file_ban = $request->file('audio_file_ban');
+        $audio_file_en = $request->file('audio_file_en');
+
+        // Validate and store the audio files
+        if ($audio_file_ban && $audio_file_en) {
+            $path_ban = $audio_file_ban->storeAs('audio_files', $audio_file_ban->getClientOriginalName());
+            $path_en = $audio_file_en->storeAs('audio_files', $audio_file_en->getClientOriginalName());
+
+
+            // Save the file paths to the database
+            $updated = $sivrPage->update([
+                'audio_file_ban' => $path_ban,
+                'audio_file_en' => $path_en,
+            ]);
+            if ($updated) {
+
+                return redirect()->back();
+            } else {
+                echo "audio file upload failed";
+            }
+
+        }
+
+        return redirect()->back()->withErrors('Please upload both audio files.');
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id
+     * @return Response
+     */
+    public
+    function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     *
+     */
+    public
+    function edit(SivrPage $sivrPage)
+    {
+        return view('sivr.sivrPages.edit', compact('sivrPage'));
+    }
+
+
+    public
+    function update(Request $request, SivrPage $sivrPage)
+    {
+
+        $result = $this->sivrPageService->updateItem($request, $sivrPage);
+
+        if ($result->status == 208) {
+            session()->flash('success', 'Sivr Page ' . $result->messages . ' successfully!');
+            return redirect(route('sivr-pages.index'));
+        } else {
+            session()->flash('error', 'Cannot Edit !');
+            return redirect()->route('sivr-pages.edit', $sivrPage)->withInput()->withErrors($result->validator ?? $result->messages);
+        }
+
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     *
+     */
+    public
+    function destroy(SivrPage $sivrPage)
+    {
+
+        $result = $this->sivrPageService->deleteItem($sivrPage);
+
+        if ($result->status == 209) {
+
+            session()->flash('success', 'Record ' . $result->messages . ' successfully!');
+
+        } else {
+
+            session()->flash('error', 'Can not Delete !');
+        }
+        return redirect(route('sivr-pages.index'));
+    }
+}
 
 
 

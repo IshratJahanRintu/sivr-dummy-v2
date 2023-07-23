@@ -29,41 +29,35 @@ class SivrPageElementController extends Controller
 
     public function create()
     {
-        return  view('sivr.PageElements.create');
+        return view('sivr.PageElements.create');
     }
 
 
     public function store(Request $request)
     {
 
-      $result=  $this->sivrPageElementService->createItem($request);
-        if($result->status == 201){
-            session()->flash('success', 'Record '. $result->messages. ' successfully!');
-        }else{
+        $result = $this->sivrPageElementService->createItem($request);
+        if ($result->status == 201) {
+            session()->flash('success', 'Record ' . $result->messages . ' successfully!');
+        } else {
             session()->flash('error', 'Can not Create !');
-            return redirect()->route('sivr-page-elements.create')->withInput()->withErrors($result->validator??$result->error);
+            return redirect()->route('sivr-page-elements.create')->withInput()->withErrors($result->validator ?? $result->messages);
 
         }
-        return redirect(route('sivr-page-elements.show',['sivr_page_element'=> session('sivrPage')]));
+        return redirect(route('sivr-page-elements.show', ['sivr_page_element' => session('sivrPage')]));
     }
 
 
-
-    public function show( SivrPage $sivr_page_element)
+    public function show(SivrPage $sivr_page_element)
     {
 
-        return view('sivr.PageElements.index',['sivrPage'=>$sivr_page_element]);
+        return view('sivr.PageElements.index', ['sivrPage' => $sivr_page_element]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     *
-     */
-    public function edit($id)
+    public function edit(SivrPageElement $sivr_page_element)
     {
-        //
+
+        return view('sivr.PageElements.edit', compact('sivr_page_element'));
     }
 
     /**
@@ -74,10 +68,15 @@ class SivrPageElementController extends Controller
     public function update(Request $request, SivrPageElement $sivrPageElement)
     {
 
-        $updated =$this->sivrPageElementService->updateItem($request,$sivrPageElement);
-        if ($updated) {
-            return back();
+        $result = $this->sivrPageElementService->updateItem($request, $sivrPageElement);
+        if ($result->status == 208) {
+            session()->flash('success', 'Sivr Page Element'. $result->messages. ' successfully!');
+
+        } else {
+            session()->flash('error', 'Cannot Edit !');
+            return redirect()->route('sivr-page-elements.edit',['sivr_page_element' => $sivrPageElement])->withInput()->withErrors($result->validator??$result->error);
         }
+        return redirect(route('sivr-page-elements.show', ['sivr_page_element' => session('sivrPage')]));
     }
 
     /**
@@ -87,7 +86,15 @@ class SivrPageElementController extends Controller
      */
     public function destroy(SivrPageElement $sivrPageElement)
     {
-       $this->sivrPageElementService->deleteItem($sivrPageElement);
-        return redirect(route('sivr-pages.index'));
+       $result= $this->sivrPageElementService->deleteItem($sivrPageElement);
+        if($result->status == 209){
+
+            session()->flash('success', 'Record '. $result->messages. ' successfully!');
+
+        }else{
+
+            session()->flash('error', 'Can not Delete !');
+        }
+        return redirect(route('sivr-page-elements.show', ['sivr_page_element' => session('sivrPage')]));
     }
 }
