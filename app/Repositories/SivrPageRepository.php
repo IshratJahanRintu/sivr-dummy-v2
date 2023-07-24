@@ -64,12 +64,22 @@ class SivrPageRepository
     }
 
     public function storeAudio(array $data,SivrPage $sivrPage){
+
         $updated = $sivrPage->update([
-            'audio_file_ban' => $data['audio_file_ban'],
-            'audio_file_en' => $data['audio_file_en'],
+            'audio_file_ban' => $data['audio_file_ban']??$sivrPage->audio_file_ban,
+            'audio_file_en' => $data['audio_file_en']??$sivrPage->audio_file_en,
         ]);
 
         return $sivrPage;
+    }
+
+    public function deleteAudio(array $data, SivrPage $sivrPage)
+    {
+        if ($data['fileType'] === 'bangla') {
+            $sivrPage->update(['audio_file_ban' => null]);
+        } elseif ($data['fileType'] === 'english') {
+            $sivrPage->update(['audio_file_en' => null]);
+        }
     }
 
 }

@@ -17,3 +17,34 @@ function playAudio(url,index){
     document.getElementById('audioPlayer').load();
     document.getElementById('audioPlayer').play();
 }
+
+
+// delete audio functionalities
+let audioToDelete = null;
+let fileTypeToDelete = null;
+const    deleteAudioForm=document.getElementById('deleteAudioForm');
+const  deleteConfirmationModal= document.getElementById('deleteConfirmationModal');
+function openDeleteConfirmationModal(audioFile, fileType) {
+    audioToDelete = audioFile;
+    fileTypeToDelete = fileType;
+
+    deleteConfirmationModal.classList.add('active');
+}
+
+
+
+function closeDeleteConfirmationModal() {
+    deleteConfirmationModal.classList.remove('active');
+}
+function deleteAudio() {
+
+    // Fill the form inputs with the audio file and file type to delete
+    deleteAudioForm.elements.namedItem('audioFile').value = audioToDelete;
+    deleteAudioForm.elements.namedItem('fileType').value = fileTypeToDelete;
+
+    // Submit the form to delete the audio file
+    deleteAudioForm.submit();
+
+    // Hide the modal after form submission
+    deleteConfirmationModal.style.display = 'none';
+}

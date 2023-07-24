@@ -101,7 +101,7 @@ class SivrPageController extends Controller
 
        }
 
-        return redirect(route('sivr-pages.index'));
+        return redirect()->back();
     }
 
 
@@ -166,6 +166,22 @@ class SivrPageController extends Controller
             session()->flash('error', 'Can not Delete !');
         }
         return redirect(route('sivr-pages.index'));
+    }
+
+
+    public function deleteAudio(Request $request,SivrPage $sivrPage){
+        $result=$this->sivrPageService->deleteAudio($request,$sivrPage);
+        if ($result->status == 209) {
+
+            session()->flash('success', 'Record ' . $result->messages . ' successfully!');
+
+        } else {
+
+            session()->flash('error', 'Can not Delete Audio !');
+        }
+
+        return redirect()->back();
+
     }
 }
 

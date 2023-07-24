@@ -88,9 +88,10 @@ class SivrPageService
     public function storeAudio($request)
     {
 
+        $data=array();
         $rules = [
-            'audio_file_ban' => 'required|file|max:10240',
-            'audio_file_en' => 'required|file|max:10240',
+            'audio_file_ban' => 'file|max:10240',
+            'audio_file_en' => 'file|max:10240',
         ];
         $pageId = $request->audio_page_id;
         $sivrPage = SivrPage::find($pageId);
@@ -108,21 +109,34 @@ class SivrPageService
 
         $audio_file_ban = $request->file('audio_file_ban');
         $audio_file_en = $request->file('audio_file_en');
-        if ($audio_file_ban && $audio_file_en) {
-            if (strlen($audio_file_ban->getClientOriginalName()) > 30 || strlen($audio_file_en->getClientOriginalName()) > 30) {
+        if($audio_file_ban){
+           if( strlen($audio_file_ban->getClientOriginalName()) > 30 ){
+               return (object)[
+                   'status' => '424',
+                   'messages' => 'Audio file names should not exceed 25 characters.',
+                   'data' => $sivrPage,
+               ];
+           }
+            $path_ban = $audio_file_ban->storeAs('audio_files', $audio_file_ban->getClientOriginalName(), 'public');
+            $data['audio_file_ban'] = $path_ban;
+
+        }
+        if($audio_file_en){
+            if( strlen($audio_file_en->getClientOriginalName()) > 30 ){
                 return (object)[
                     'status' => '424',
                     'messages' => 'Audio file names should not exceed 25 characters.',
                     'data' => $sivrPage,
                 ];
             }
-            // Validate and store the audio files
-
-            $path_ban = $audio_file_ban->storeAs('audio_files', $audio_file_ban->getClientOriginalName(), 'public');
             $path_en = $audio_file_en->storeAs('audio_files', $audio_file_en->getClientOriginalName(), 'public');
-            $data['audio_file_ban'] = $path_ban;
+
             $data['audio_file_en'] = $path_en;
         }
+
+
+
+
         DB::beginTransaction();
 
         try {
@@ -295,6 +309,40 @@ class SivrPageService
             'status' => 209,
             'messages' => config('status.status_code.209'),
             'data' => $delete
+        ];
+
+    }
+
+    public function deleteAudio( $request, SivrPage $sivrPage)
+    {
+
+        $data = $request->all();
+        DB::beginTransaction();
+
+        try {
+
+            $this->sivrPageRepository->deleteAudio($data,$sivrPage);
+
+
+        } catch (Exception $e) {
+
+            DB::rollBack();
+            Log::error('Found Exception: ' . $e->getMessage() . ' [Script: ' . __CLASS__ . '@' . __FUNCTION__ . '] [Origin: ' . $e->getFile() . '-' . $e->getLine() . ']');
+
+            return (object)[
+                'status' => 424,
+                'messages' => config('status.status_code.424'),
+                'error' => $e->getMessage(),
+                'data' => $sivrPage,
+            ];
+        }
+
+        DB::commit();
+
+        return (object)[
+            'status' => 209,
+            'messages' => config('status.status_code.209'),
+            'data' => $sivrPage,
         ];
 
     }
