@@ -84,16 +84,84 @@ class SivrPageService
 //    }
 //
 //
+
+    public function storeAudio($request)
+    {
+
+        $rules = [
+            'audio_file_ban' => 'required|file|max:10240',
+            'audio_file_en' => 'required|file|max:10240',
+        ];
+        $pageId = $request->audio_page_id;
+        $sivrPage = SivrPage::find($pageId);
+
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            // Redirect back to the edit form with errors and old input
+            return (object)[
+                'status' => '424',
+                'validator' => $validator,
+                'messages' => config('status.status_code.424'),
+                'data' => $sivrPage,
+            ];
+        }
+
+        $audio_file_ban = $request->file('audio_file_ban');
+        $audio_file_en = $request->file('audio_file_en');
+        if ($audio_file_ban && $audio_file_en) {
+            if (strlen($audio_file_ban->getClientOriginalName()) > 30 || strlen($audio_file_en->getClientOriginalName()) > 30) {
+                return (object)[
+                    'status' => '424',
+                    'messages' => 'Audio file names should not exceed 25 characters.',
+                    'data' => $sivrPage,
+                ];
+            }
+            // Validate and store the audio files
+
+            $path_ban = $audio_file_ban->storeAs('audio_files', $audio_file_ban->getClientOriginalName(), 'public');
+            $path_en = $audio_file_en->storeAs('audio_files', $audio_file_en->getClientOriginalName(), 'public');
+            $data['audio_file_ban'] = $path_ban;
+            $data['audio_file_en'] = $path_en;
+        }
+        DB::beginTransaction();
+
+        try {
+
+            $result = $this->sivrPageRepository->storeAudio($data, $sivrPage);
+
+        } catch (Exception $e) {
+
+            DB::rollBack();
+            Log::error('Found Exception: ' . $e->getMessage() . ' [Script: ' . __CLASS__ . '@' . __FUNCTION__ . '] [Origin: ' . $e->getFile() . '-' . $e->getLine() . ']');
+
+            return (object)[
+                'status' => 424,
+                'messages' => config('status.status_code.424'),
+                'error' => $e->getMessage(),
+                'data' => $sivrPage,
+            ];
+        }
+
+        DB::commit();
+
+        return (object)[
+            'status' => 201,
+            'messages' => config('status.status_code.201'),
+            'data' => $sivrPage,
+        ];
+    }
+
+
     public function createItem($request)
     {
         $rules = [
             'vivr_id' => 'required|numeric',
             'page_heading_ban' => 'required|string|max:30|min:3',
-            'page_heading_en' =>  'required|string|max:30|min:3',
-            'task' =>'required|string|max:30|min:3',
-            'has_previous_menu' =>'required|string|max:1|min:1',
+            'page_heading_en' => 'required|string|max:30|min:3',
+            'task' => 'required|string|max:30|min:3',
+            'has_previous_menu' => 'required|string|max:1|min:1',
             'has_main_menu' => 'required|string|max:1|min:1',
-            'service_title_id' =>'required|numeric',
+            'service_title_id' => 'required|numeric',
         ];
 
 
@@ -101,10 +169,10 @@ class SivrPageService
 
         if ($validator->fails()) {
             // Redirect back to the edit form with errors and old input
-           return (object)[
+            return (object)[
                 'status' => '424',
                 'validator' => $validator,
-               'messages' => config('status.status_code.424'),
+                'messages' => config('status.status_code.424'),
             ];
         }
 
@@ -146,11 +214,11 @@ class SivrPageService
         $rules = [
             'vivr_id' => 'required|numeric',
             'page_heading_ban' => 'required|string|max:30|min:3',
-            'page_heading_en' =>  'required|string|max:30|min:3',
-            'task' =>'required|string|max:30|min:3',
-            'has_previous_menu' =>'required|string|max:1|min:1',
+            'page_heading_en' => 'required|string|max:30|min:3',
+            'task' => 'required|string|max:30|min:3',
+            'has_previous_menu' => 'required|string|max:1|min:1',
             'has_main_menu' => 'required|string|max:1|min:1',
-            'service_title_id' =>'required|numeric',
+            'service_title_id' => 'required|numeric',
         ];
 
 
@@ -161,7 +229,7 @@ class SivrPageService
             return (object)[
                 'status' => 424,
                 'messages' => config('status.status_code.424'),
-               'validator'=>$validator
+                'validator' => $validator
             ];
         }
         $data = $request->all();

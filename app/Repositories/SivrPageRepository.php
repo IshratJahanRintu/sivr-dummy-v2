@@ -19,27 +19,7 @@ class SivrPageRepository
 
     }
 
-//    public function getMaxId()
-//    {
-//
-//        return SocialMedia::max('id');
-//
-//    }
-//
-//    public function show($id)
-//    {
-//
-//        return SocialMedia::findorfail($id);
-//
-//    }
-//
-//    public function getPageInfo($id)
-//    {
-//
-//        return SocialMedia::where('page_id', $id)->first();
-//
-//    }
-//
+
     public function create(array $data)
     {
 
@@ -57,8 +37,7 @@ class SivrPageRepository
         ]);
         return $data['parent_page_id'];
     }
-//
-//
+
     public function update(array $data, SivrPage $sivrPage)
     {
         $updated = $sivrPage->update([
@@ -84,8 +63,13 @@ class SivrPageRepository
 
     }
 
-    public function storeAudio(array $data){
+    public function storeAudio(array $data,SivrPage $sivrPage){
+        $updated = $sivrPage->update([
+            'audio_file_ban' => $data['audio_file_ban'],
+            'audio_file_en' => $data['audio_file_en'],
+        ]);
 
+        return $sivrPage;
     }
 
 }
