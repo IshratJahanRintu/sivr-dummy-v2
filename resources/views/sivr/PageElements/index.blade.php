@@ -45,20 +45,19 @@
                                     </a>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
-                                            data-bs-target="#upload-tab-pane-{{$pageElement->id}}"
-                                            type="button" role="tab"
-                                            aria-controls="upload-tab-pane-{{$pageElement->id}}" aria-selected="false">
+                                    <a href="{{url("/page-elements/upload-menu-icon",['pageElement' => $pageElement])}}"> <button class="nav-link"
+                                    >
                                         <i
                                             class="ph-fill ph-upload"></i> Upload Menu Icon
-                                    </button>
+                                        </button></a>
                                 </li>
 
 
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link delete-page-element-btn" data-page-element-id="{{$pageElement->id}}" type="button"
+                                    <button class="nav-link delete-page-element-btn"
+                                            data-page-element-id="{{$pageElement->id}}" type="button"
 
-                                           aria-selected="false">
+                                            aria-selected="false">
                                         <i
                                             class="ph-fill ph-trash-simple"></i> Delete
                                     </button>
@@ -150,7 +149,9 @@
             <div class="toast-body">
                 <h6>Are you sure you want to delete the node?</h6>
                 <div class="pt-2 border-top">
-                    <form id="delete-page-element-form" action="{{ route('sivr-page-elements.destroy', ['sivr_page_element' => ':pageElementId']) }}" method="POST">
+                    <form id="delete-page-element-form"
+                          action="{{ route('sivr-page-elements.destroy', ['sivr_page_element' => ':pageElementId']) }}"
+                          method="POST">
                         @csrf
                         @method('DELETE')
                         <button id="page-delete-confirm" type="submit" class="btn btn-primary btn-sm text-white">Confirm
@@ -164,5 +165,5 @@
         </div>
 
     </main>
-    <script  src="{{asset('assets/js/page-element-index.js')}}"></script>
+    <script src="{{asset('assets/js/page-element-index.js')}}"></script>
 @endsection

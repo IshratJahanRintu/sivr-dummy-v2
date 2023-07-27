@@ -129,4 +129,76 @@
     transform: scale(1);
 }
 
+.menu-icon-label {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
 
+.menu-icon-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-icon-container h5 {
+    text-align: center;
+    margin-bottom: 15px;
+    width: 112%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.125);
+}
+
+.icon-preview {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.icon-image-container {
+    position: relative;
+    width: 100px; /* Adjust the width and height as per your design */
+    height: 100px; /* Adjust the width and height as per your design */
+    background-size: cover;
+    background-position: center;
+    background-color: #f2f2f2; /* Set a background color as a fallback for the image */
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.icon-label {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.icon-image-container::after {
+    content: "No icon Uploaded";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: Black;
+    font-size: 15px;
+    font-weight: bold;
+    display: none;
+}
+
+.icon-image-container.icon-label-empty::after {
+    display: block; /* Show the "Icon Not Found" text when the image is not found */
+}
+
+.icon-image-container img {
+    display: none;
+}
+
+.icon-image-container img[src] {
+    display: block;
+}

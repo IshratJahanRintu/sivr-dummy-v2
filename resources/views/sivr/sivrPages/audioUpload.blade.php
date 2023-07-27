@@ -1,9 +1,5 @@
-@php use Illuminate\Support\Facades\Storage; @endphp
 @extends('layout.app')
-
-
 @section('content')
-
     <main class="g-page-wrap">
 
         <div class="g-page-content-area mt-2 mt-md-4">
@@ -22,7 +18,6 @@
                                         <div class="card-header bg-secondary">
                                             <div class="d-flex justify-content-between">
                                                 <h5 class="text-white mb-0"> Audio Upload Form </h5>
-
                                             </div>
                                         </div>
                                         <div class="card-body">
@@ -84,7 +79,7 @@
                                                     <ul id="audioList">
                                                         <li @if($sivrPage->audio_file_ban)
                                                                 onclick="playAudio('{{ asset('storage/'.$sivrPage->audio_file_ban) }}',0)"
-                                                        @endif >
+                                                            @endif >
                                                             Bangla Audio
                                                             file:{{$sivrPage->audio_file_ban??'No File Uploaded'}}
 

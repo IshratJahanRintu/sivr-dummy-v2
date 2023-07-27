@@ -4,14 +4,17 @@ namespace App\Services;
 
 use App\Models\SivrPage;
 use App\Repositories\SivrPageRepository;
+use App\Traits\FileUploadTrait;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class SivrPageService
 {
-
+use FileUploadTrait;
     protected $sivrPageRepository;
 
     public function __construct()
@@ -52,47 +55,16 @@ class SivrPageService
             'data' => $listing
         ];
     }
-//
-//    public function showItem($id)
-//    {
-//
-//        DB::beginTransaction();
-//
-//        try{
-//
-//            $clientInfo = $this->agentRepository->show($id);
-//
-//        }catch (Exception $e) {
-//
-//            DB::rollBack();
-//            Log::error('Found Exception: ' . $e->getMessage() . ' [Script: ' . __CLASS__ . '@' . __FUNCTION__ . '] [Origin: ' . $e->getFile() . '-' . $e->getLine() . ']');
-//
-//            return (object)[
-//                'status'            => 424,
-//                'messages'          => config('status.status_code.424'),
-//                'error'             => $e->getMessage()
-//            ];
-//        }
-//
-//        DB::commit();
-//
-//        return (object)[
-//            'status'                => 200,
-//            'messages'              => config('status.status_code.200'),
-//            'data'                  => $clientInfo,
-//        ];
-//    }
-//
-//
+
 
     public function storeAudio($request)
     {
-
-        $data=array();
+        $data = [];
         $rules = [
             'audio_file_ban' => 'file|max:10240',
             'audio_file_en' => 'file|max:10240',
         ];
+
         $pageId = $request->audio_page_id;
         $sivrPage = SivrPage::find($pageId);
 
@@ -106,45 +78,41 @@ class SivrPageService
                 'data' => $sivrPage,
             ];
         }
+        function validateLength($maxLength, $file)
+        {
+            return strlen($file->getClientOriginalName()) <= $maxLength;
+        }
+
 
         $audio_file_ban = $request->file('audio_file_ban');
         $audio_file_en = $request->file('audio_file_en');
-        if($audio_file_ban){
-           if( strlen($audio_file_ban->getClientOriginalName()) > 30 ){
-               return (object)[
-                   'status' => '424',
-                   'messages' => 'Audio file names should not exceed 25 characters.',
-                   'data' => $sivrPage,
-               ];
-           }
-            $path_ban = $audio_file_ban->storeAs('audio_files', $audio_file_ban->getClientOriginalName(), 'public');
-            $data['audio_file_ban'] = $path_ban;
-
-        }
-        if($audio_file_en){
-            if( strlen($audio_file_en->getClientOriginalName()) > 30 ){
+        if ($audio_file_ban) {
+          if(validateLength(30, $audio_file_ban))  {$this->uploadAndStoreFile($audio_file_ban, 'audio_file_ban', 'audio_files', $data);}
+            else{
                 return (object)[
                     'status' => '424',
                     'messages' => 'Audio file names should not exceed 25 characters.',
                     'data' => $sivrPage,
                 ];
             }
-            $path_en = $audio_file_en->storeAs('audio_files', $audio_file_en->getClientOriginalName(), 'public');
-
-            $data['audio_file_en'] = $path_en;
         }
-
-
+        if ($audio_file_en) {
+            if(validateLength(30, $audio_file_en))  {$this->uploadAndStoreFile($audio_file_en, 'audio_file_en', 'audio_files', $data);}
+            else{
+                return (object)[
+                    'status' => '424',
+                    'messages' => 'Audio file names should not exceed 25 characters.',
+                    'data' => $sivrPage,
+                ];
+            }
+        }
 
 
         DB::beginTransaction();
 
         try {
-
-            $result = $this->sivrPageRepository->storeAudio($data, $sivrPage);
-
+        $this->sivrPageRepository->storeAudio($data, $sivrPage);
         } catch (Exception $e) {
-
             DB::rollBack();
             Log::error('Found Exception: ' . $e->getMessage() . ' [Script: ' . __CLASS__ . '@' . __FUNCTION__ . '] [Origin: ' . $e->getFile() . '-' . $e->getLine() . ']');
 
@@ -313,16 +281,25 @@ class SivrPageService
 
     }
 
-    public function deleteAudio( $request, SivrPage $sivrPage)
+    public function deleteAudio($request, SivrPage $sivrPage)
     {
 
         $data = $request->all();
-        DB::beginTransaction();
+        function deleteAudioFile($filename)
+        {
+            $filePath = 'public/' . $filename;
+            if (Storage::exists($filePath)) {
+                Storage::delete($filePath);
+            } else {
+                dd('File not found');
+            }
+        }
 
+        DB::beginTransaction();
         try {
 
-            $this->sivrPageRepository->deleteAudio($data,$sivrPage);
-
+            $this->sivrPageRepository->deleteAudio($data, $sivrPage);
+            deleteAudioFile($data['audioFile']);
 
         } catch (Exception $e) {
 

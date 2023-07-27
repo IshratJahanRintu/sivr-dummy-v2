@@ -97,4 +97,22 @@ class SivrPageElementController extends Controller
         }
         return redirect(route('sivr-page-elements.show', ['sivr_page_element' => session('sivrPage')]));
     }
+
+    public function uploadMenuIcon(SivrPageElement $pageElement){
+   return view('sivr.pageElements.menuIconUpload',compact('pageElement'));
+}
+
+public function storeMenuIcon(Request $request){
+
+    $result=$this->sivrPageElementService->storeMenuIcon($request);
+    if ($result->status == 201) {
+        session()->flash('success', 'Menu icon uploaded successfully!');
+    } else {
+        session()->flash('error', 'Can not upload menu icon!');
+        return redirect()->back()->withErrors($result->validator ?? $result->messages)->withInput();
+
+    }
+
+    return redirect()->back();
+}
 }

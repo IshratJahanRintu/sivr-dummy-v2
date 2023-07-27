@@ -22,6 +22,7 @@ protected  $fillable=[
     'columns',
     'is_visible',
     'data_provider_function' ,
+    'menu_icon',
 ];
     public function sivrPage(){
         return $this->belongsTo(SivrPage::class,'page_id');

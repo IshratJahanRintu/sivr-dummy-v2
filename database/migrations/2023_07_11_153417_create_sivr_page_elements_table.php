@@ -29,6 +29,7 @@ class CreateSivrPageElementsTable extends Migration
             $table->integer('columns');
             $table->char('is_visible', 1)->default('Y');
             $table->text('data_provider_function');
+            $table->text('menu_icon')->nullable();
             $table->timestamps();
         });
     }

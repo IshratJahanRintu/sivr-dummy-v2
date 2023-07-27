@@ -59,13 +59,13 @@ class SivrPageRepository
     public function deleteItem(SivrPage $sivrPage)
     {
 
-       return $sivrPage->forceDelete();
+        return $sivrPage->forceDelete();
 
     }
 
     public function storeAudio(array $data,SivrPage $sivrPage){
 
-        $updated = $sivrPage->update([
+         $sivrPage->update([
             'audio_file_ban' => $data['audio_file_ban']??$sivrPage->audio_file_ban,
             'audio_file_en' => $data['audio_file_en']??$sivrPage->audio_file_en,
         ]);

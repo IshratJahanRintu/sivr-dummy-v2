@@ -2,15 +2,19 @@
 
 namespace App\Services;
 
+use App\Models\SivrPageElement;
 use App\Repositories\SivrPageElementRepository;
+use App\Traits\FileUploadTrait;
 use Exception;
-use http\Client\Request;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class SivrPageElementService
 {
+    use FileUploadTrait;
     protected $sivrPageElementRepository;
 
     public function __construct()
@@ -97,7 +101,7 @@ class SivrPageElementService
         $rules = [
             'display_name_en'=>'required|max:50|string',
             'display_name_bn'=>'required|max:50|string',
-         
+
             'type' => 'required',
             'background_color'=>'required' ,
             'text_color'=>'required',
@@ -188,4 +192,65 @@ class SivrPageElementService
 
     }
 
-}
+    public function storeMenuIcon( $request)
+    {
+        $data = [];
+        $rules = [
+            'menu_icon' => 'file|max:10240|required',
+
+        ];
+
+        $pageElementId = $request->page_element_id;
+        $pageElement = SivrPageElement::find($pageElementId);
+
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            // Redirect back to the edit form with errors and old input
+            return (object)[
+                'status' => '424',
+                'validator' => $validator,
+                'messages' => config('status.status_code.424'),
+                'data' => $pageElement,
+            ];
+        }
+
+        $menu_icon = $request->file('menu_icon');
+
+        if ($menu_icon) {
+          $this->uploadAndStoreFile($menu_icon, 'menu_icon','menu_icons', $data);}
+
+
+
+
+        DB::beginTransaction();
+
+        try {
+            $pageElement = $this->sivrPageElementRepository->storeAudio($data, $pageElement);
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::error('Found Exception: ' . $e->getMessage() . ' [Script: ' . __CLASS__ . '@' . __FUNCTION__ . '] [Origin: ' . $e->getFile() . '-' . $e->getLine() . ']');
+
+            return (object)[
+                'status' => 424,
+                'messages' => config('status.status_code.424'),
+                'error' => $e->getMessage(),
+                'data' => $pageElement,
+            ];
+        }
+
+        DB::commit();
+
+        return (object)[
+            'status' => 201,
+            'messages' => config('status.status_code.201'),
+            'data' => $pageElement,
+        ];
+
+        }
+
+
+
+    }
+
+
+

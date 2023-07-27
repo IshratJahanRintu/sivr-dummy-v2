@@ -7,18 +7,6 @@ use App\Models\SivrPageElement;
 class SivrPageElementRepository
 {
 
-    public function listing()
-    {
-
-    }
-
-    public function show($id)
-    {
-
-
-    }
-
-
     public function create(array $data)
     {
 
@@ -74,6 +62,15 @@ class SivrPageElementRepository
     {
 
        return $sivrPageElement->forceDelete();
+    }
+
+    public function storeAudio(array $data,SivrPageElement $pageElement)
+    {
+        $pageElement->update([
+            'menu_icon' => $data['menu_icon'],
+
+        ]);
+        return $pageElement;
     }
 
 }

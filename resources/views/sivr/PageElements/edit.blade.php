@@ -19,7 +19,7 @@
                                     <div class="card">
                                         <div class="card-header bg-secondary">
                                             <div class="d-flex justify-content-between">
-                                                <h5 class="text-white mb-0"> Edit Form</h5>
+                                                <h5 class="text-white mb-0">Page element edit Form</h5>
 
                                             </div>
                                         </div>

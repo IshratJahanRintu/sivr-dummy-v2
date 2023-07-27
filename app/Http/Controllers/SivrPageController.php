@@ -93,13 +93,13 @@ class SivrPageController extends Controller
     public function saveAudio(Request $request)
     {
         $result=$this->sivrPageService->storeAudio($request);
-       if ($result->status == 201) {
+        if ($result->status == 201) {
             session()->flash('success', 'Audio uploaded successfully!');
         } else {
             session()->flash('error', 'Can not Upload Audio!');
-           return redirect()->back()->withErrors($result->validator ?? $result->messages)->withInput();
+            return redirect()->back()->withErrors($result->validator ?? $result->messages)->withInput();
 
-       }
+        }
 
         return redirect()->back();
     }
@@ -184,10 +184,4 @@ class SivrPageController extends Controller
 
     }
 }
-
-
-
-
-
-
 
