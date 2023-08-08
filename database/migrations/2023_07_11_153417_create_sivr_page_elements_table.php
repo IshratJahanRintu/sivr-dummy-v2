@@ -22,7 +22,8 @@ class CreateSivrPageElementsTable extends Migration
             $table->text('display_name_en');
             $table->char('background_color', 7);
             $table->char('text_color', 7);
-            $table->text('name');
+            $table->text('name')->nullable();
+            $table->json('element_properties')->nullable();
             $table->text('value')->nullable();
             $table->integer('element_order');
             $table->integer('rows');

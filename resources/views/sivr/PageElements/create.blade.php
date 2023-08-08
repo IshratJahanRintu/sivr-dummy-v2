@@ -1,4 +1,3 @@
-
 @extends('layout.app')
 
 
@@ -44,48 +43,13 @@
 
                                                         <input type="hidden" name="page_id"
                                                                id="page_element_add_page_id" value="{{$sivrPage->id}}">
-                                                        <div class="form-group col-md-4 mb-3">
-                                                            <label for="g-element-type">Element Type</label>
-                                                            <select name="type" id="g-element-type"
-                                                                    class="form-control">
-                                                                <option value="button" {{ old('type') == 'button' ? 'selected' : '' }}>
-                                                                    Button
-                                                                </option>
-                                                                <option value="input"{{ old('type') == 'input' ? 'selected' : '' }}>Input</option>
-                                                                <option value="table"{{ old('type') == 'table' ? 'selected' : '' }}>Table</option>
-                                                            </select>
-                                                        </div>
-                                                        <div id="element-name-area" style="display: none">
-                                                            <div class="form-group col-md-4 mb-3">
-                                                                <label for="g-element-text-name">Element Name</label>
-                                                                <input class="form-control" type="text" name="name"
-                                                                       id="g-element-text-name" value="{{old('name')}}">
-                                                            </div>
-                                                            <div class="form-group col-md-4 mb-3">
-                                                                <label for="g-element-value">Element Value</label>
-                                                                <input class="form-control" type="text" name="value"
-                                                                       id="g-element-value" value="{{old('value')}}">
-                                                            </div>
-                                                        </div>
-                                                        <div id="no-row-column-area" style="display: none">
-                                                            <div class="form-group col-md-4 mb-3">
-                                                                <label for="g-element-no-rows">No Of Rows</label>
-                                                                <input class="form-control" type="number" name="rows"
-                                                                       id="g-element-no-rows" value="{{old('rows')}}">
-                                                            </div>
-                                                            <div class="form-group col-md-4 mb-3">
-                                                                <label for="g-element-no-columns">No Of Columns</label>
-                                                                <input class="form-control" type="number" name="columns"
-                                                                       id="g-element-no-columns"
-                                                                       value="{{old('columns')}}">
-                                                            </div>
-                                                        </div>
+
 
                                                         <div class="form-group col-md-4 mb-3">
                                                             <label for="g-element-order">Element Order</label>
                                                             <input class="form-control" type="number"
                                                                    name="element_order" id="g-element-order"
-                                                                   value="{{old('element_order')}}">
+                                                                   value="{{old('element_order',1)}}" min="1">
                                                         </div>
 
                                                         <div class="form-group col-md-4 mb-3">
@@ -118,14 +82,40 @@
                                                                    id="g-element-bg-color"
                                                                    value="{{old('background_color')}}">
                                                         </div>
-
+                                                        <div class="form-group col-md-4 mb-3">
+                                                            <label for="name">Element Name:</label>
+                                                            <input class="form-control" type="text"
+                                                                   name="name"
+                                                                   id="name"
+                                                                   value="{{old('name')}}">
+                                                        </div>
+                                                        <div class="form-group col-md-4 mb-3">
+                                                            <label for="rows">Number of rows:</label>
+                                                            <input class="form-control" type="number"
+                                                                   name="rows"
+                                                                   id="rows"
+                                                                   value="{{old('rows')}}">
+                                                        </div>
+                                                        <div class="form-group col-md-4 mb-3">
+                                                            <label for="columns">Number of columns:</label>
+                                                            <input class="form-control" type="number"
+                                                                   name="columns"
+                                                                   id="columns"
+                                                                   value="{{old('columns')}}">
+                                                        </div>
 
                                                         <div class="form-group col-md-4 mb-3">
                                                             <label for="g-element-visibility">Element Visibility</label>
                                                             <select name="is_visible" id="g-element-visibility"
                                                                     class="form-control">
-                                                                <option value="Y" {{ old('is_visible') == 'Y' ? 'selected' : '' }}>Visible</option>
-                                                                <option value="N" {{ old('is_visible') == 'N' ? 'selected' : '' }}>Invisible</option>
+                                                                <option
+                                                                    value="Y" {{ old('is_visible') == 'Y' ? 'selected' : '' }}>
+                                                                    Visible
+                                                                </option>
+                                                                <option
+                                                                    value="N" {{ old('is_visible') == 'N' ? 'selected' : '' }}>
+                                                                    Invisible
+                                                                </option>
                                                             </select>
                                                         </div>
 
@@ -138,7 +128,42 @@
                                                                    value="{{old('data_provider_function')}}">
                                                         </div>
 
+                                                        <div class="form-group col-md-4 mb-3">
+                                                            <label for="g-element-type">Element Type</label>
+                                                            <select name="type" id="g-element-type"
+                                                                    class="form-control">
+                                                                <option
+                                                                    value="button" >
+                                                                    Button
+                                                                </option>
+                                                                <option
+                                                                    value="paragraph" >
+                                                                    Paragraph
+                                                                </option>
+                                                                <option
+                                                                    value="hyperlink" >
+                                                                    Hyperlink
+                                                                </option>
 
+                                                                <option
+                                                                    value="table">
+                                                                    Table
+                                                                </option>
+                                                                <option
+                                                                    value="input">
+                                                                    Input
+                                                                </option>
+                                                                <option
+                                                                    value="compare_api">
+                                                                    Compare Api
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="g-create-form">
+                                                            <div id="element-wise-value" class="row">
+
+                                                            </div>
+                                                        </div>
                                                     </div>
 
                                                     <div class="row">
@@ -167,5 +192,5 @@
         </div>
 
     </main>
-    <script type="module" src="{{asset('assets/js/page-element-create.js')}}"></script>
+    <script type="module" src="{{asset('assets/js/page-element.js')}}"></script>
 @endsection

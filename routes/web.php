@@ -34,19 +34,21 @@ Route::resource('permissions', PermissionController::class);
 Route::resource('agent', AgentController::class);
 Route::resource('social-platform', SocialPlatformController::class);
 Route::resource('webhook-log', WebHookController::class);
-Route::resource('sivr-pages', SivrPageController::class);
-Route::resource('sivr-page-elements', SivrPageElementController::class);
-Route::get('upload-audio/{sivrPage?}', [SivrPageController::class, 'uploadAudio']);
-
-Route::post('/sivr-pages/delete-audio/{sivrPage}', [SivrPageController::class, 'deleteAudio']);
-//Route::get('/sivr-pages/upload-audio', [SivrPageController::class, 'uploadAudio'])->name('sivr-pages.upload-audio');
-Route::post('/sivr-pages/save-audio', [SivrPageController::class, 'saveAudio'])->name('sivr-pages.save-audio');
-Route::get('/page-elements/upload-menu-icon/{pageElement}',[SivrPageElementController::class,'uploadMenuIcon']);
-Route::post('/page-elements/store-menu-icon',[SivrPageElementController::class,'storeMenuIcon']);
 Route::get('fb-page-webhook', [WebHookController::class, 'webHook']);
 Route::post('fb-page-webhook', [WebHookController::class, 'fbPageWebHookData']);
 Route::post('instagram-webhook', [WebHookController::class, 'instagramWebHookData']);
 Route::post('whatsapp-webhook', [WebHookController::class, 'whatsAppWebHookData']);
 
+
+///////////Routes for sivr //////////
+
+Route::resource('sivr-pages', SivrPageController::class);
+Route::resource('sivr-page-elements', SivrPageElementController::class);
+Route::get('upload-audio/{sivrPage?}', [SivrPageController::class, 'uploadAudio']);
+Route::post('/sivr-pages/delete-audio/{sivrPage}', [SivrPageController::class, 'deleteAudio']);
+//Route::get('/sivr-pages/upload-audio', [SivrPageController::class, 'uploadAudio'])->name('sivr-pages.upload-audio');
+Route::post('/sivr-pages/save-audio', [SivrPageController::class, 'saveAudio'])->name('sivr-pages.save-audio');
+Route::get('/page-elements/upload-menu-icon/{pageElement}',[SivrPageElementController::class,'uploadMenuIcon']);
+Route::post('/page-elements/store-menu-icon',[SivrPageElementController::class,'storeMenuIcon']);
 /* API */
 // Route::get('api/v1/getAccount/{id}', [AccountController::class, 'getAccount']);

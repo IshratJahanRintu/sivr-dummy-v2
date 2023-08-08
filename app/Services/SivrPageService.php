@@ -14,7 +14,8 @@ use Illuminate\Support\Str;
 
 class SivrPageService
 {
-use FileUploadTrait;
+    use FileUploadTrait;
+
     protected $sivrPageRepository;
 
     public function __construct()
@@ -83,12 +84,12 @@ use FileUploadTrait;
             return strlen($file->getClientOriginalName()) <= $maxLength;
         }
 
-
         $audio_file_ban = $request->file('audio_file_ban');
         $audio_file_en = $request->file('audio_file_en');
         if ($audio_file_ban) {
-          if(validateLength(30, $audio_file_ban))  {$this->uploadAndStoreFile($audio_file_ban, 'audio_file_ban', 'audio_files', $data);}
-            else{
+            if (validateLength(30, $audio_file_ban)) {
+                $this->uploadAndStoreFile($audio_file_ban, 'audio_file_ban', 'audio_files', $data);
+            } else {
                 return (object)[
                     'status' => '424',
                     'messages' => 'Audio file names should not exceed 25 characters.',
@@ -97,8 +98,9 @@ use FileUploadTrait;
             }
         }
         if ($audio_file_en) {
-            if(validateLength(30, $audio_file_en))  {$this->uploadAndStoreFile($audio_file_en, 'audio_file_en', 'audio_files', $data);}
-            else{
+            if (validateLength(30, $audio_file_en)) {
+                $this->uploadAndStoreFile($audio_file_en, 'audio_file_en', 'audio_files', $data);
+            } else {
                 return (object)[
                     'status' => '424',
                     'messages' => 'Audio file names should not exceed 25 characters.',
@@ -107,11 +109,10 @@ use FileUploadTrait;
             }
         }
 
-
         DB::beginTransaction();
 
         try {
-        $this->sivrPageRepository->storeAudio($data, $sivrPage);
+            $this->sivrPageRepository->storeAudio($data, $sivrPage);
         } catch (Exception $e) {
             DB::rollBack();
             Log::error('Found Exception: ' . $e->getMessage() . ' [Script: ' . __CLASS__ . '@' . __FUNCTION__ . '] [Origin: ' . $e->getFile() . '-' . $e->getLine() . ']');
@@ -133,7 +134,6 @@ use FileUploadTrait;
         ];
     }
 
-
     public function createItem($request)
     {
         $rules = [
@@ -145,7 +145,6 @@ use FileUploadTrait;
             'has_main_menu' => 'required|string|max:1|min:1',
             'service_title_id' => 'required|numeric',
         ];
-
 
         $validator = Validator::make($request->all(), $rules);
 
@@ -159,9 +158,6 @@ use FileUploadTrait;
         }
 
         $data = $request->all();
-
-
-//         return $data;
 
         DB::beginTransaction();
 
@@ -323,6 +319,5 @@ use FileUploadTrait;
         ];
 
     }
-
 
 }

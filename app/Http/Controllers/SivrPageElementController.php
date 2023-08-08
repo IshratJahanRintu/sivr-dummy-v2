@@ -9,11 +9,7 @@ use Illuminate\Http\Request;
 
 class SivrPageElementController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     protected $sivrPageElementService;
 
     function __construct()
@@ -74,7 +70,7 @@ class SivrPageElementController extends Controller
 
         } else {
             session()->flash('error', 'Cannot Edit !');
-            return redirect()->route('sivr-page-elements.edit',['sivr_page_element' => $sivrPageElement])->withInput()->withErrors($result->validator??$result->error);
+            return redirect()->route('sivr-page-elements.edit',['sivr_page_element' => $sivrPageElement])->withInput()->withErrors($result->validator??$result->errors);
         }
         return redirect(route('sivr-page-elements.show', ['sivr_page_element' => session('sivrPage')]));
     }

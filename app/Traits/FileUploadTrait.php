@@ -3,7 +3,6 @@
 namespace App\Traits;
 
 
-
 use Illuminate\Support\Str;
 
 
@@ -20,7 +19,6 @@ trait FileUploadTrait
         return $filename;
     }
 
-
     protected function uploadAndStoreFile($file, $fieldName, $folderName, &$data)
     {
         if ($file) {
@@ -29,7 +27,5 @@ trait FileUploadTrait
             $data[$fieldName] = $path;
         }
     }
-
-
 
 }

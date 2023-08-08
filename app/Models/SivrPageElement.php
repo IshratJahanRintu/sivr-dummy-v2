@@ -23,8 +23,13 @@ protected  $fillable=[
     'is_visible',
     'data_provider_function' ,
     'menu_icon',
+    'element_properties',
 ];
     public function sivrPage(){
         return $this->belongsTo(SivrPage::class,'page_id');
     }
+    public function  compareApis(){
+        return $this->hasMany(SivrApiCompare::class,'element_id');
+    }
+
 }

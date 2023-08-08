@@ -100,7 +100,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Element Name :</td>
-                                                <td>{{$pageElement->name}}</td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>Element Value :</td>
