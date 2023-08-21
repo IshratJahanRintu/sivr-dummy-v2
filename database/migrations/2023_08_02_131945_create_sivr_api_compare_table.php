@@ -10,13 +10,17 @@ class CreateSivrApiCompareTable extends Migration
     {
         Schema::create('sivr_api_compare', function (Blueprint $table) {
             $table->id();
-            $table->char('page_id', 10)->default('');
-            $table->char('element_id', 10)->default('');
-            $table->text('api_key');
-            $table->char('comparison', 3)->default('');
+            $table->unsignedBigInteger('page_id')->nullable();
+            $table->unsignedBigInteger('element_id')->nullable();
+            $table->foreign('page_id')->on('sivr_pages')->references('id')->cascadeOnDelete();
+            $table->foreign('element_id')->on('sivr_page_elements')->references('id')->cascadeOnDelete();
+            $table->text('api_key')->nullable();
+            $table->char('comparison', 3)->nullable();
             $table->text('key_value');
             $table->text('transfer_option');
-            $table->char('transfer_page_id', 10)->default('');
+            $table->char('transfer_page_id', 10)->nullable();
+            $table->char('goto_page_id', 10)->nullable();
+            $table->char('back_page_id', 10)->nullable();
             $table->timestamps();
         });
     }

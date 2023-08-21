@@ -29,7 +29,13 @@
     <link rel="stylesheet" href="{{ asset('assets/css/vendors.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}">
     <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
-{{--    <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}"></script>--}}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+
+    {{--    <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}"></script>--}}
     <style>
         .g-box-area {
         height: 300px;

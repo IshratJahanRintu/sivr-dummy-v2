@@ -2,9 +2,14 @@
 @section('content')
     @php
         $pageElements=$sivrPage->pageElements;
+        $children=$sivrPage->children;
+
         session(['sivrPage'=>$sivrPage])@endphp
 
-
+    <script >
+        let children ={!! $children->toJson() !!};
+        console.log(children);
+    </script>
 
     <main class="g-page-wrap">
 
@@ -100,7 +105,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Element Name :</td>
-                                                <td></td>
+                                                <td>{{$pageElement->name}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Element Value :</td>

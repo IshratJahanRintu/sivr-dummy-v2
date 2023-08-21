@@ -69,28 +69,8 @@ Array.from(nodes).forEach(function (element) {
     });
 
 });
-/**
- *************
- * *********** ADD FUNCTIONALITIES **********************
- * ***********
- * */
 
-//add variables
-// const addOption = document.getElementById('add-option');
-// const parentIdInput = document.getElementById('add-parent-page-id');
 
-//Event listener for add option
-// addOption.addEventListener('click', function () {
-//
-//    console.log(clickedElement);
-//     if (clickedElement != null) {
-//         parentIdInput.value = sivrPageId;
-//
-//
-//     }
-//
-//
-// });
 
 
 /**

@@ -25,7 +25,7 @@ class SivrPageRepository
 
         SivrPage::query()->create([
 
-            'parent_page_id' => $data['parent_page_id'],
+            'parent_page_id' => $data['parent_page_id']??null,
             'vivr_id' => $data['vivr_id'],
             'page_heading_ban' => $data['page_heading_ban'],
             'page_heading_en' => $data['page_heading_en'],
@@ -35,7 +35,7 @@ class SivrPageRepository
             'service_title_id' => $data['service_title_id'],
 
         ]);
-        return $data['parent_page_id'];
+
     }
 
     public function update(array $data, SivrPage $sivrPage)

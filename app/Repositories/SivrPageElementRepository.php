@@ -37,13 +37,16 @@ class SivrPageElementRepository
 
 
                 SivrApiCompare::query()->create([
-                    'page_id' => $data['page_id'],
-                    'element_id' => $element_id,
-                    'api_key' => $data['compare_api_key'],
-                    'comparison' => $data['compare_api_comparison'][$i],
-                    'key_value' => $data['compare_api_key_value'][$i],
-                    'transfer_page_id' => $data['compare_api_transfer_page_id'][$i],
+                    'page_id' => $data['page_id']??null,
+                    'element_id' => $element_id??null,
+                    'api_key' => $data['compare_api_key'][$i]??null,
+                    'comparison' => $data['compare_api_comparison'][$i]??null,
+                    'key_value' => $data['compare_api_key_value'][$i]??null,
+                    'transfer_page_id' => $data['compare_api_transfer_page_id'][$i]??null,
                     'transfer_option' => $data['compare_api_transfer_options'][$i],
+                    'goto_page_id'=>$data['compare_api_goto_page_id'][$i]??null,
+                    'back_page_id'=>$data['compare_api_back_page_id'][$i]??null,
+
                 ]);
             }
 
@@ -65,7 +68,6 @@ class SivrPageElementRepository
             'background_color' => $data['background_color'],
             'text_color' => $data['text_color'],
             'name' => $data['name'],
-
             'element_order' => $data['element_order'],
             'rows' => $data['rows'] ?? 0,
             'columns' => $data['columns'] ?? 0,
@@ -79,16 +81,18 @@ class SivrPageElementRepository
             $sivrPageElement->compareApis()->delete();
             for ($i = 0; $i < $data['compare_count']; $i++) {
 
-
                 SivrApiCompare::query()->create([
-                    'page_id' => $sivrPageElement->page_id,
 
-                    'element_id' => $sivrPageElement->id,
-                    'api_key' => $data['compare_api_key'],
-                    'comparison' => $data['compare_api_comparison'][$i],
-                    'key_value' => $data['compare_api_key_value'][$i],
-                    'transfer_page_id' => $data['compare_api_transfer_page_id'][$i],
-                    'transfer_option' => $data['compare_api_transfer_options'][$i],
+                    'page_id' => $sivrPageElement->page_id,
+                    'element_id' => $sivrPageElement->id??null,
+                    'api_key' => $data['compare_api_key'][$i]??null,
+                    'comparison' => $data['compare_api_comparison'][$i]??null,
+                    'key_value' => $data['compare_api_key_value'][$i]??null,
+                    'transfer_page_id' => $data['compare_api_transfer_page_id'][$i]??null,
+                    'goto_page_id'=>$data['compare_api_goto_page_id'][$i]??null,
+                    'transfer_option' => $data['compare_api_transfer_options'][$i]??null,
+                    'back_page_id'=>$data['compare_api_back_page_id'][$i]??null,
+
                 ]);
             }
 
@@ -103,7 +107,7 @@ class SivrPageElementRepository
         return $sivrPageElement->forceDelete();
     }
 
-    public function storeAudio(array $data, SivrPageElement $pageElement)
+    public function storeIcon(array $data, SivrPageElement $pageElement)
     {
         $pageElement->update([
             'menu_icon' => $data['menu_icon'],

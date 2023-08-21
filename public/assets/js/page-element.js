@@ -2,7 +2,7 @@
  * @script For Element Type Dropdown Toggle in page element add form
  */
 let elementProperties = null;
-
+let children=null;
 if (typeof pageElement !== 'undefined') {
     console.log(pageElement);
 
@@ -10,18 +10,21 @@ if (typeof pageElement !== 'undefined') {
     console.log(elementProperties);
 
 }
+if (typeof sivrPage!=="undefined"){
+    console.log(sivrPage);
+  children=sivrPage.children;
+  console.log(children);
+}
 
 
 // Function to remove all child elements of a specific container
 function removeAllChildren(containerId) {
-    var container = document.getElementById(containerId);
+    let container = document.getElementById(containerId);
     container.innerHTML = '';
 }
 function removeLastField(container) {
     if (container.lastChild) {
         container.removeChild(container.lastChild);
-
-
 
     }
 }
@@ -29,6 +32,12 @@ function removeLastField(container) {
 // Create a map of selected values to corresponding functions
 let valueToFunctionMap = {
     button: createInputFieldsForButton,
+    navigation_dynamic:createInputFieldsForDynamicNavigationButton,
+    confirm:createInputFieldsForConfirmButton,
+    resend:createInputFieldsForResendButton,
+    static:createInputFieldsForStaticButtonTitle,
+    api:createInputFieldsForDynamicButtonTitle,
+
     paragraph: createInputFieldsForParagraph,
     hyperlink: createInputFieldsForHyperlink,
     table: createInputFieldsForTable,
@@ -52,31 +61,55 @@ let valueToFunctionMap = {
 };
 
 function createInputFieldsForButton(containerId) {
-    let type = '';
-    let value = '';
-    let apiKey = '';
-    let apiDataComparison = '';
-    let apiDataCalculation = '';
-    let transferOption = '';
+    let type = 'navigation_static';
+    // let value = '';
+    // let apiKey = '';
+    // let apiDataComparison = '';
+    // let apiDataCalculation = '';
+    let transferOption = 'redirect';
     let transferPageId = '';
+    let gotoPageId='';
+    let backPageId='';
+    let buttonTitleEn='';
+    let buttonTitleBan='';
     if (elementProperties) {
         type = elementProperties.button_type ?? '';
-        value = elementProperties.button_value ?? '';
-        apiKey = elementProperties.button_api_keys ?? '';
-        apiDataComparison = elementProperties.button_api_data_comparison ?? '';
-        apiDataCalculation = elementProperties.button_api_data_calculation ?? '';
-        transferOption = elementProperties.button_transfer_options ?? '';
+        // value = elementProperties.button_value ?? '';
+        // apiKey = elementProperties.button_api_keys ?? '';
+        // apiDataComparison = elementProperties.button_api_data_comparison ?? '';
+        // apiDataCalculation = elementProperties.button_api_data_calculation ?? '';
+        transferOption = elementProperties.button_transfer_options ?? 'redirect';
         transferPageId = elementProperties.button_transfer_page_id ?? '';
+        gotoPageId= elementProperties.button_goto_page_id ?? '';
+        backPageId= elementProperties.button_back_page_id ?? '';
 
 
     }
-
+    // <div class="form-group col-md-4 mb-3">
+    //     <label for="button-value">Value:</label>
+    //     <input class="form-control" type="text" name="button_value" id="button-value" value="${value}">
+    // </div>
+    // <div class="form-group col-md-4 mb-3">
+    //     <label for="button-api-keys">Api keys:</label>
+    //     <input class="form-control" type="text" name="button_api_keys" id="button-api-keys" value="${apiKey}">
+    // </div>
+    // <div class="form-group col-md-4 mb-3">
+    //     <label for="button-api-data-comparison">API Data Comparison:</label>
+    //     <input class="form-control" type="text" name="button_api_data_comparison" id="button-api-data-comparison" value="${apiDataComparison}">
+    // </div>
+    // <div class="form-group col-md-4 mb-3">
+    //     <label for="button-api-data-calculation">API Data Calculation:</label>
+    //     <input class="form-control" type="text" name="button_api_data_calculation" id="button-api-data-calculation" value="${apiDataCalculation}">
+    // </div>
     document.getElementById(containerId).innerHTML = `<div class="form-group col-md-4 mb-3">
                                                             <label for="button-type">Button Type:</label>
                                                             <select name="button_type" id="button-type"
                                                                     class="form-control">
-                                                                <option value="navigation" ${type === 'navigation' ? 'selected' : ''}>
-                                                                        Navigation
+                                                                <option value="navigation_static" ${type === 'navigation_static' ? 'selected' : ''}>
+                                                                        Navigation Static
+                                                                </option>
+                                                                <option value="navigation_dynamic" ${type === 'navigation_dynamic' ? 'selected' : ''}>
+                                                                        Navigation Dynamic
                                                                 </option>
                                                                 <option value="submit" ${type === 'submit' ? 'selected' : ''}>
                                                                     Submit
@@ -89,21 +122,14 @@ function createInputFieldsForButton(containerId) {
 
                                                             </select>
                                                             </div>
-                                                            <div class="form-group col-md-4 mb-3">
-                                                                <label for="button-value">Value:</label>
-                                                                <input class="form-control" type="text" name="button_value" id="button-value" value="${value}">
+
                                                             </div>
-                                                            <div class="form-group col-md-4 mb-3">
-                                                                <label for="button-api-keys">Api keys:</label>
-                                                                <input class="form-control" type="text" name="button_api_keys" id="button-api-keys" value="${apiKey}">
+                                                            <div class="g-create-form">
+
+                                                             <div id="button-type-wise-value" class="row ">
                                                             </div>
-                                                            <div class="form-group col-md-4 mb-3">
-                                                                <label for="button-api-data-comparison">API Data Comparison:</label>
-                                                                <input class="form-control" type="text" name="button_api_data_comparison" id="button-api-data-comparison" value="${apiDataComparison}">
-                                                            </div>
-                                                            <div class="form-group col-md-4 mb-3">
-                                                                <label for="button-api-data-calculation">API Data Calculation:</label>
-                                                                <input class="form-control" type="text" name="button_api_data_calculation" id="button-api-data-calculation" value="${apiDataCalculation}">
+                                                            <div class="row" id="button-title-container">
+
                                                             </div>
                                                             <div class="form-group col-md-4 mb-3">
                                                                 <label for="button-transfer-options">Transfer options:</label>
@@ -115,34 +141,218 @@ function createInputFieldsForButton(containerId) {
                                                             <div id="button-transfer-type-element">
 
 
-                                                            </div>`;
-    createElementsForTransferPageId(transferOption ?? 'redirect', 'button-transfer-type-element', transferPageId);
+                                                            </div>
+`;
+    createInputFieldsForStaticButtonTitle();
+    let createInitialInputFields=valueToFunctionMap[type];
+if(createInitialInputFields){
+    createInitialInputFields('button-type-wise-value');
+}
+
+    document.getElementById('button-type').addEventListener('change',function () {
+        createInputFieldsForStaticButtonTitle();
+        let selectedValue=this.value;
+        containerId='button-type-wise-value';
+        removeAllChildren(containerId);
+        // Get the function for the selected value from the map
+        let createInputFieldsFunction = valueToFunctionMap[selectedValue];
+
+        if (createInputFieldsFunction) {
+            // Call the function to create the new input fields
+            createInputFieldsFunction(containerId);
+
+        }
+
+    })
+    createElementsForTransferPageId(transferOption, 'button-transfer-type-element',transferOption==='redirect'? transferPageId:gotoPageId,backPageId);
     document.getElementById('button-transfer-options').addEventListener('change', function () {
         let selectedValue = this.value;
         let containerId = "button-transfer-type-element";
         removeAllChildren(containerId);
-        createElementsForTransferPageId(selectedValue, containerId, transferPageId);
+        createElementsForTransferPageId(selectedValue, containerId, selectedValue==='redirect'? transferPageId:gotoPageId,backPageId);
 
     });
 }
+function createInputFieldsForDynamicNavigationButton(containerId) {
+    let titleType = 'static';
 
-function createElementsForTransferPageId(selectedValue, containerId, transferPageId) {
+
+
+    if (elementProperties) {
+        titleType = elementProperties.button_title_type ?? 'static';
+
+
+
+    }
+    document.getElementById(containerId).innerHTML = ` <div class="form-group col-md-4 mb-3">
+                                                                <label for="button-title-type">Title type:</label>
+                                                                <select class="form-control"  name="button_title_type" id="button-title-type">
+                                                                    <option value="api" ${titleType === 'api' ? 'selected' : ''}>Api</option>
+                                                                    <option value="static" ${titleType === 'static' ? 'selected' : ''}>Static</option>
+                                                                </select>
+                                                            </div>
+
+
+
+
+
+
+`;
+
+let createInitialButtonTitle=valueToFunctionMap[titleType];
+if(createInitialButtonTitle){
+    createInitialButtonTitle();
+}
+document.getElementById('button-title-type').addEventListener('change',function(){
+    let selectedValue=this.value;
+    let createButtonTitle=valueToFunctionMap[selectedValue];
+    if(createButtonTitle){
+        createButtonTitle();
+    }
+    })
+
+}
+
+function createInputFieldsForStaticButtonTitle(){
+    let buttonTitleEn='';
+    let buttonTitleBan='';
+    if (elementProperties) {
+        buttonTitleEn = elementProperties.button_title_english ?? '';
+        buttonTitleBan=elementProperties.button_title_bangla??'';
+    }
+    document.getElementById('button-title-container').innerHTML=`
+
+
+                                                               <div class="form-group col-md-4 mb-3" id="button-title-english">
+                                                                   <label for="button-title-en">Button Title(EN):</label>
+                                                                   <input type="text" class="form-control"  name="button_title_english" id="button-title-en" value="${buttonTitleEn}">
+
+                                                               </div>
+                                                                <div class="form-group col-md-4 mb-3"  id="button-title-bangla">
+                                                                   <label for="button-title-ban">Button Title(BN):</label>
+                                                                   <input type="text" class="form-control"  name="button_title_bangla" id="button-title-ban" value="${buttonTitleBan}">
+
+                                                               </div>`;
+}
+function createInputFieldsForDynamicButtonTitle(){
+    let buttonValueApiKey='';
+    let buttonTitleEn='';
+    let buttonTitleBan='';
+    if (elementProperties) {
+        buttonValueApiKey = elementProperties.button_value_api_key ?? '';
+        buttonTitleEn = elementProperties.button_api_title_english ?? '';
+        buttonTitleBan=elementProperties.button_api_title_bangla??'';
+    }
+    document.getElementById('button-title-container').innerHTML=`
+                                                            <div class="form-group col-md-4 mb-3">
+                                                                <label for="button-value-api-key">Button value Api Key:</label>
+                                                                <input type="text" class="form-control"  name="button_value_api_key" id="button-value-api-key" value="${buttonValueApiKey}">
+
+                                                            </div><div class="form-group col-md-4 mb-3" >
+                                                                <label for="button-api-title-en">Button Api Title Key(EN):</label>
+                                                                <input type="text" class="form-control"  name="button_api_title_english" id="button-api-title-en" value="${buttonTitleEn}">
+
+                                                            </div>
+                                                             <div class="form-group col-md-4 mb-3"  >
+                                                                <label for="button-api-title-ban">Button Api Title Key(BN):</label>
+                                                                <input type="text" class="form-control"  name="button_api_title_bangla" id="button-api-title-ban" value="${buttonTitleBan}">
+
+                                                            </div>`;
+}
+function createInputFieldsForConfirmButton(containerId) {
+   let buttonConfirmationMessageEnglish='';
+let buttonConfirmationMessageBangla='';
+    if (elementProperties) {
+        buttonConfirmationMessageEnglish = elementProperties.button_confirmation_message_english ?? '';
+        buttonConfirmationMessageBangla=elementProperties.button_confirmation_message_bangla??'';
+    }
+
+    document.getElementById(containerId).innerHTML = `<div class="form-group col-md-4 mb-3">
+                                                                <label for="button-confirmation-message-en">Button Confirmation Message (EN):</label>
+                                                                <input type="text" class="form-control"  name="button_confirmation_message_english" id="button-confirmation-message-en" value="${buttonConfirmationMessageEnglish}">
+
+                                                            </div>
+                                                             <div class="form-group col-md-4 mb-3">
+                                                                <label for="button-confirmation-message-ban">Button Confirmation Message (BAN):</label>
+                                                                <input type="text" class="form-control"  name="button_confirmation_message_bangla" id="button-confirmation-message-ban" value="${buttonConfirmationMessageBangla}">
+
+                                                            </div>
+
+
+
+`;
+
+
+}
+
+function createInputFieldsForResendButton(containerId) {
+    let OtpResendMessageEnglish='';
+    let OtpResendMessageBangla='';
+    let otpResendTime=1;
+    if (elementProperties) {
+        OtpResendMessageEnglish = elementProperties.button_otp_resend_message_english ?? '';
+        OtpResendMessageBangla=elementProperties.button_otp_resend_message_bangla??'';
+        otpResendTime=elementProperties.button_otp_resend_time??1;
+    }
+
+    document.getElementById(containerId).innerHTML = `<div class="form-group col-md-4 mb-3">
+                                                                <label for="button-otp-resend-message-en">OTP Resend Message (EN):</label>
+                                                                <input type="text" class="form-control"  name="button_otp_resend_message_english" id="button-otp-resend-message-en" value="${OtpResendMessageEnglish}">
+
+                                                            </div>
+                                                             <div class="form-group col-md-4 mb-3">
+                                                                <label for="button-otp-resend-message-ban">OTP Resend Confirmation Message (BAN):</label>
+                                                                <input type="text" class="form-control"  name="button_otp_resend_message_bangla" id="button-otp-resend-message-ban" value="${OtpResendMessageBangla}">
+
+                                                            </div>
+                                                             <div class="form-group col-md-4 mb-3">
+                                                                <label for="otp-resend-time">OTP Resend Time (Minute):</label>
+                                                                <input type="number" class="form-control"  name="button_otp_resend_time" id="otp-resend-time" value="${otpResendTime}">
+
+                                                            </div>
+
+
+
+`;
+
+
+}
+function createElementsForTransferPageId(selectedValue, containerId, pageId,backPageId) {
+
     if (selectedValue === 'redirect') {
-        document.getElementById(containerId).innerHTML = ` <div class="form-group col-md-4 mb-3">
+        let optionsHtml='';
+        if (children){
+             optionsHtml=children.map(page=>`<option value="${page.id}" ${pageId == page.id ? 'selected' : ''} >${page.page_heading_en}</option>`).join('')
+
+        }
+       document.getElementById(containerId).innerHTML = ` <div class="form-group col-md-4 mb-3">
                                                                 <label for="button-redirect-to">Transfer page id:</label>
                                                                 <select class="form-control"  name="button_transfer_page_id" id="button-redirect-to">
-                                                                   <option value="1" ${transferPageId === '1' ? 'selected' : ''} >Pin generation and card activation</option>
-                                                                    <option value="2" ${transferPageId === '2' ? 'selected' : ''}>Account Services</option>
-                                                                    <option value="3" ${transferPageId === '3' ? 'selected' : ''}>Credit card service</option>
-                                                                    <option value="4" ${transferPageId === '4' ? 'selected' : ''}>Bill payment</option>
+                                                                    ${optionsHtml}
+
                                                                 </select>
                                                             </div>`;
     }
     if (selectedValue === 'goto') {
+        let optionsHtml='';
+        let backOptionsHtml='';
+        if (typeof allPages!=="undefined"){
+         optionsHtml=allPages.map(page=>`<option value="${page.id}" ${pageId == page.id ? 'selected' : ''} >${page.page_heading_en}</option>`).join('')
+            backOptionsHtml=allPages.map(page=>`<option value="${page.id}" ${backPageId == page.id ? 'selected' : ''} >${page.page_heading_en}</option>`).join('')
+        }
         document.getElementById(containerId).innerHTML = ` <div class="form-group col-md-4 mb-3">
                                                                 <label for="button-go-to">Go to:</label>
-                                                                <input class="form-control" type="text" name="button_transfer_page_id" id="button-go-to" value="${transferPageId}">
-                                                            </div>`;
+                                                                <select class="form-control"  name="button_goto_page_id" id="button-go-to">
+                                                                    ${optionsHtml}
+
+                                                                </select>
+                                                            </div>
+ <div class="form-group col-md-4 mb-3">
+               <label for="button-back-page-id">Back page id:</label>
+              <select class="form-control"  name="button_back_page_id" id="button-back-page-id" >
+             <option value="" <option value="" selected>No Page</option>
+
+             ${backOptionsHtml}</select>`;
     }
 }
 
@@ -287,27 +497,19 @@ function createInputFieldsForCompareApi(containerId) {
     let createdElements = [];
     let count = 1;
 
-    let apiKey = '';
+
 
     if (elementProperties && elementProperties.compare_count) {
         count = elementProperties.compare_count;
     }
-    if (typeof compareApis!=='undefined' && compareApis.length!==0 ) {
 
-        apiKey = compareApis[0]['api_key'];
-
-
-    }
 
     document.getElementById(containerId).innerHTML = `
         <div class="form-group col-md-4 mb-3">
             <label for="compare-count">Compare Count:</label>
             <input class="form-control" name="compare_count" id="compare-count" type="number" min="1" max="10" value="${count}">
         </div>
-        <div class="form-group col-md-4 mb-3">
-            <label for="compare-api-key">Api key:</label>
-            <input class="form-control" type="text" name="compare_api_key" id="compare-api-key" value="${apiKey}">
-        </div>
+
         <div class="g-create-form">
             <div id="compare-api-elements"></div>
         </div>`;
@@ -348,24 +550,33 @@ function createCompareApiElements(containerId, createdElements, countValue) {
 
 
     function addField(index, container) {
-        let keyValue = '';
+        let keyValue ='';
         let comparison = '';
-        let apiDataCalculation = '';
+        let apiDataCalculation ='';
         let transferOption = null;
-        let transferPageId = '';
-        if (typeof compareApis!=='undefined' && compareApis.length!==0) {
-            keyValue = compareApis[index-1]['key_value'];
-            comparison = compareApis[index-1]['comparison'];
+        let pageId = '';
+        let apiKey='';
+let backPageId='';
+        if (typeof compareApis!=='undefined' && compareApis.length!==0 && compareApis[index-1]) {
+            apiKey=compareApis[index-1]['api_key']??'';
+            keyValue = compareApis[index-1]['key_value']??'';
+            comparison =compareApis[index-1]['comparison']??'';
 
-            transferOption=compareApis[index-1]['transfer_option'];
-            transferPageId = compareApis[index-1]['transfer_page_id'];
+            transferOption=compareApis[index-1]['transfer_option']??'';
+            pageId = compareApis[index-1]['transfer_page_id']??compareApis[index-1]['goto_page_id']??'';
+            backPageId = compareApis[index-1]['back_page_id']??'';
+
         }
         console.log(container);
         let containerDiv = document.createElement('div');
         containerDiv.classList.add("container-fluid", "border", "border-secondary-subtle", "rounded", "mb-3", "p-3");
         containerDiv.innerHTML = `<div class="form-group  mb-3">
             <label for="compare-api-comparison-${index}" id="compare-api-comparison-label-${index}">Comparison ${index}:</label>
-            <input class="form-control" type="text" name="compare_api_comparison[]" id="compare-api-comparison-${index}" value="${comparison}">
+            <input class="form-control" type="text" name="compare_api_comparison[]" id="compare-api-comparison-${index}" value="${comparison}" maxlength="3">
+        </div>
+        <div class="form-group  mb-3">
+            <label for="compare-api-key-${index}">Api key ${index}:</label>
+            <input class="form-control" type="text" name="compare_api_key[]" id="compare-api-key-${index}" value="${apiKey}">
         </div>
         <div class="form-group  mb-3">
             <label for="compare-api-key-value-${index}" id="compare-api-key-value-label-${index}">Key value ${index}:</label>
@@ -388,34 +599,51 @@ function createCompareApiElements(containerId, createdElements, countValue) {
         let transferOptionId = "compare-api-transfer-options-" + index;
         let transferTypeContainerId = "compare-transfer-type-element-" + index;
 
-        createCompareTransferTypeElements(transferOption??'redirect',transferTypeContainerId,transferPageId,index);
+        createCompareTransferTypeElements(transferOption??'redirect',transferTypeContainerId,pageId,backPageId,index);
         console.log(transferOptionId);
         document.getElementById(transferOptionId).addEventListener('change', function () {
             let selectedValue = this.value;
             removeAllChildren(transferTypeContainerId);
-            createCompareTransferTypeElements(selectedValue,transferTypeContainerId,transferPageId,index);
+            createCompareTransferTypeElements(selectedValue,transferTypeContainerId,pageId,backPageId,index);
         });
     }
 
 
 }
 
-function createCompareTransferTypeElements(selectedValue,transferTypeContainerId,transferPageId,index) {
+function createCompareTransferTypeElements(selectedValue,transferTypeContainerId,pageId,backPageId,index) {
     if (selectedValue === 'redirect') {
+
+            let optionsHtml='';
+            if (children){
+                optionsHtml=children.map(page=>`<option value="${page.id}" ${pageId == page.id ? 'selected' : ''} >${page.page_heading_en}</option>`).join('')
+
+            }
         document.getElementById(transferTypeContainerId).innerHTML = `<div class="form-group  mb-3">
                     <label for="compare-api-transfer-page-id-${index}">Transfer page id:</label>
                     <select class="form-control" name="compare_api_transfer_page_id[]" id="compare-api-transfer-page-id-${index}">
-                        <option value="1" ${transferPageId==='1'?'selected':''}>Pin generation and card activation</option>
-                        <option value="2" ${transferPageId==='2'?'selected':''}>Account Services</option>
-                        <option value="3" ${transferPageId==='3'?'selected':''}>Credit card service</option>
-                        <option value="4" ${transferPageId==='4'?'selected':''}>Bill payment</option>
+                       ${optionsHtml}
                     </select>
                 </div>`;
     }
     if (selectedValue === 'goto') {
+        let gotoOptionsHtml='';
+        let backOptionsHtml='';
+        if (typeof allPages!=="undefined"){
+            gotoOptionsHtml=allPages.map(page=>`<option value="${page.id}" ${pageId == page.id ? 'selected' : ''} >${page.page_heading_en}</option>`).join('')
+            backOptionsHtml=allPages.map(page=>`<option value="${page.id}" ${backPageId == page.id ? 'selected' : ''} >${page.page_heading_en}</option>`).join('')
+        }
+
         document.getElementById(transferTypeContainerId).innerHTML = ` <div class="form-group  mb-3">
                     <label for="compare-api-goto-page-id-${index}">Goto page id:</label>
-                    <input class="form-control" type="text" name="compare_api_transfer_page_id[]" id="compare-api-goto-page-id-${index}" value="${transferPageId}">
+                    <select class="form-control"  name="compare_api_goto_page_id[]" id="compare-api-goto-page-id-${index}" > ${gotoOptionsHtml}</select>
+                </div>
+ <div class="form-group  mb-3">
+               <label for="compare-api-back-page-id-${index}">Back page id:</label>
+              <select class="form-control"  name="compare_api_back_page_id[]" id="compare-api-back-page-id-${index}" >
+             <option value="" <option value="" selected>No Page</option>
+
+             ${backOptionsHtml}</select>
                 </div>`;
     }
 }

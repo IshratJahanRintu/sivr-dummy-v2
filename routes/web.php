@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\SivrPageController;
 use App\Http\Controllers\SivrPageElementController;
+use App\Http\Controllers\VivrController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
@@ -50,5 +51,7 @@ Route::post('/sivr-pages/delete-audio/{sivrPage}', [SivrPageController::class, '
 Route::post('/sivr-pages/save-audio', [SivrPageController::class, 'saveAudio'])->name('sivr-pages.save-audio');
 Route::get('/page-elements/upload-menu-icon/{pageElement}',[SivrPageElementController::class,'uploadMenuIcon']);
 Route::post('/page-elements/store-menu-icon',[SivrPageElementController::class,'storeMenuIcon']);
+
+Route::resource('vivr', VivrController::class);
 /* API */
 // Route::get('api/v1/getAccount/{id}', [AccountController::class, 'getAccount']);

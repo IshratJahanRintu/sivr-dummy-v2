@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SivrPage;
 use App\Services\SivrPageService;
+use App\Services\VivrService;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -12,10 +13,12 @@ use Illuminate\Support\Facades\Storage;
 class SivrPageController extends Controller
 {
     protected $sivrPageService;
+    protected $vivrService;
 
     function __construct()
     {
         $this->sivrPageService = new SivrPageService();
+        $this->vivrService=new VivrService();
     }
 
     /**
@@ -40,25 +43,19 @@ class SivrPageController extends Controller
 
     public function create()
     {
-        $result = $this->sivrPageService->listItems();
-
-        if ($result->status == 200) {
-            $data = $result->data;
+        $sivrPages = $this->sivrPageService->listItems();
+         $vivrListResult=$this->vivrService->listItems();
+        if ($sivrPages->status == 200 && $vivrListResult->status==200) {
+            $data = $sivrPages->data;
             $sivrPages = $data[1];
+            $vivrList=$vivrListResult->data;
 
 
-            return view('sivr.sivrPages.create', compact('sivrPages'));
+            return view('sivr.sivrPages.create', compact('sivrPages','vivrList'));
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     *
-     */
-    public
-    function store(Request $request)
+    public function store(Request $request)
     {
 
         $result = $this->sivrPageService->createItem($request);
@@ -122,10 +119,13 @@ class SivrPageController extends Controller
      *
      *
      */
-    public
-    function edit(SivrPage $sivrPage)
+    public function edit(SivrPage $sivrPage)
     {
-        return view('sivr.sivrPages.edit', compact('sivrPage'));
+        $vivrListResult=$this->vivrService->listItems();
+        if ( $vivrListResult->status==200) {
+            $vivrList=$vivrListResult->data;
+            return view('sivr.sivrPages.edit', compact('sivrPage','vivrList'));
+        }
     }
 
 

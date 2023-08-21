@@ -2,10 +2,17 @@
 
 
 @section('content')
+    @php
+        $allPages=session('sivrPages');
+        $sivrPage=session('sivrPage');
+
+    @endphp
     <script>
         let pageElement = {!!   $sivr_page_element->toJson() !!};
         let compareApis={!!$sivr_page_element->compareApis?$sivr_page_element->compareApis->toJson():null!!};
-console.log(compareApis);
+         let allPages={!! $allPages !!};
+        let sivrPage = {!!   $sivrPage->toJson() !!};
+
 
     </script>
     <main class="g-page-wrap">
@@ -99,16 +106,16 @@ console.log(compareApis);
 
                                                         <div class="form-group col-md-4 mb-3">
                                                             <label for="edit-element-no-rows">No Of Rows</label>
-                                                            <input class="form-control " type="number" name="rows"
+                                                            <input class="form-control" type="number" name="rows"
                                                                    id="edit-element-no-rows"
-                                                                   value="{{old('rows',$sivr_page_element->rows)}}">
+                                                                   value="{{old('rows',$sivr_page_element->rows)}}" min="1">
                                                         </div>
                                                         <div class="form-group col-md-4 mb-3">
                                                             <label for="edit-element-no-columns">No Of Columns</label>
-                                                            <input class="form-control form-control-sm" type="number"
+                                                            <input class="form-control" type="number"
                                                                    name="columns"
                                                                    id="edit-element-no-columns"
-                                                                   value="{{old('columns',$sivr_page_element->columns)}}">
+                                                                   value="{{old('columns',$sivr_page_element->columns)}}" min="1">
                                                         </div>
 
 

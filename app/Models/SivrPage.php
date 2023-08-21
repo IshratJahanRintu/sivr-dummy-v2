@@ -36,4 +36,7 @@ class SivrPage extends Model
     {
         return $this->children()->exists();
     }
+    public function  compareApis(){
+        return $this->hasMany(SivrApiCompare::class,'page_id');
+    }
 }

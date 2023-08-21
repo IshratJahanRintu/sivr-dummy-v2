@@ -10,8 +10,6 @@ Array.from(deletePageElementButtons).forEach((deletePageElementButton)=>{
         deletePageElementToast.classList.toggle('d-none');
         const formAction =deletePageElementForm.getAttribute('action').replace(':pageElementId', pageElementId);
         deletePageElementForm.setAttribute('action', formAction);
-
-
     });
 
 });

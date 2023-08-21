@@ -2,6 +2,11 @@
 
 
 @section('content')
+    <script>
+    $(document).ready(function() {
+    $('.vivr-list').select2();
+    });
+    </script>
     <main class="g-page-wrap">
 
         <div class="g-page-content-area mt-2 mt-md-4">
@@ -50,12 +55,13 @@
                                                         </div>
 
                                                         <div class="form-group col-md-4 mb-3">
-                                                            <label for="edit_vivr_id">VIVR ID</label>
-                                                            <select class="form-control form-control-sm" name="vivr_id" id="edit_vivr_id">
-                                                                <option value="123" {{ old('vivr_id', $sivrPage->vivr_id) == '123' ? 'selected' : '' }}>123</option>
-                                                                <option value="456" {{ old('vivr_id', $sivrPage->vivr_id) == '456' ? 'selected' : '' }}>456</option>
-                                                                <option value="789" {{ old('vivr_id', $sivrPage->vivr_id) == '789' ? 'selected' : '' }}>789</option>
-                                                                <option value="12212" {{ old('vivr_id', $sivrPage->vivr_id) == '12212' ? 'selected' : '' }}>12212</option>
+                                                            <label for="vivr-id">VIVR ID</label>
+                                                            <select class="vivr-list form-control" name="vivr_id" id="vivr-id">
+                                                                @foreach($vivrList as $vivr)
+                                                                    <option value={{$vivr->id}} {{ old('vivr_id',$sivrPage->vivr_id) == $vivr->id ? 'selected' : '' }}>{{$vivr->title}}</option>
+
+                                                                @endforeach
+
                                                             </select>
                                                         </div>
 

@@ -14,12 +14,21 @@ protected function createElementProperties(array &$data){
     $jsonObject = [];
     $inputFields = [
         'button_type',
-        'button_value',
-        'button_api_keys',
-        'button_api_data_comparison',
-        'button_api_data_calculation',
+        'button_title_type',
+        'button_title_english',
+        'button_title_bangla',
+        'button_api_title_english',
+        'button_api_title_bangla',
+        'button_value_api_key',
+        'button_confirmation_message_english',
+        'button_confirmation_message_bangla',
+        'button_otp_resend_message_english',
+        'button_otp_resend_message_bangla',
+        'button_otp_resend_time',
         'button_transfer_options',
         'button_transfer_page_id',
+        'button_goto_page_id',
+        'button_back_page_id',
         'paragraph_api_keys',
         'paragraph_api_data_comparison',
         'paragraph_api_data_calculation',
@@ -99,6 +108,7 @@ protected function createElementProperties(array &$data){
                     $jsonObject['select_values'] = $selectValuesObject;
                 }
                 if($data[$fieldName]=='input_checkbox'){
+                    // For dynamically created checkbox input fields, create an object for each checkbox value
                     $checkboxValuesCount = $data['input_checkbox_count'];
                     $checkboxValuesObject = new stdClass();
                     for ($i = 0; $i < $checkboxValuesCount; $i++) {
@@ -110,6 +120,7 @@ protected function createElementProperties(array &$data){
                     $jsonObject['checkbox_values'] = $checkboxValuesObject;
                 }
                 if($data[$fieldName]=='input_radio'){
+                    // For dynamically created radio input fields, create an object for each radio value
                     $radioValuesCount = $data['input_radio_count'];
                     $radioValuesObject = new stdClass();
                     for ($i = 0; $i < $radioValuesCount; $i++) {

@@ -2,7 +2,18 @@
 
 
 @section('content')
-    @php($sivrPage=session('sivrPage'))
+    @php
+    $allPages=session('sivrPages');
+    $sivrPage=session('sivrPage');
+
+    @endphp
+    <script>
+        let sivrPage = {!!   $sivrPage->toJson() !!};
+        let allPages={!! $allPages !!};
+
+console.log(allPages);
+    </script>
+
     <main class="g-page-wrap">
 
         <div class="g-page-content-area mt-2 mt-md-4">
@@ -49,18 +60,18 @@
                                                             <label for="g-element-order">Element Order</label>
                                                             <input class="form-control" type="number"
                                                                    name="element_order" id="g-element-order"
-                                                                   value="{{old('element_order',1)}}" min="1">
+                                                                   value="{{old('element_order',1)}}" min="1" >
                                                         </div>
 
                                                         <div class="form-group col-md-4 mb-3">
-                                                            <label for="g-element-text-en">Text (EN)</label>
+                                                            <label for="g-element-text-en">Display Text (EN)</label>
                                                             <input class="form-control" type="text"
                                                                    name="display_name_en"
                                                                    id="g-element-text-en"
                                                                    value="{{old('display_name_en')}}">
                                                         </div>
                                                         <div class="form-group col-md-4 mb-3">
-                                                            <label for="g-element-text-bn">Text (BN)</label>
+                                                            <label for="g-element-text-bn">Display Text (BN)</label>
                                                             <input class="form-control" type="text"
                                                                    name="display_name_bn"
                                                                    id="g-element-text-bn"
@@ -94,14 +105,14 @@
                                                             <input class="form-control" type="number"
                                                                    name="rows"
                                                                    id="rows"
-                                                                   value="{{old('rows')}}">
+                                                                   value="{{old('rows')}}" min="1">
                                                         </div>
                                                         <div class="form-group col-md-4 mb-3">
                                                             <label for="columns">Number of columns:</label>
                                                             <input class="form-control" type="number"
                                                                    name="columns"
                                                                    id="columns"
-                                                                   value="{{old('columns')}}">
+                                                                   value="{{old('columns')}}" min="1">
                                                         </div>
 
                                                         <div class="form-group col-md-4 mb-3">

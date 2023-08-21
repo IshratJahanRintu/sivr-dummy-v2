@@ -16,7 +16,9 @@ protected $fillable=[
     'comparison',
     'key_value',
     'transfer_page_id',
-    'transfer_option'
+    'transfer_option',
+    'goto_page_id',
+    'back_page_id'
 ];
     public function sivrPage(){
         return $this->belongsTo(SivrPage::class,'page_id');

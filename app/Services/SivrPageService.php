@@ -163,7 +163,7 @@ class SivrPageService
 
         try {
 
-            $id = $this->sivrPageRepository->create($data);
+             $this->sivrPageRepository->create($data);
 
         } catch (Exception $e) {
 
@@ -221,6 +221,7 @@ class SivrPageService
         } catch (Exception $e) {
 
             DB::rollBack();
+
             Log::error('Found Exception: ' . $e->getMessage() . ' [Script: ' . __CLASS__ . '@' . __FUNCTION__ . '] [Origin: ' . $e->getFile() . '-' . $e->getLine() . ']');
 
             return (object)[

@@ -1,7 +1,8 @@
 @extends('layout.app')
 @section('content')
     @php
-        $sivrPagesJson = $allPages->toJson()
+        $sivrPagesJson = $allPages->toJson();
+    session(['sivrPages'=>$allPages])
     @endphp
 
     <script>
@@ -11,6 +12,7 @@
     <div class="g-page-content-area">
 
         <div class="g-page-content-main">
+            @if(count($allPages)>0)
             @foreach($allPages as $sivrPage)
                 <!--**********************************
                                     Right Context Menu
@@ -37,7 +39,7 @@
                 </div>
                 <!--End Right Context Menu-->
             @endforeach
-
+            @endif
             <!--**********************************
                           SIVR TREE MENU
              ***********************************-->
@@ -60,6 +62,8 @@
                                             <li ><a href="{{ url('upload-audio')}}"><i class="ph-fill ph-upload"></i> Upload
                                                 File</a>
                                             </li>
+                                            <li ><a href="{{ route('vivr.index') }}"><i class="ph-fill ph-play-circle"></i>VIVR</a>
+                                            </li>
                                         </ul>
                                     </div>
                                     <!--End Right Context Menu -->
@@ -67,9 +71,9 @@
 
 
                                         <ul>
-                                            @if(($sivrPages->count() == 0))
-                                                <button id="add-child-button">Add Child</button>
-                                            @else
+                                            @if(($sivrPages->count() >0))
+
+
                                                 @foreach ($sivrPages as $sivrPage)
                                                     <li class="{{$sivrPage->hasChildren()?'folder':'file'}} "><span
                                                             data-sivrpage-id={{$sivrPage->id}} class="node-name">{{$sivrPage->page_heading_en}}</span>
@@ -118,64 +122,7 @@
                 </div>
             </div>
         </div>
-{{--        <!--**********************************--}}
-{{--      Modal For Audio File Upload--}}
-{{--         ***********************************-->--}}
-{{--        <div class="modal fade" tabindex="-1" id="g-sivr-audio-upload-modal" >--}}
-{{--            <div class="modal-dialog modal-dialog-centered">--}}
-{{--                <div class="modal-content modal-lg">--}}
-{{--                    <div class="modal-header">--}}
-{{--                        <h5 class="modal-title">Audio <i class="ph-fill ph-music-note"></i> File Upload</h5>--}}
-{{--                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
-{{--                    </div>--}}
-{{--                    <div class="modal-body">--}}
-{{--                        <h6> Audio Upload Here</h6>--}}
 
-{{--                        <form class=" mb-3 w-100" id="audioForm" method="POST"--}}
-{{--                              action="{{ route('sivr-pages.save-audio') }}" enctype="multipart/form-data"--}}
-{{--                              multiple>--}}
-{{--                            @csrf--}}
-{{--                            <input type="hidden" id="audio-page-id" name="page_id" value="default">--}}
-{{--                            <label for="audioInput_en">Upload english audio file</label>--}}
-{{--                            <input class="form-control" type="file" accept="audio/*" name="audio_file_en"--}}
-{{--                                   id="audioInput_en"/>--}}
-
-{{--                            <label for="audioInput_ban">Upload bangla audio file</label>--}}
-{{--                            <input class="form-control" type="file" accept="audio/*" name="audio_file_ban"--}}
-{{--                                   id="audioInput_ban"/>--}}
-
-{{--                            <button class="btn btn-success btn-sm mb-3 mt-3" type="submit">Upload</button>--}}
-{{--                        </form>--}}
-
-{{--                        <h6>Uploaded Audio List</h6>--}}
-{{--                        <ul id="audioList">--}}
-
-{{--                        </ul>--}}
-
-{{--                        <hr/>--}}
-{{--                        <div class="g-player">--}}
-{{--                            <audio class="w-100" id="audioPlayer" controls>--}}
-{{--                                <source id="audioSource" src="" type="audio/mpeg">--}}
-{{--                                Your browser does not support the audio element.--}}
-{{--                            </audio>--}}
-{{--                            <div class="g-player-controls">--}}
-{{--                                <button class="btn btn-sm btn-secondary" id="previousButton"><i--}}
-{{--                                        class="ph-fill ph-skip-back"></i></button>--}}
-{{--                                <button class="btn btn-sm btn-secondary" id="nextButton"><i--}}
-{{--                                        class="ph-fill ph-skip-forward"></i>--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-
-{{--                    </div>--}}
-{{--                    <div class="modal-footer">--}}
-
-
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
 
     </div>
     </main>

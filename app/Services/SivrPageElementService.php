@@ -230,7 +230,7 @@ class SivrPageElementService
         DB::beginTransaction();
 
         try {
-            $pageElement = $this->sivrPageElementRepository->storeAudio($data, $pageElement);
+            $pageElement = $this->sivrPageElementRepository->storeIcon($data, $pageElement);
         } catch (Exception $e) {
             DB::rollBack();
             Log::error('Found Exception: ' . $e->getMessage() . ' [Script: ' . __CLASS__ . '@' . __FUNCTION__ . '] [Origin: ' . $e->getFile() . '-' . $e->getLine() . ']');
