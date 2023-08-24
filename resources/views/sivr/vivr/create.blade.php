@@ -40,9 +40,9 @@
                                                     <div class="row">
 
                                                         <div class="form-group col-md-4 mb-3">
-                                                            <label for="vivr-title">VIVR title </label>
+                                                            <label for="vivr-title">VIVR Name : </label>
                                                             <input type="text" class="form-control" name="vivr_title" id="vivr-title"
-                                                                   placeholder="VIVR title" value="{{ old('vivr_title') }}">
+                                                                  value="{{ old('vivr_title') }}">
                                                         </div>
 
                                                     </div>

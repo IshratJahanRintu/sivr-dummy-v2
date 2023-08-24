@@ -15,11 +15,8 @@ protected  $fillable=[
     'display_name_en' ,
     'background_color' ,
     'text_color',
-    'name' ,
-    'value' ,
     'element_order',
-    'rows',
-    'columns',
+
     'is_visible',
     'data_provider_function' ,
     'menu_icon',

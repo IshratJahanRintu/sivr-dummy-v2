@@ -96,27 +96,6 @@
                                                                    id="edit-element-bg-color"
                                                                    value="{{old('background_color',$sivr_page_element->background_color)}}">
                                                         </div>
-                                                        <div class="form-group col-md-4 mb-3">
-                                                            <label for="name">Element Name:</label>
-                                                            <input class="form-control" type="text"
-                                                                   name="name"
-                                                                   id="name"
-                                                                   value="{{old('name',$sivr_page_element->name)}}">
-                                                        </div>
-
-                                                        <div class="form-group col-md-4 mb-3">
-                                                            <label for="edit-element-no-rows">No Of Rows</label>
-                                                            <input class="form-control" type="number" name="rows"
-                                                                   id="edit-element-no-rows"
-                                                                   value="{{old('rows',$sivr_page_element->rows)}}" min="1">
-                                                        </div>
-                                                        <div class="form-group col-md-4 mb-3">
-                                                            <label for="edit-element-no-columns">No Of Columns</label>
-                                                            <input class="form-control" type="number"
-                                                                   name="columns"
-                                                                   id="edit-element-no-columns"
-                                                                   value="{{old('columns',$sivr_page_element->columns)}}" min="1">
-                                                        </div>
 
 
                                                         <div class="form-group col-md-4 mb-3">
@@ -157,8 +136,8 @@
                                                                     Paragraph
                                                                 </option>
                                                                 <option
-                                                                    value="hyperlink" {{ old('type',$sivr_page_element->type) == 'hyperlink' ? 'selected' : '' }}>
-                                                                    Hyperlink
+                                                                    value="link" {{ old('type',$sivr_page_element->type) == 'link' ? 'selected' : '' }}>
+                                                                   External Link
                                                                 </option>
 
                                                                 <option
@@ -211,6 +190,11 @@
 
     </main>
 
-
-    <script type="module" src="{{asset('assets/js/page-element.js')}}"></script>
+    <script  src="{{asset('assets/js/page-elements/Button.js')}}"></script>
+    <script  src="{{asset('assets/js/page-elements/CompareApi.js')}}"></script>
+    <script  src="{{asset('assets/js/page-elements/Table.js')}}"></script>
+    <script  src="{{asset('assets/js/page-elements/Input.js')}}"></script>
+    <script  src="{{asset('assets/js/page-elements/Paragraph.js')}}"></script>
+    <script  src="{{asset('assets/js/page-elements/Link.js')}}"></script>
+    <script src="{{asset('assets/js/page-element.js')}}"></script>
 @endsection

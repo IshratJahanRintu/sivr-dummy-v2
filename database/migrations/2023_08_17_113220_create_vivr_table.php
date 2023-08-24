@@ -16,7 +16,7 @@ class CreateVivrTable extends Migration
         Schema::create('vivr', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('title',50);
+            $table->string('title',50)->unique();
         });
     }
 

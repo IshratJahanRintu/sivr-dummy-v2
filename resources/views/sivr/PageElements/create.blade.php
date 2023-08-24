@@ -93,27 +93,8 @@ console.log(allPages);
                                                                    id="g-element-bg-color"
                                                                    value="{{old('background_color')}}">
                                                         </div>
-                                                        <div class="form-group col-md-4 mb-3">
-                                                            <label for="name">Element Name:</label>
-                                                            <input class="form-control" type="text"
-                                                                   name="name"
-                                                                   id="name"
-                                                                   value="{{old('name')}}">
-                                                        </div>
-                                                        <div class="form-group col-md-4 mb-3">
-                                                            <label for="rows">Number of rows:</label>
-                                                            <input class="form-control" type="number"
-                                                                   name="rows"
-                                                                   id="rows"
-                                                                   value="{{old('rows')}}" min="1">
-                                                        </div>
-                                                        <div class="form-group col-md-4 mb-3">
-                                                            <label for="columns">Number of columns:</label>
-                                                            <input class="form-control" type="number"
-                                                                   name="columns"
-                                                                   id="columns"
-                                                                   value="{{old('columns')}}" min="1">
-                                                        </div>
+
+
 
                                                         <div class="form-group col-md-4 mb-3">
                                                             <label for="g-element-visibility">Element Visibility</label>
@@ -152,8 +133,8 @@ console.log(allPages);
                                                                     Paragraph
                                                                 </option>
                                                                 <option
-                                                                    value="hyperlink" >
-                                                                    Hyperlink
+                                                                    value="link" >
+                                                                    External link
                                                                 </option>
 
                                                                 <option
@@ -203,5 +184,13 @@ console.log(allPages);
         </div>
 
     </main>
-    <script type="module" src="{{asset('assets/js/page-element.js')}}"></script>
+    <script  src="{{asset('assets/js/page-elements/Button.js')}}"></script>
+    <script  src="{{asset('assets/js/page-elements/CompareApi.js')}}"></script>
+    <script  src="{{asset('assets/js/page-elements/Table.js')}}"></script>
+    <script  src="{{asset('assets/js/page-elements/Input.js')}}"></script>
+    <script  src="{{asset('assets/js/page-elements/Paragraph.js')}}"></script>
+    <script  src="{{asset('assets/js/page-elements/Link.js')}}"></script>
+    <script  src="{{asset('assets/js/page-element.js')}}"></script>
+
+
 @endsection

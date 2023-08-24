@@ -18,22 +18,30 @@
                         </button>
                     </div>
                     <div class="container mt-5">
-                        <table class="table table-bordered table-responsive">
+                        <table class="table table-bordered table-responsive  table-hover">
                             <thead>
                             <tr>
-                                <th scope="col" class="fw-bold text-center">Title</th>
+                                <th scope="col" class="fw-bold text-center">Serial</th>
+                                    <th scope="col" class="fw-bold text-center">Vivr Name</th>
+                                <th scope="col" class="fw-bold text-center">Delete</th>
                             </tr>
                             </thead>
                             <tbody>
+                            @php
+                                $serialNumber = 1; // Initialize the serial number
+                            @endphp
+
                             @foreach($vivrList as $vivr)
                                 <tr>
-                                    <td class="text-center ">{{$vivr->title}}  <i class="ph-fill ph-trash-simple delete-vivr-btn delete-icon-button text-danger" data-vivr-id="{{$vivr->id}}"></i>
-                                        </td>
+                                    <td class="text-center">{{$serialNumber}}</td>
+                                    <td class="text-center">{{$vivr->title}} </td>
+                                <td class="text-center"> <i class="ph-fill ph-trash-simple delete-vivr-btn delete-icon-button text-danger" data-vivr-id="{{$vivr->id}}"></i></td>
                                 </tr>
+
+                                @php
+                                    $serialNumber++; // Increment the serial number
+                                @endphp
                             @endforeach
-
-
-
                             </tbody>
                         </table>
                     </div>

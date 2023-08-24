@@ -61,10 +61,12 @@ class VivrService
     public function createItem(Request $request)
     {
         $rules = [
-            'vivr_title'=>'required|string|max:50'
+            'vivr_title'=>'required|string|max:50|unique:vivr,title'
         ];
-
-        $validator = Validator::make($request->all(), $rules);
+$messages=[
+    'vivr_title.unique'=>'Vivr Tilte must be unique'
+];
+        $validator = Validator::make($request->all(), $rules,$messages);
 
         if ($validator->fails()) {
             // Redirect back to the edit form with errors and old input

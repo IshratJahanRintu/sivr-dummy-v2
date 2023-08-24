@@ -19,11 +19,9 @@ class SivrPageElementRepository
             'display_name_en' => $data['display_name_en'],
             'background_color' => $data['background_color'],
             'text_color' => $data['text_color'],
-            'name' => $data['name'] ?? null,
+
             'element_properties' => $data['element_properties'],
             'element_order' => $data['element_order'],
-            'rows' => $data['rows'] ?? 0,
-            'columns' => $data['columns'] ?? 0,
             'is_visible' => $data['is_visible'],
             'data_provider_function' => $data['data_provider_function'],
 
@@ -67,10 +65,8 @@ class SivrPageElementRepository
             'display_name_en' => $data['display_name_en'],
             'background_color' => $data['background_color'],
             'text_color' => $data['text_color'],
-            'name' => $data['name'],
+
             'element_order' => $data['element_order'],
-            'rows' => $data['rows'] ?? 0,
-            'columns' => $data['columns'] ?? 0,
             'is_visible' => $data['is_visible'],
             'data_provider_function' => $data['data_provider_function'],
             'element_properties' => $data['element_properties'],
