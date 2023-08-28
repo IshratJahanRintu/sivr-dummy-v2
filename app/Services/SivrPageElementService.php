@@ -54,7 +54,7 @@ class SivrPageElementService
             'text_color' => 'required',
             'element_order' => 'required|numeric|min:1',
             'is_visible' => 'required|string|min:1|max:1',
-            'data_provider_function' => 'required|string|max:20',
+
             'compare_api_comparison' => 'max:3|min:1',
             'compare_api_transfer_page_id' => 'max:50|min:1',
         ];
@@ -115,7 +115,7 @@ class SivrPageElementService
             'text_color' => 'required',
             'element_order' => 'required|numeric|min:1',
             'is_visible' => 'required|string|min:1|max:1',
-            'data_provider_function' => 'required|string|max:20',
+
         ];
 
 

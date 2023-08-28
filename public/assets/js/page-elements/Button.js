@@ -1,19 +1,16 @@
-
-
 class Button {
 
 
-    constructor(elementProperties=null) {
-        this.containerId='element-wise-value';
-this.elementProperties=elementProperties;
+    constructor(elementProperties = null) {
+        this.containerId = 'element-wise-value';
+        this.elementProperties = elementProperties;
         this.createInputFieldsForButton = this.createInputFieldsForButton.bind(this);
-
 
 
     }
 
 
-   createInputFieldsForButton() {
+    createInputFieldsForButton() {
 
         let type = 'navigation_static';
         // let value = '';
@@ -100,60 +97,61 @@ this.elementProperties=elementProperties;
         this.createStaticButtonTitle();
         this.createButtonTypeWiseElement(type);
 
-         let button=new Button(this.elementProperties);
+        let button = new Button(this.elementProperties);
         document.getElementById('button-type').addEventListener('change', function () {
             button.createButtonTitle('static');
             let selectedValue = this.value;
-             button.createButtonTypeWiseElement(selectedValue);
+            button.createButtonTypeWiseElement(selectedValue);
 
         })
 
-       this.createElementsForTransferPageId(transferOption, 'button-transfer-type-element',transferOption==='redirect'? transferPageId:gotoPageId,backPageId);
-     document.getElementById('button-transfer-options').addEventListener('change', (event)=> {
-         let selectedValue = event.target.value;
-         let containerId = "button-transfer-type-element";
-        removeAllChildren(containerId);
-        this.createElementsForTransferPageId(selectedValue, containerId, selectedValue==='redirect'? transferPageId:gotoPageId,backPageId);
+        this.createElementsForTransferPageId(transferOption, 'button-transfer-type-element', transferOption === 'redirect' ? transferPageId : gotoPageId, backPageId);
+        document.getElementById('button-transfer-options').addEventListener('change', (event) => {
+            let selectedValue = event.target.value;
+            let containerId = "button-transfer-type-element";
+            removeAllChildren(containerId);
+            this.createElementsForTransferPageId(selectedValue, containerId, selectedValue === 'redirect' ? transferPageId : gotoPageId, backPageId);
 
-    });
+        });
     }
 
 
-    createButtonTypeWiseElement(type){
-console.log(this);
-        let typeToFunctionMap= {
-            navigation_dynamic:this.createInputFieldsForDynamicNavigationButton,
-            confirm:this.createInputFieldsForConfirmButton,
-            resend:this.createInputFieldsForResendButton,
+    createButtonTypeWiseElement(type) {
+        console.log(this);
+        let typeToFunctionMap = {
+            navigation_dynamic: this.createInputFieldsForDynamicNavigationButton,
+            confirm: this.createInputFieldsForConfirmButton,
+            resend: this.createInputFieldsForResendButton,
         }
-        let  containerId = 'button-type-wise-value';
+        let containerId = 'button-type-wise-value';
         removeAllChildren(containerId);
         // Get the function for the selected value from the map
         let createElement = typeToFunctionMap[type];
 
         if (createElement) {
             // Call the function to create the new input fields
-            createElement.call(this,containerId);
+            createElement.call(this, containerId);
 
         }
 
 
     }
 
-    createButtonTitle(type){
+    createButtonTitle(type) {
         console.log(this);
-        let titleTypeToFunctionMap={
-            static:this.createStaticButtonTitle,
-            api:this.createDynamicButtonTitle,
+        let titleTypeToFunctionMap = {
+            static: this.createStaticButtonTitle,
+            api: this.createDynamicButtonTitle,
         }
-        let createButtonTitleFunction=titleTypeToFunctionMap[type];
-        if(createButtonTitleFunction){
+        let createButtonTitleFunction = titleTypeToFunctionMap[type];
+        if (createButtonTitleFunction) {
 
             createButtonTitleFunction.call(this);
         }
     }
-     createInputFieldsForDynamicNavigationButton(containerId) {
-         console.log(this);
+
+    createInputFieldsForDynamicNavigationButton(containerId) {
+        console.log(this);
         let titleType = 'static';
 
         if (this.elementProperties) {
@@ -171,21 +169,21 @@ console.log(this);
 
 `;
 
-       this.createButtonTitle(titleType);
-        const button=new Button(this.elementProperties);
-        document.getElementById('button-title-type').addEventListener('change',function(){
-            let selectedValue=this.value;
-           button.createButtonTitle(selectedValue);
+        this.createButtonTitle(titleType);
+        const button = new Button(this.elementProperties);
+        document.getElementById('button-title-type').addEventListener('change', function () {
+            let selectedValue = this.value;
+            button.createButtonTitle(selectedValue);
         })
 
     }
 
     createInputFieldsForConfirmButton(containerId) {
-        let buttonConfirmationMessageEnglish='';
-        let buttonConfirmationMessageBangla='';
+        let buttonConfirmationMessageEnglish = '';
+        let buttonConfirmationMessageBangla = '';
         if (this.elementProperties) {
             buttonConfirmationMessageEnglish = this.elementProperties.button_confirmation_message_english ?? '';
-            buttonConfirmationMessageBangla=this.elementProperties.button_confirmation_message_bangla??'';
+            buttonConfirmationMessageBangla = this.elementProperties.button_confirmation_message_bangla ?? '';
         }
 
         document.getElementById(containerId).innerHTML = `<div class="form-group col-md-4 mb-3">
@@ -206,14 +204,14 @@ console.log(this);
 
     }
 
-     createInputFieldsForResendButton(containerId) {
-        let OtpResendMessageEnglish='';
-        let OtpResendMessageBangla='';
-        let otpResendTime=1;
+    createInputFieldsForResendButton(containerId) {
+        let OtpResendMessageEnglish = '';
+        let OtpResendMessageBangla = '';
+        let otpResendTime = 1;
         if (this.elementProperties) {
             OtpResendMessageEnglish = this.elementProperties.button_otp_resend_message_english ?? '';
-            OtpResendMessageBangla=this.elementProperties.button_otp_resend_message_bangla??'';
-            otpResendTime=this.elementProperties.button_otp_resend_time??1;
+            OtpResendMessageBangla = this.elementProperties.button_otp_resend_message_bangla ?? '';
+            otpResendTime = this.elementProperties.button_otp_resend_time ?? 1;
         }
 
         document.getElementById(containerId).innerHTML = `<div class="form-group col-md-4 mb-3">
@@ -238,14 +236,15 @@ console.log(this);
 
 
     }
-     createStaticButtonTitle(){
-        let buttonTitleEn='';
-        let buttonTitleBan='';
+
+    createStaticButtonTitle() {
+        let buttonTitleEn = '';
+        let buttonTitleBan = '';
         if (this.elementProperties) {
             buttonTitleEn = this.elementProperties.button_title_english ?? '';
-            buttonTitleBan=this.elementProperties.button_title_bangla??'';
+            buttonTitleBan = this.elementProperties.button_title_bangla ?? '';
         }
-        document.getElementById('button-title-container').innerHTML=`
+        document.getElementById('button-title-container').innerHTML = `
 
 
                                                                <div class="form-group col-md-4 mb-3" id="button-title-english">
@@ -259,16 +258,17 @@ console.log(this);
 
                                                                </div>`;
     }
-    createDynamicButtonTitle(){
-        let buttonValueApiKey='';
-        let buttonTitleEn='';
-        let buttonTitleBan='';
+
+    createDynamicButtonTitle() {
+        let buttonValueApiKey = '';
+        let buttonTitleEn = '';
+        let buttonTitleBan = '';
         if (this.elementProperties) {
             buttonValueApiKey = this.elementProperties.button_value_api_key ?? '';
             buttonTitleEn = this.elementProperties.button_api_title_english ?? '';
-            buttonTitleBan=this.elementProperties.button_api_title_bangla??'';
+            buttonTitleBan = this.elementProperties.button_api_title_bangla ?? '';
         }
-        document.getElementById('button-title-container').innerHTML=`
+        document.getElementById('button-title-container').innerHTML = `
                                                             <div class="form-group col-md-4 mb-3">
                                                                 <label for="button-value-api-key">Button value Api Key:</label>
                                                                 <input type="text" class="form-control"  name="button_value_api_key" id="button-value-api-key" value="${buttonValueApiKey}">
@@ -286,31 +286,30 @@ console.log(this);
     }
 
 
+    createElementsForTransferPageId(selectedValue, containerId, pageId, backPageId) {
 
-     createElementsForTransferPageId(selectedValue, containerId, pageId,backPageId) {
+        if (selectedValue === 'redirect') {
+            let optionsHtml = '';
+            if (children) {
+                optionsHtml = children.map(page => `<option value="${page.id}" ${pageId == page.id ? 'selected' : ''} >${page.page_heading_en}</option>`).join('')
 
-    if (selectedValue === 'redirect') {
-        let optionsHtml='';
-        if (children){
-             optionsHtml=children.map(page=>`<option value="${page.id}" ${pageId == page.id ? 'selected' : ''} >${page.page_heading_en}</option>`).join('')
-
-        }
-       document.getElementById(containerId).innerHTML = ` <div class="form-group col-md-4 mb-3">
+            }
+            document.getElementById(containerId).innerHTML = ` <div class="form-group col-md-4 mb-3">
                                                                 <label for="button-redirect-to">Transfer page id:</label>
                                                                 <select class="form-control"  name="button_transfer_page_id" id="button-redirect-to">
                                                                     ${optionsHtml}
 
                                                                 </select>
                                                             </div>`;
-    }
-    if (selectedValue === 'goto') {
-        let optionsHtml='';
-        let backOptionsHtml='';
-        if (typeof allPages!=="undefined"){
-         optionsHtml=allPages.map(page=>`<option value="${page.id}" ${pageId == page.id ? 'selected' : ''} >${page.page_heading_en}</option>`).join('')
-            backOptionsHtml=allPages.map(page=>`<option value="${page.id}" ${backPageId == page.id ? 'selected' : ''} >${page.page_heading_en}</option>`).join('')
         }
-        document.getElementById(containerId).innerHTML = ` <div class="form-group col-md-4 mb-3">
+        if (selectedValue === 'goto') {
+            let optionsHtml = '';
+            let backOptionsHtml = '';
+            if (typeof allPages !== "undefined") {
+                optionsHtml = allPages.map(page => `<option value="${page.id}" ${pageId == page.id ? 'selected' : ''} >${page.page_heading_en}</option>`).join('')
+                backOptionsHtml = allPages.map(page => `<option value="${page.id}" ${backPageId == page.id ? 'selected' : ''} >${page.page_heading_en}</option>`).join('')
+            }
+            document.getElementById(containerId).innerHTML = ` <div class="form-group col-md-4 mb-3">
                                                                 <label for="button-go-to">Go to:</label>
                                                                 <select class="form-control"  name="button_goto_page_id" id="button-go-to">
                                                                     ${optionsHtml}
@@ -323,8 +322,8 @@ console.log(this);
              <option value="" <option value="" selected>No Page</option>
 
              ${backOptionsHtml}</select>`;
+        }
     }
-}
 
 }
 

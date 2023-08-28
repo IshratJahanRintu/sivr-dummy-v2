@@ -103,22 +103,7 @@
                                                 <td>Background Color :</td>
                                                 <td>{{$pageElement->background_color}}</td>
                                             </tr>
-                                            <tr>
-                                                <td>Element Name :</td>
-                                                <td>{{$pageElement->name}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Element Value :</td>
-                                                <td>{{$pageElement->value}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>No Of Rows :</td>
-                                                <td>{{$pageElement->rows}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>No Of Columns :</td>
-                                                <td>{{$pageElement->columns}}</td>
-                                            </tr>
+
                                             <tr>
                                                 <td>Element Visibility :</td>
                                                 <td>{{($pageElement->is_visible === 'Y') ? 'Visible' : 'Not Visible'}}</td>
@@ -126,6 +111,10 @@
                                             <tr>
                                                 <td>Data Provider Function :</td>
                                                 <td>{{$pageElement->data_provider_function}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Element properties :</td>
+                                                <td class="text-wrap">{{$pageElement->element_properties}}</td>
                                             </tr>
                                             </tbody>
                                         </table>

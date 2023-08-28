@@ -23,7 +23,7 @@ class SivrPageElementRepository
             'element_properties' => $data['element_properties'],
             'element_order' => $data['element_order'],
             'is_visible' => $data['is_visible'],
-            'data_provider_function' => $data['data_provider_function'],
+            'data_provider_function' => $data['data_provider_function']??null,
 
         ]);
 
@@ -68,7 +68,7 @@ class SivrPageElementRepository
 
             'element_order' => $data['element_order'],
             'is_visible' => $data['is_visible'],
-            'data_provider_function' => $data['data_provider_function'],
+            'data_provider_function' => $data['data_provider_function']??null,
             'element_properties' => $data['element_properties'],
 
 
