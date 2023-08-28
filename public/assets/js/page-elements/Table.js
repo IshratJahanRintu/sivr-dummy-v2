@@ -18,7 +18,22 @@ class Table {
         columns=elementProperties.columns??1;
 
     }
-    document.getElementById(this.containerId).innerHTML = ` <div class="form-group col-md-4 mb-3">
+    document.getElementById(this.containerId).innerHTML = `
+                                                    <div class="form-group col-md-4 mb-3">
+                                                            <label for="g-element-text-en">Display Text (EN)</label>
+                                                            <input class="form-control" type="text"
+                                                                   name="display_name_en"
+                                                                   id="g-element-text-en"
+                                                                   value="">
+                                                        </div>
+                                                        <div class="form-group col-md-4 mb-3">
+                                                            <label for="g-element-text-bn">Display Text (BN)</label>
+                                                            <input class="form-control" type="text"
+                                                                   name="display_name_bn"
+                                                                   id="g-element-text-bn"
+                                                                   value="">
+                                                        </div>
+                                                    <div class="form-group col-md-4 mb-3">
                                                             <label for="table-type">Table Type:</label>
                                                             <select name="table_type" id="table-type"
                                                                     class="form-control">

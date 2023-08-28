@@ -46,8 +46,8 @@ class SivrPageElementService
     {
 
         $rules = [
-            'display_name_en' => 'required|max:50|string',
-            'display_name_bn' => 'required|max:50|string',
+            'display_name_en' => 'string',
+            'display_name_bn' => 'string',
             'page_id' => 'required|numeric',
             'type' => 'required',
             'background_color' => 'required',
@@ -107,8 +107,8 @@ class SivrPageElementService
     public function updateItem($request, $sivrPageElement)
     {
         $rules = [
-            'display_name_en' => 'required|max:50|string',
-            'display_name_bn' => 'required|max:50|string',
+            'display_name_en' => 'string',
+            'display_name_bn' => 'string',
 
             'type' => 'required',
             'background_color' => 'required',

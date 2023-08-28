@@ -15,8 +15,8 @@ class SivrPageElementRepository
 
             'page_id' => $data['page_id'],
             'type' => $data['type'],
-            'display_name_bn' => $data['display_name_bn'],
-            'display_name_en' => $data['display_name_en'],
+            'display_name_bn' => $data['display_name_bn']??null,
+            'display_name_en' => $data['display_name_en']??null,
             'background_color' => $data['background_color'],
             'text_color' => $data['text_color'],
 
@@ -61,8 +61,8 @@ class SivrPageElementRepository
         $updated = $sivrPageElement->update([
 
             'type' => $data['type'],
-            'display_name_bn' => $data['display_name_bn'],
-            'display_name_en' => $data['display_name_en'],
+            'display_name_bn' => $data['display_name_bn']??null,
+            'display_name_en' => $data['display_name_en']??null,
             'background_color' => $data['background_color'],
             'text_color' => $data['text_color'],
 

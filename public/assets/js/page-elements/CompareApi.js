@@ -16,6 +16,22 @@ class CompareApi {
 
 
     document.getElementById(this.containerId).innerHTML = `
+
+<div class="form-group col-md-4 mb-3">
+                                                            <label for="g-element-text-en">Display Text (EN)</label>
+                                                            <input class="form-control" type="text"
+                                                                   name="display_name_en"
+                                                                   id="g-element-text-en"
+                                                                   value="">
+                                                        </div>
+                                                        <div class="form-group col-md-4 mb-3">
+                                                            <label for="g-element-text-bn">Display Text (BN)</label>
+                                                            <input class="form-control" type="text"
+                                                                   name="display_name_bn"
+                                                                   id="g-element-text-bn"
+                                                                   value="">
+                                                        </div>
+
         <div class="form-group col-md-4 mb-3">
             <label for="compare-count">Compare Count:</label>
             <input class="form-control" name="compare_count" id="compare-count" type="number" min="1" max="10" value="${count}">

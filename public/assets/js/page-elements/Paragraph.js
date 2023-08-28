@@ -15,6 +15,21 @@ class Paragraph {
         apiDataCalculation = elementProperties.paragraph_api_data_calculation ?? '';
     }
     document.getElementById(this.containerId).innerHTML = ` <div class="form-group col-md-4 mb-3">
+                                                            <label for="g-element-text-en">Display Text (EN)</label>
+                                                            <textarea class="form-control" type="text"
+                                                                   name="display_name_en"
+                                                                   id="g-element-text-en"
+                                                                   ></textarea>
+                                                        </div>
+                                                        <div class="form-group col-md-4 mb-3">
+                                                            <label for="g-element-text-bn">Display Text (BN)</label>
+                                                            <textarea class="form-control" type="text"
+                                                                   name="display_name_bn"
+                                                                   id="g-element-text-bn"
+                                                                   ></textarea>
+                                                        </div>
+
+                                                            <div class="form-group col-md-4 mb-3">
                                                                 <label for="paragraph-api-keys">Api keys:</label>
                                                                 <input class="form-control" type="text" name="paragraph_api_keys" id="paragraph-api-keys" value="${apiKey}">
                                                             </div>

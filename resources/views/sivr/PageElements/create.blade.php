@@ -63,20 +63,6 @@ console.log(allPages);
                                                                    value="{{old('element_order',1)}}" min="1" >
                                                         </div>
 
-                                                        <div class="form-group col-md-4 mb-3">
-                                                            <label for="g-element-text-en">Display Text (EN)</label>
-                                                            <input class="form-control" type="text"
-                                                                   name="display_name_en"
-                                                                   id="g-element-text-en"
-                                                                   value="{{old('display_name_en')}}">
-                                                        </div>
-                                                        <div class="form-group col-md-4 mb-3">
-                                                            <label for="g-element-text-bn">Display Text (BN)</label>
-                                                            <input class="form-control" type="text"
-                                                                   name="display_name_bn"
-                                                                   id="g-element-text-bn"
-                                                                   value="{{old('display_name_bn')}}">
-                                                        </div>
 
 
                                                         <div class="form-group col-md-4 mb-3">

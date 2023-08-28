@@ -19,7 +19,7 @@ class CreateSivrPageElementsTable extends Migration
             $table->foreign('page_id')->on('sivr_pages')->references('id')->cascadeOnDelete();
             $table->string('type', 20);
             $table->text('display_name_bn')->nullable();
-            $table->text('display_name_en');
+            $table->text('display_name_en')->nullable();
             $table->char('background_color', 7);
             $table->char('text_color', 7);
             $table->json('element_properties')->nullable();
