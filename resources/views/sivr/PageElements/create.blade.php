@@ -97,14 +97,7 @@ console.log(allPages);
                                                             </select>
                                                         </div>
 
-                                                        <div class="form-group col-md-4 mb-3">
-                                                            <label for="g-element-provider-function">Data Provider
-                                                                Function</label>
-                                                            <input class="form-control" type="text"
-                                                                   name="data_provider_function"
-                                                                   id="g-element-provider-function"
-                                                                   value="{{old('data_provider_function')}}">
-                                                        </div>
+
 
                                                         <div class="form-group col-md-4 mb-3">
                                                             <label for="g-element-type">Element Type</label>
@@ -136,6 +129,14 @@ console.log(allPages);
                                                                     Compare Api
                                                                 </option>
                                                             </select>
+                                                        </div>
+                                                        <div class="form-group col-md-4 mb-3">
+                                                            <label for="g-element-provider-function">Data Provider
+                                                                Function</label>
+                                                            <input class="form-control" type="text"
+                                                                   name="data_provider_function"
+                                                                   id="g-element-provider-function"
+                                                                   value="{{old('data_provider_function')}}">
                                                         </div>
                                                         <div class="g-create-form">
                                                             <div id="element-wise-value" class="row">

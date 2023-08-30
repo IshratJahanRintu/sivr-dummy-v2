@@ -29,9 +29,7 @@ protected function createElementProperties(array &$data){
         'button_transfer_page_id',
         'button_goto_page_id',
         'button_back_page_id',
-        'paragraph_api_keys',
-        'paragraph_api_data_comparison',
-        'paragraph_api_data_calculation',
+        'paragraph_api_count',
         'link_type',
         'web_address_bn',
         'web_address_en',
@@ -69,7 +67,11 @@ protected function createElementProperties(array &$data){
         'input_password_default_value',
         'input_password_required',
         'input_select_count',
-        'input_select_required',
+        'input_select_type',
+
+        'select_api_option_bn',
+        'select_api_option_en',
+        'select_api_value',
         'input_radio_count',
         'input_checkbox_count',
         'input_pin_placeholder_bn',
@@ -97,10 +99,10 @@ protected function createElementProperties(array &$data){
 
     foreach ($inputFields as $fieldName) {
         if (isset($data[$fieldName])) {
-            if ($fieldName === 'input_type'){
-                if($data[$fieldName]=='input_select') {
+
+                 if($fieldName=='input_select_count') {
                     // For dynamically created select input fields, create an object for each select value
-                    $selectValuesCount = $data['input_select_count'];
+                    $selectValuesCount = $data[$fieldName];
                     $selectValuesObject = new stdClass();
                     for ($i = 0; $i < $selectValuesCount; $i++) {
                         $selectValue = new stdClass();
@@ -112,9 +114,9 @@ protected function createElementProperties(array &$data){
 
                     $jsonObject['select_values'] = $selectValuesObject;
                 }
-                if($data[$fieldName]=='input_checkbox'){
+                else if($fieldName=='input_checkbox_count'){
                     // For dynamically created checkbox input fields, create an object for each checkbox value
-                    $checkboxValuesCount = $data['input_checkbox_count'];
+                    $checkboxValuesCount = $data[$fieldName];
                     $checkboxValuesObject = new stdClass();
                     for ($i = 0; $i < $checkboxValuesCount; $i++) {
                         $checkboxValue = new stdClass();
@@ -124,7 +126,7 @@ protected function createElementProperties(array &$data){
 
                     $jsonObject['checkbox_values'] = $checkboxValuesObject;
                 }
-                if($data[$fieldName]=='input_radio'){
+                else if($fieldName=='input_radio_count'){
                     // For dynamically created radio input fields, create an object for each radio value
                     $radioValuesCount = $data['input_radio_count'];
                     $radioValuesObject = new stdClass();
@@ -138,12 +140,25 @@ protected function createElementProperties(array &$data){
                     $jsonObject['radio_values'] = $radioValuesObject;
 
                 }
+
+
+            else if ($fieldName ==='paragraph_api_count'){
+                $paragraphApiValuesObject=new stdClass();
+                for ($i = 0; $i < $data['paragraph_api_count']; $i++) {
+                    $paragraphApiValues=new stdClass();
+                    $paragraphApiValues->api_keys=$data['paragraph_api_keys'][$i]??'';
+                    $paragraphApiValues->api_data_comparison=$data['paragraph_api_data_comparison'][$i]??'';
+                    $paragraphApiValues->api_data_calculation=$data['paragraph_api_data_calculation'][$i]??'';
+                    $paragraphApiValuesObject->$i=$paragraphApiValues;
+
+                }
+
+                $jsonObject['paragraph_api_values']=$paragraphApiValuesObject;
                 $jsonObject[$fieldName] = $data[$fieldName];
             }
-            else {
-                // For other input fields, store the value directly
-                $jsonObject[$fieldName] = $data[$fieldName];
-            }
+
+
+            $jsonObject[$fieldName] = $data[$fieldName];
 
         }
 

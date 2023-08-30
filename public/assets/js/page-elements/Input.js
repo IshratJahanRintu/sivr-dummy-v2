@@ -230,8 +230,44 @@ class Input {
                                                             </div>`;
     }
 
-
     createInputFieldsForInputTypeSelect(containerId) {
+        let selectType='static';
+        if(elementProperties && elementProperties.input_select_type){
+            selectType=elementProperties.input_select_type;
+        }
+        document.getElementById(containerId).innerHTML = `<div class="form-group col-md-4 mb-3">
+                                                            <label for="select-type">Select Type:</label>
+                                                            <select name="input_select_type" id="select-type"
+                                                             class="form-control">
+                                                                <option value="static" ${selectType === 'static' ? 'selected' : ''}>Static</option>
+                                                                <option value="api" ${selectType === 'api' ? 'selected' : ''}>Api</option>
+                                                                </select>
+                                                      </div>
+                                                       <div class="g-create-form">
+                                                            <div id="select-type-wise-value" class="row">
+
+                                                            </div>
+                                                        </div>
+
+`;
+
+
+        this.createSelectTypeWiseFields(selectType,'select-type-wise-value');
+        document.getElementById('select-type').addEventListener('change',  (event)=> {
+            let selectedValue = event.target.value;
+            let containerId = 'select-type-wise-value';
+
+            // Remove all existing input fields from the container
+            removeAllChildren(containerId);
+
+            this.createSelectTypeWiseFields(selectedValue,containerId);
+        });
+
+
+    }
+
+
+    createInputFieldsForStaticSelectType(containerId) {
         let count = 1;
         let createdElements = [];
         if (elementProperties && elementProperties.input_select_count) {
@@ -263,6 +299,24 @@ class Input {
 
         });
     }
+    createInputFieldsForApiSelectType(containerId) {
+        let optionBn = '';
+        let optionEn = '';
+        let selectValue = '';
+        if (elementProperties  ) {
+            optionBn = elementProperties.select_api_option_bn??'';
+            optionEn = elementProperties.select_api_option_en??'';
+            selectValue = elementProperties.select_api_value??'';
+        }
+
+        document.getElementById(containerId).innerHTML = ` <div class="form-group col-md-4 mb-3">
+                                                       <label >Select Api value Keys:</label>
+                                                              <input type="text" name="select_api_option_bn" id="input-select-option-bn" class="col-md-4 form-control mb-2" placeholder="Option BN" required value="${optionBn}">
+                                                              <input type="text" name="select_api_option_en" id="input-select-option-en" class="col-md-4 form-control mb-2" placeholder="Option EN" required value="${optionEn}">
+                                                              <input type="text" name="select_api_value" id="input-select-value" class="col-md-4 form-control mb-2" placeholder="Value" required value="${selectValue}">
+                                                            </div>`;
+
+    }
 
     createNestedSelectElements(i,container,createdElements) {
 
@@ -287,6 +341,16 @@ class Input {
             createdElements.push(containerDiv);
 
 
+
+    }
+
+    createSelectTypeWiseFields(type,containerId){
+        if(type==='static'){
+            this.createInputFieldsForStaticSelectType(containerId);
+        }
+        else{
+            this.createInputFieldsForApiSelectType(containerId);
+        }
 
     }
 
