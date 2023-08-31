@@ -77,7 +77,6 @@ class CompareApi {
      addField(index, container,createdElements) {
         let keyValue ='';
         let comparison = '';
-        let apiDataCalculation ='';
         let transferOption = null;
         let pageId = '';
         let apiKey='';
@@ -148,6 +147,7 @@ class CompareApi {
                 </div>`;
         }
         if (selectedValue === 'goto') {
+
             let gotoOptionsHtml='';
             let backOptionsHtml='';
             if (typeof allPages!=="undefined"){
@@ -155,17 +155,46 @@ class CompareApi {
                 backOptionsHtml=allPages.map(page=>`<option value="${page.id}" ${backPageId == page.id ? 'selected' : ''} >${page.page_heading_en}</option>`).join('')
             }
 
-            document.getElementById(transferTypeContainerId).innerHTML = ` <div class="form-group  mb-3">
+  document.getElementById(transferTypeContainerId).innerHTML = ` <div class="form-group  mb-3">
                     <label for="compare-api-goto-page-id-${index}">Goto page id:</label>
                     <select class="form-control"  name="compare_api_goto_page_id[]" id="compare-api-goto-page-id-${index}" > ${gotoOptionsHtml}</select>
                 </div>
- <div class="form-group  mb-3">
+                <div class="form-group  mb-3">
                <label for="compare-api-back-page-id-${index}">Back page id:</label>
               <select class="form-control"  name="compare_api_back_page_id[]" id="compare-api-back-page-id-${index}" >
              <option value="" <option value="" selected>No Page</option>
 
              ${backOptionsHtml}</select>
                 </div>`;
+
+
+            const gotoPage = document.getElementById(`compare-api-goto-page-id-${index}`);
+            const backPage = document.getElementById(`compare-api-back-page-id-${index}`);
+            gotoPage.addEventListener('change', function () {
+                const selectedValue = gotoPage.value;
+                for (let i = 0; i < backPage.options.length; i++) {
+                    backPage.options[i].disabled = false;
+                }
+                for (let i = 0; i < backPage.options.length; i++) {
+                    if (backPage.options[i].value === selectedValue) {
+                        backPage.options[i].disabled = true;
+                        break;
+                    }
+                }
+            });
+            backPage.addEventListener('change', function () {
+                const selectedValue = backPage.value;
+                for (let i = 0; i < gotoPage.options.length; i++) {
+                    gotoPage.options[i].disabled = false;
+                }
+                for (let i = 0; i < gotoPage.options.length; i++) {
+                    if (gotoPage.options[i].value === selectedValue) {
+                        gotoPage.options[i].disabled = true;
+                        break;
+                    }
+                }
+            });
+
         }
     }
 

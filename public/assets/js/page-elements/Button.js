@@ -13,16 +13,12 @@ class Button {
     createInputFieldsForButton() {
 
         let type = 'navigation_static';
-        // let value = '';
-        // let apiKey = '';
-        // let apiDataComparison = '';
-        // let apiDataCalculation = '';
+
         let transferOption = 'redirect';
         let transferPageId = '';
         let gotoPageId = '';
         let backPageId = '';
-        let buttonTitleEn = '';
-        let buttonTitleBan = '';
+
         if (this.elementProperties) {
             type = this.elementProperties.button_type ?? '';
             // value = elementProperties.button_value ?? '';
@@ -303,16 +299,16 @@ class Button {
                                                             </div>`;
         }
         if (selectedValue === 'goto') {
-            let optionsHtml = '';
+            let gotoOptionsHtml = '';
             let backOptionsHtml = '';
             if (typeof allPages !== "undefined") {
-                optionsHtml = allPages.map(page => `<option value="${page.id}" ${pageId == page.id ? 'selected' : ''} >${page.page_heading_en}</option>`).join('')
+                gotoOptionsHtml = allPages.map(page => `<option value="${page.id}" ${pageId == page.id ? 'selected' : ''} >${page.page_heading_en}</option>`).join('')
                 backOptionsHtml = allPages.map(page => `<option value="${page.id}" ${backPageId == page.id ? 'selected' : ''} >${page.page_heading_en}</option>`).join('')
             }
             document.getElementById(containerId).innerHTML = ` <div class="form-group col-md-4 mb-3">
                                                                 <label for="button-go-to">Go to:</label>
                                                                 <select class="form-control"  name="button_goto_page_id" id="button-go-to">
-                                                                    ${optionsHtml}
+                                                                    ${gotoOptionsHtml}
 
                                                                 </select>
                                                             </div>
@@ -322,6 +318,32 @@ class Button {
              <option value="" <option value="" selected>No Page</option>
 
              ${backOptionsHtml}</select>`;
+            const gotoPage = document.getElementById('button-go-to');
+            const backPage = document.getElementById('button-back-page-id');
+            gotoPage.addEventListener('change', function () {
+                const selectedValue = gotoPage.value;
+                for (let i = 0; i < backPage.options.length; i++) {
+                    backPage.options[i].disabled = false;
+                }
+                for (let i = 0; i < backPage.options.length; i++) {
+                    if (backPage.options[i].value === selectedValue) {
+                        backPage.options[i].disabled = true;
+                        break;
+                    }
+                }
+            });
+            backPage.addEventListener('change', function () {
+                const selectedValue = backPage.value;
+                for (let i = 0; i < gotoPage.options.length; i++) {
+                    gotoPage.options[i].disabled = false;
+                }
+                for (let i = 0; i < gotoPage.options.length; i++) {
+                    if (gotoPage.options[i].value === selectedValue) {
+                        gotoPage.options[i].disabled = true;
+                        break;
+                    }
+                }
+            });
         }
     }
 

@@ -6,9 +6,9 @@ class Input {
     }
 
     createInputFieldsForInputType() {
-        let inputType='input_text';
-        if(elementProperties && elementProperties.input_type){
-            inputType=elementProperties.input_type;
+        let inputType = 'input_text';
+        if (elementProperties && elementProperties.input_type) {
+            inputType = elementProperties.input_type;
         }
         document.getElementById(this.containerId).innerHTML = `<div class="form-group col-md-4 mb-3">
                                                             <label for="input-type">Input Type:</label>
@@ -35,7 +35,7 @@ class Input {
 
         this.createInputTypeWiseFields(inputType);
 
-        document.getElementById('input-type').addEventListener('change',  (event)=> {
+        document.getElementById('input-type').addEventListener('change', (event) => {
             let selectedValue = event.target.value;
             let containerId = 'input-type-wise-value';
 
@@ -59,15 +59,15 @@ class Input {
             input_otp: this.createInputFieldsForInputTypeOTP,
             input_expire_date: this.createInputFieldsForInputTypeExpireDate,
         }
-        let createInputFields=inputTypeToFunctionMap[type];
-        if(createInputFields){
-            createInputFields.call(this,'input-type-wise-value');
+        let createInputFields = inputTypeToFunctionMap[type];
+        if (createInputFields) {
+            createInputFields.call(this, 'input-type-wise-value');
         }
 
     }
 
-    createNestedInputElements(type,containerId,createdElements,countValue){
-        let elementTypeToFunctionMap={
+    createNestedInputElements(type, containerId, createdElements, countValue) {
+        let elementTypeToFunctionMap = {
             select: this.createNestedSelectElements,
             checkbox: this.createNestedCheckboxElements,
             radio: this.createNestedRadioElements,
@@ -78,7 +78,7 @@ class Input {
 
         // Add or remove input fields based on the countValue
         while (createdElements.length < countValue) {
-            elementTypeToFunctionMap[type].call(this,createdElements.length + 1, container,createdElements);
+            elementTypeToFunctionMap[type].call(this, createdElements.length + 1, container, createdElements);
         }
 
         while (createdElements.length > countValue) {
@@ -231,9 +231,9 @@ class Input {
     }
 
     createInputFieldsForInputTypeSelect(containerId) {
-        let selectType='static';
-        if(elementProperties && elementProperties.input_select_type){
-            selectType=elementProperties.input_select_type;
+        let selectType = 'static';
+        if (elementProperties && elementProperties.input_select_type) {
+            selectType = elementProperties.input_select_type;
         }
         document.getElementById(containerId).innerHTML = `<div class="form-group col-md-4 mb-3">
                                                             <label for="select-type">Select Type:</label>
@@ -252,15 +252,15 @@ class Input {
 `;
 
 
-        this.createSelectTypeWiseFields(selectType,'select-type-wise-value');
-        document.getElementById('select-type').addEventListener('change',  (event)=> {
+        this.createSelectTypeWiseFields(selectType, 'select-type-wise-value');
+        document.getElementById('select-type').addEventListener('change', (event) => {
             let selectedValue = event.target.value;
             let containerId = 'select-type-wise-value';
 
             // Remove all existing input fields from the container
             removeAllChildren(containerId);
 
-            this.createSelectTypeWiseFields(selectedValue,containerId);
+            this.createSelectTypeWiseFields(selectedValue, containerId);
         });
 
 
@@ -291,22 +291,32 @@ class Input {
                                                             </div>`;
 
 
-        this.createNestedInputElements('select','input-select-elements', createdElements, count);
+        this.createNestedInputElements('select', 'input-select-elements', createdElements, count);
         // Adding or removing input fields on count value change
-        document.getElementById('input-select-count').addEventListener('change',  (event)=> {
+        document.getElementById('input-select-count').addEventListener('change', (event) => {
             let countValue = event.target.value;
-            this.createNestedInputElements('select','input-select-elements', createdElements, countValue);
+            this.createNestedInputElements('select', 'input-select-elements', createdElements, countValue);
 
         });
     }
+
+    createSelectTypeWiseFields(type, containerId) {
+        if (type === 'static') {
+            this.createInputFieldsForStaticSelectType(containerId);
+        } else {
+            this.createInputFieldsForApiSelectType(containerId);
+        }
+
+    }
+
     createInputFieldsForApiSelectType(containerId) {
         let optionBn = '';
         let optionEn = '';
         let selectValue = '';
-        if (elementProperties  ) {
-            optionBn = elementProperties.select_api_option_bn??'';
-            optionEn = elementProperties.select_api_option_en??'';
-            selectValue = elementProperties.select_api_value??'';
+        if (elementProperties) {
+            optionBn = elementProperties.select_api_option_bn ?? '';
+            optionEn = elementProperties.select_api_option_en ?? '';
+            selectValue = elementProperties.select_api_value ?? '';
         }
 
         document.getElementById(containerId).innerHTML = ` <div class="form-group col-md-4 mb-3">
@@ -318,43 +328,77 @@ class Input {
 
     }
 
-    createNestedSelectElements(i,container,createdElements) {
+    createNestedSelectElements(i, container, createdElements) {
 
-            let optionBn = '';
-            let optionEn = '';
-            let selectValue = '';
-            if (elementProperties && elementProperties.select_values && elementProperties.select_values[i - 1]) {
-                optionBn = elementProperties.select_values[i - 1]['option_bn'];
-                optionEn = elementProperties.select_values[i - 1]['option_en'];
-                selectValue = elementProperties.select_values[i - 1]['value'];
-            }
+        let optionBn = '';
+        let optionEn = '';
+        let selectValue = '';
+        if (elementProperties && elementProperties.select_values && elementProperties.select_values[i - 1]) {
+            optionBn = elementProperties.select_values[i - 1]['option_bn'];
+            optionEn = elementProperties.select_values[i - 1]['option_en'];
+            selectValue = elementProperties.select_values[i - 1]['value'];
+        }
 
-            let containerDiv = document.createElement('div');
-            containerDiv.classList.add("col-md-4", "mb-3", "form-group");
-            containerDiv.innerHTML = `<label >Select value ${i}:</label>
+        let containerDiv = document.createElement('div');
+        containerDiv.classList.add("col-md-4", "mb-3", "form-group");
+        containerDiv.innerHTML = `<label >Select value ${i}:</label>
                                    <input type="text" name="input_select_option_bn[]" id="input-select-option-bn-${i}" class="col-md-4 form-control mb-2" placeholder="Option BN" required value="${optionBn}">
                                    <input type="text" name="input_select_option_en[]" id="input-select-option-en-${i}" class="col-md-4 form-control mb-2" placeholder="Option EN" required value="${optionEn}">
                                    <input type="text" name="input_select_value[]" id="input-select-value-${i}" class="col-md-4 form-control mb-2" placeholder="Value" required value="${selectValue}">
                                    `;
-            container.appendChild(containerDiv);
+        container.appendChild(containerDiv);
 
-            createdElements.push(containerDiv);
+        createdElements.push(containerDiv);
 
-
-
-    }
-
-    createSelectTypeWiseFields(type,containerId){
-        if(type==='static'){
-            this.createInputFieldsForStaticSelectType(containerId);
-        }
-        else{
-            this.createInputFieldsForApiSelectType(containerId);
-        }
 
     }
+
 
     createInputFieldsForInputTypeRadio(containerId) {
+        let radioType = 'static';
+        if (elementProperties && elementProperties.input_radio_type) {
+            radioType = elementProperties.input_radio_type;
+        }
+        document.getElementById(containerId).innerHTML = `<div class="form-group col-md-4 mb-3">
+                                                            <label for="radio-type">Radio Type:</label>
+                                                            <select name="input_radio_type" id="radio-type"
+                                                             class="form-control">
+                                                                <option value="static" ${radioType === 'static' ? 'selected' : ''}>Static</option>
+                                                                <option value="api" ${radioType === 'api' ? 'selected' : ''}>Api</option>
+                                                                </select>
+                                                      </div>
+                                                       <div class="g-create-form">
+                                                            <div id="radio-type-wise-value" class="row">
+
+                                                            </div>
+                                                        </div>
+
+`;
+
+
+        this.createRadioTypeWiseFields(radioType, 'radio-type-wise-value');
+        document.getElementById('radio-type').addEventListener('change', (event) => {
+            let selectedValue = event.target.value;
+            let containerId = 'radio-type-wise-value';
+
+            // Remove all existing input fields from the container
+            removeAllChildren(containerId);
+
+            this.createRadioTypeWiseFields(selectedValue, containerId);
+        });
+
+    }
+
+    createRadioTypeWiseFields(type, containerId) {
+        if (type === 'static') {
+            this.createInputFieldsForStaticRadioType(containerId);
+        } else {
+            this.createInputFieldsForApiRadioType(containerId);
+        }
+
+    }
+
+    createInputFieldsForStaticRadioType(containerId) {
         let count = 1;
         let createdElements = [];
         if (elementProperties && elementProperties.input_radio_count) {
@@ -372,43 +416,122 @@ class Input {
                                                                  </div>
                                                         </div>`;
 
-        this.createNestedInputElements('radio','input-radio-elements', createdElements, count);
+        this.createNestedInputElements('radio', 'input-radio-elements', createdElements, count);
 
         // Adding or removing input fields on count value change
-        document.getElementById('input-radio-count').addEventListener('change',  (event)=> {
+        document.getElementById('input-radio-count').addEventListener('change', (event) => {
             let countValue = event.target.value;
-            this.createNestedInputElements('radio','input-radio-elements', createdElements, countValue);
+            this.createNestedInputElements('radio', 'input-radio-elements', createdElements, countValue);
 
         });
     }
 
-    createNestedRadioElements(i,container,createdElements) {
+    createInputFieldsForApiRadioType(containerId) {
+        let radioBnValue = '';
+        let radioEnValue = '';
+        if (elementProperties) {
+            radioBnValue = elementProperties.input_api_radio_label_bn ?? '';
+            radioEnValue = elementProperties.input_api_radio_label_en ?? '';
+        }
+        document.getElementById(containerId).innerHTML = `<div class="col-md-4 mb-3 form-group">
+                                                            <label for="input-radio-label-bn">Radio label (Bn) :</label>
+                                                            <input class="form-control" type="text" name="input_api_radio_label_bn" id="input-radio-label-bn" value="${radioBnValue}">
+                                                          </div>
+                                                         <div class="col-md-4 mb-3 form-group">
+                                                            <label for="input-radio-label-en">Radio label (En) :</label>
+                                                            <input class="form-control" type="text" name="input_api_radio_label_en" id="input-radio-label-en" value="${radioEnValue}">
+                                                         </div>
+`;
 
-            let radioBnValue = '';
-            let radioEnValue = '';
-            if (elementProperties && elementProperties.radio_values && elementProperties.radio_values[i - 1]) {
-                radioBnValue = elementProperties.radio_values[i - 1]['radio_label_bn'];
-                radioEnValue = elementProperties.radio_values[i - 1]['radio_label_en'];
-            }
+    }
 
-            let containerDiv1 = document.createElement('div');
-            containerDiv1.classList.add("col-md-4", "mb-3", "form-group");
-            containerDiv1.innerHTML = ` <label for="input-radio-label-bn">Radio label (Bn) ${i}:</label>
+    createNestedRadioElements(i, container, createdElements) {
+
+        let radioBnValue = '';
+        let radioEnValue = '';
+        if (elementProperties && elementProperties.radio_values && elementProperties.radio_values[i - 1]) {
+            radioBnValue = elementProperties.radio_values[i - 1]['radio_label_bn'];
+            radioEnValue = elementProperties.radio_values[i - 1]['radio_label_en'];
+        }
+
+        let containerDiv1 = document.createElement('div');
+        containerDiv1.classList.add("col-md-4", "mb-3", "form-group");
+        containerDiv1.innerHTML = ` <label for="input-radio-label-bn">Radio label (Bn) ${i}:</label>
                                                            <input class="form-control" type="text" name="input_radio_label_bn[]" id="input-radio-label-bn-${i}" value="${radioBnValue}">
                                                           </div>
                                                               `;
-            let containerDiv2 = document.createElement('div');
-            containerDiv2.classList.add("col-md-4", "mb-3", "form-group");
-            containerDiv2.innerHTML = `<label for="input-radio-label-en">Radio label (En) ${i}:</label>
+        let containerDiv2 = document.createElement('div');
+        containerDiv2.classList.add("col-md-4", "mb-3", "form-group");
+        containerDiv2.innerHTML = `<label for="input-radio-label-en">Radio label (En) ${i}:</label>
                                  <input class="form-control" type="text" name="input_radio_label_en[]" id="input-radio-label-en-${i}" value="${radioEnValue}">`;
-            container.appendChild(containerDiv1);
-            container.appendChild(containerDiv2);
-            createdElements.push(containerDiv1);
+        container.appendChild(containerDiv1);
+        container.appendChild(containerDiv2);
+        createdElements.push(containerDiv1);
 
 
     }
 
+
     createInputFieldsForInputTypeCheckbox(containerId) {
+        let checkboxType = 'static';
+        if (elementProperties && elementProperties.input_checkbox_type) {
+            checkboxType = elementProperties.input_checkbox_type;
+        }
+        document.getElementById(containerId).innerHTML = `<div class="form-group col-md-4 mb-3">
+                                                            <label for="checkbox-type">Checkbox Type:</label>
+                                                            <select name="input_checkbox_type" id="checkbox-type"
+                                                             class="form-control">
+                                                                <option value="static" ${checkboxType === 'static' ? 'selected' : ''}>Static</option>
+                                                                <option value="api" ${checkboxType === 'api' ? 'selected' : ''}>Api</option>
+                                                                </select>
+                                                      </div>
+                                                       <div class="g-create-form">
+                                                            <div id="checkbox-type-wise-value" class="row">
+
+                                                            </div>
+                                                        </div>
+
+`;
+
+
+        this.createCheckboxTypeWiseFields(checkboxType, 'checkbox-type-wise-value');
+        document.getElementById('checkbox-type').addEventListener('change', (event) => {
+            let selectedValue = event.target.value;
+            let containerId = 'checkbox-type-wise-value';
+
+            // Remove all existing input fields from the container
+            removeAllChildren(containerId);
+
+            this.createCheckboxTypeWiseFields(selectedValue, containerId);
+        });
+
+    }
+
+    createCheckboxTypeWiseFields(type, containerId) {
+        if (type === 'static') {
+            this.createInputFieldsForStaticCheckboxType(containerId);
+        } else {
+            this.createInputFieldsForApiCheckboxType(containerId);
+        }
+
+    }
+
+    createInputFieldsForApiCheckboxType(containerId) {
+        let checkboxValue='';
+        if (elementProperties ) {
+            checkboxValue = elementProperties.input_api_checkbox_value??'';
+
+        }
+        document.getElementById(containerId).innerHTML = `<div class="form-group col-md-4 mb-3">
+                                                            <label for="input-api-checkbox-value">Checkbox :</label>
+                                                            <input class="form-control" type="text" name="input_api__checkbox_value" id="input-api-checkbox-value" value="${checkboxValue}">
+                                                          </div>`;
+
+
+    }
+
+
+    createInputFieldsForStaticCheckboxType(containerId) {
         let count = 1;
         let createdElements = [];
         if (elementProperties && elementProperties.input_checkbox_count) {
@@ -427,32 +550,31 @@ class Input {
                                                                  </div>
                                                         </div>`;
 
-        this.createNestedInputElements('checkbox','input-checkbox-elements', createdElements, count);
+        this.createNestedInputElements('checkbox', 'input-checkbox-elements', createdElements, count);
 
         // Adding or removing input fields on count value change
-        document.getElementById('input-checkbox-count').addEventListener('change',  (event)=> {
+        document.getElementById('input-checkbox-count').addEventListener('change', (event) => {
             let countValue = event.target.value;
-            this.createNestedInputElements('checkbox','input-checkbox-elements', createdElements, countValue);
+            this.createNestedInputElements('checkbox', 'input-checkbox-elements', createdElements, countValue);
 
         });
     }
 
 
-    createNestedCheckboxElements(i,container,createdElements) {
-            let checkboxValue = '';
-            if (elementProperties && elementProperties.checkbox_values && elementProperties.checkbox_values[i - 1]) {
-                checkboxValue = elementProperties.checkbox_values[i - 1]['checkbox_value'];
+    createNestedCheckboxElements(i, container, createdElements) {
+        let checkboxValue = '';
+        if (elementProperties && elementProperties.checkbox_values && elementProperties.checkbox_values[i - 1]) {
+            checkboxValue = elementProperties.checkbox_values[i - 1]['checkbox_value'];
 
-            }
-            console.log(container);
-            let containerDiv = document.createElement('div');
-            containerDiv.classList.add("col-md-4", "mb-3", "form-group");
-            containerDiv.innerHTML = `  <label for="input-checkbox-value">Checkbox ${i}:</label>
-        <input class="form-control" type="text" name="input_checkbox_value[]" id="input-checkbox-value"
-        value="${checkboxValue}">`;
+        }
 
-            container.appendChild(containerDiv);
-            createdElements.push(containerDiv);
+        let containerDiv = document.createElement('div');
+        containerDiv.classList.add("col-md-4", "mb-3", "form-group");
+        containerDiv.innerHTML = `<label for="input-checkbox-value">Checkbox ${i}:</label>
+                                  <input class="form-control" type="text" name="input_checkbox_value[]" id="input-checkbox-value" value="${checkboxValue}">`;
+
+        container.appendChild(containerDiv);
+        createdElements.push(containerDiv);
 
     }
 
