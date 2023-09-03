@@ -10,14 +10,11 @@ class SivrPageRepository
 
     public function listing()
     {
-        $result = [];
+
 
         $allSivrPages = SivrPage::with('children', 'pageElements')->get();
         $ParentSivrPages = $allSivrPages->where('parent_page_id', null);
-        $result[] = $ParentSivrPages;
-        $result[] = $allSivrPages;
-        return $result;
-
+        return [$ParentSivrPages, $allSivrPages];
     }
 
 
