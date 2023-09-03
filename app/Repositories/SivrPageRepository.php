@@ -13,9 +13,7 @@ class SivrPageRepository
         $result = [];
 
         $allSivrPages = SivrPage::with('children', 'pageElements')->get();
-        $ParentSivrPages = $allSivrPages->filter(function ($sivrPage) {
-            return is_null($sivrPage->parent_page_id);
-        });
+        $ParentSivrPages = $allSivrPages->where('parent_page_id', null);
         $result[] = $ParentSivrPages;
         $result[] = $allSivrPages;
         return $result;
