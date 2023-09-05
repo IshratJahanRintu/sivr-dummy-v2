@@ -43,14 +43,24 @@ class CompareApi {
 
 
     this.createCompareApiElements(containerId, createdElements, count);
+     const compareCountInput = document.getElementById('compare-count');
 
+
+     // Add an input event listener to restrict the input value
+     compareCountInput.addEventListener('input', () => {
+         const inputValue = parseInt(compareCountInput.value, 10); // Parse input value as an integer
+          if (inputValue > 10) {
+             compareCountInput.value = 10; // Maximum value is 10
+         }
+         this.createCompareApiElements(containerId, createdElements, compareCountInput.value);
+     });
     // Adding or removing input fields on count value change
-    document.getElementById('compare-count').addEventListener('change', (event)=> {
-        let countValue = event.target.value;
-        this.createCompareApiElements(containerId, createdElements, countValue);
-
-
-    });
+    // document.getElementById('compare-count').addEventListener('change', (event)=> {
+    //     let countValue = event.target.value;
+    //     this.createCompareApiElements(containerId, createdElements, countValue);
+    //
+    //
+    // });
 }
 
     createCompareApiElements(containerId, createdElements, countValue) {
