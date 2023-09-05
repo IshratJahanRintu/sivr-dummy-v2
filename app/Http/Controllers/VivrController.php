@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Vivr;
 use App\Services\VivrService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VivrController extends Controller
 {
@@ -12,35 +13,42 @@ class VivrController extends Controller
     {
         $this->vivrService = new VivrService();
     }
+
     public function index()
     {
         $result = $this->vivrService->listItems();
-        if( $result->status == 200 ){
-            $vivrList     = $result->data;
+        if ($result->status == 200) {
+            $vivrList = $result->data;
 
         }
-        return view('sivr.vivr.index',['vivrList'=>$vivrList]);
+        return view('sivr.vivr.index', ['vivrList' => $vivrList]);
     }
 
 
     public function create()
     {
-return view('sivr.vivr.create');
+        if (Auth::check()) {
+            return view('sivr.vivr.create');
+        }
+        return redirect("login")->withSuccess('Opps! You do not have access');
     }
 
 
     public function store(Request $request)
     {
-        $result = $this->vivrService->createItem($request);
-        if ($result->status == 201) {
-            session()->flash('success', 'Record ' . $result->messages . ' successfully!');
-        } else {
-            session()->flash('error', 'Can not Create !');
-            return redirect()->route('vivr.create')->withInput()->withErrors($result->validator ?? '');
+        if (Auth::check()) {
+            $result = $this->vivrService->createItem($request);
+            if ($result->status == 201) {
+                session()->flash('success', 'Record ' . $result->messages . ' successfully!');
+            } else {
+                session()->flash('error', 'Can not Create !');
+                return redirect()->route('vivr.create')->withInput()->withErrors($result->validator ?? '');
 
+            }
+
+            return redirect(route('vivr.index'));
         }
-
-        return redirect(route('vivr.index'));
+        return redirect("login")->withSuccess('Opps! You do not have access');
     }
 
 
@@ -52,7 +60,7 @@ return view('sivr.vivr.create');
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -63,8 +71,8 @@ return view('sivr.vivr.create');
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -75,16 +83,20 @@ return view('sivr.vivr.create');
 
     public function destroy(Vivr $vivr)
     {
-        $result = $this->vivrService->deleteItem($vivr);
+        if (Auth::check()) {
+            $result = $this->vivrService->deleteItem($vivr);
 
-        if ($result->status == 209) {
+            if ($result->status == 209) {
 
-            session()->flash('success', 'Record ' . $result->messages . ' successfully!');
+                session()->flash('success', 'Record ' . $result->messages . ' successfully!');
 
-        } else {
+            } else {
 
-            session()->flash('error', 'Can not Delete !');
+                session()->flash('error', 'Can not Delete !');
+            }
+            return redirect(route('vivr.index'));
         }
-        return redirect(route('vivr.index'));
+        return redirect("login")->withSuccess('Opps! You do not have access');
     }
+
 }
