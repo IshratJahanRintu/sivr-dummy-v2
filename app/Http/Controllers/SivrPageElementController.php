@@ -112,7 +112,7 @@ class SivrPageElementController extends Controller
 
     public function uploadMenuIcon(SivrPageElement $pageElement)
     {
-        return view('sivr.pageElements.menuIconUpload', compact('pageElement'));
+        return view('sivr.PageElements.menuIconUpload', compact('pageElement'));
     }
 
     public function storeMenuIcon(Request $request)
