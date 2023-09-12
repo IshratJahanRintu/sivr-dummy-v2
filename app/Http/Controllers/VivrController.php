@@ -16,12 +16,17 @@ class VivrController extends Controller
 
     public function index()
     {
-        $result = $this->vivrService->listItems();
-        if ($result->status == 200) {
-            $vivrList = $result->data;
+        if (Auth::check()) {
+            $result = $this->vivrService->listItems();
+            if ($result->status == 200) {
+                $vivrList = $result->data;
 
+            }
+            return view('sivr.vivr.index', ['vivrList' => $vivrList]);
         }
-        return view('sivr.vivr.index', ['vivrList' => $vivrList]);
+        else{
+            return redirect("login")->withSuccess('Opps! You do not have access');
+        }
     }
 
 

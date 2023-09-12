@@ -63,8 +63,7 @@
                                             <li ><a href="{{ url('upload-audio')}}"><i class="ph-fill ph-upload"></i> Upload
                                                 File</a>
                                             </li>
-                                            <li ><a href="{{ route('vivr.index') }}"><i class="ph-fill ph-play-circle"></i>VIVR</a>
-                                            </li>
+
                                         </ul>
                                     </div>
                                     <!--End nav Menu -->
