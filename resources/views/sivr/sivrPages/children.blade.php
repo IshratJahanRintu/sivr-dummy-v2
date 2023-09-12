@@ -1,4 +1,5 @@
 @if ($children->count() > 0)
+
     <ul>
         @foreach ($children as $child)
             <li class="{{$child->hasChildren()?'folder':'file'}} " >

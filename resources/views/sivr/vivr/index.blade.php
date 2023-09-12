@@ -34,7 +34,8 @@
                             @foreach($vivrList as $vivr)
                                 <tr>
                                     <td class="text-center">{{$serialNumber}}</td>
-                                    <td class="text-center">{{$vivr->title}} </td>
+                                    <td class="text-center"><a href="{{ route('sivr-pages.show',['sivr_page'=>$vivr->id]) }}">{{$vivr->title}} </a></td>
+
                                 <td class="text-center"> <i class="ph-fill ph-trash-simple delete-vivr-btn delete-icon-button text-danger" data-vivr-id="{{$vivr->id}}"></i></td>
                                 </tr>
 

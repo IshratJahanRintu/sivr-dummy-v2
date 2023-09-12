@@ -26,14 +26,14 @@ class SivrPageService
     }
 
 
-    public function listItems()
+    public function listItems($vivrId)
     {
 
         DB::beginTransaction();
 
         try {
 
-            $listing = $this->sivrPageRepository->listing();
+            $listing = $this->sivrPageRepository->listing( $vivrId);
 
 
         } catch (Exception $e) {
@@ -137,7 +137,7 @@ class SivrPageService
     public function createItem($request)
     {
         $rules = [
-            'vivr_id' => 'required|numeric',
+            'vivr_id' => 'numeric',
             'page_heading_ban' => 'required|string|max:30|min:3',
             'page_heading_en' => 'required|string|max:30|min:3',
             'task' => 'required|string|max:30|min:3',
@@ -165,6 +165,7 @@ class SivrPageService
 
              $this->sivrPageRepository->create($data);
 
+
         } catch (Exception $e) {
 
             DB::rollBack();
@@ -190,7 +191,7 @@ class SivrPageService
     {
 
         $rules = [
-            'vivr_id' => 'required|numeric',
+            'vivr_id' => 'numeric',
             'page_heading_ban' => 'required|string|max:30|min:3',
             'page_heading_en' => 'required|string|max:30|min:3',
             'task' => 'required|string|max:30|min:3',

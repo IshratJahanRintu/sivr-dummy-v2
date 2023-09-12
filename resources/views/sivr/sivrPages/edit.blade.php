@@ -2,11 +2,7 @@
 
 
 @section('content')
-    <script>
-    $(document).ready(function() {
-    $('.vivr-list').select2();
-    });
-    </script>
+
     <main class="g-page-wrap">
 
         <div class="g-page-content-area mt-2 mt-md-4">
@@ -45,6 +41,7 @@
                                                     @csrf
                                                     @method('PUT')
                                                     <div class="row">
+                                                        <input type="hidden" name="vivr_id" value="{{$sivrPage->vivr_id}}">
                                                         <div class="form-group col-md-4 mb-3">
                                                             <label for="edit_service_title_id">Service Title ID</label>
                                                             <select class="form-control form-control-sm" name="service_title_id" id="edit_service_title_id">
@@ -54,23 +51,17 @@
                                                             </select>
                                                         </div>
 
-                                                        <div class="form-group col-md-4 mb-3">
-                                                            <label for="vivr-id">VIVR ID</label>
-                                                            <select class="vivr-list form-control" name="vivr_id" id="vivr-id">
-                                                                @foreach($vivrList as $vivr)
-                                                                    <option value={{$vivr->id}} {{ old('vivr_id',$sivrPage->vivr_id) == $vivr->id ? 'selected' : '' }}>{{$vivr->title}}</option>
-
-                                                                @endforeach
-
-                                                            </select>
-                                                        </div>
 
                                                         <div class="form-group col-md-4 mb-3">
                                                             <label for="edit_task">Task</label>
                                                             <select class="form-control form-control-sm" name="task" id="edit_task">
                                                                 <option value="navigation" {{ old('task', $sivrPage->task) == 'navigation' ? 'selected' : '' }}>Navigation</option>
                                                                 <option value="compare" {{ old('task', $sivrPage->task) == 'compare' ? 'selected' : '' }}>Compare</option>
-                                                                <option value="others" {{ old('task', $sivrPage->task) == 'others' ? 'selected' : '' }}>Others</option>
+
+                                                                <option value="language_change" {{ old('task', $sivrPage->task) == 'language_change' ? 'selected' : '' }}>Language Change</option>
+
+                                                                <option value="call_agent" {{ old('task', $sivrPage->task) == 'call_agent' ? 'selected' : '' }}>Call Agent</option>
+                                                                <option value="input_error" {{ old('task', $sivrPage->task) == 'input_error' ? 'selected' : '' }}>Input Error</option>
                                                             </select>
                                                         </div>
 

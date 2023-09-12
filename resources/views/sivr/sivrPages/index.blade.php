@@ -1,19 +1,19 @@
 @extends('layout.app')
 @section('content')
     @php
-        $sivrPagesJson = $allPages->toJson();
-    session(['sivrPages'=>$allPages])
+
+    session(['sivrPages'=>$allPages]);
+
     @endphp
 
-    <script>
-        let sivrPagesJson = {!!   $sivrPagesJson !!};
-    </script>
     <main>
     <div class="g-page-content-area">
 
         <div class="g-page-content-main">
             @if(count($allPages)>0)
+
             @foreach($allPages as $sivrPage)
+
                 <!--**********************************
                                     Right Context Menu
                          ***********************************-->
@@ -51,13 +51,14 @@
                                 <div class="g-tree-view-area">
                                     <h3 class="heading">SIVR Tree Menu</h3>
                                     <!-- **********************************
-                                                                      Right Context Menu
+                                                                   nav menu
                                                            ***********************************-->
                                     <div id="navMenu" class="nav-menu">
                                         <ul class="nav-list-group">
 
                                             <li id="add-option"><a href="{{route('sivr-pages.create')}}">
-                                                    <i class="ph-fill ph-plus"></i> Add Branch
+
+                                                    <i class="ph-fill ph-plus"></i> {{count($allPages)>0?'Add Branch':'Add root Node'}}
                                                 </a></li>
                                             <li ><a href="{{ url('upload-audio')}}"><i class="ph-fill ph-upload"></i> Upload
                                                 File</a>
@@ -66,24 +67,26 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <!--End Right Context Menu -->
+                                    <!--End nav Menu -->
                                     <div class="file-browser">
 
 
                                         <ul>
-                                            @if(($sivrPages->count() >0))
+                                            @if(($rootPage->count() >0))
 
 
-                                                @foreach ($sivrPages as $sivrPage)
+                                                @foreach ($rootPage as $sivrPage)
                                                     <li class="{{$sivrPage->hasChildren()?'folder':'file'}} "><span
                                                             data-sivrpage-id={{$sivrPage->id}} class="node-name">{{$sivrPage->page_heading_en}}</span>
+
+
 
                                                         @include('sivr.sivrPages.children', ['children' => $sivrPage->children])
                                                     </li>
                                                 @endforeach
-
+                                            @endif
                                         </ul>
-                                        @endif
+
 
                                     </div>
                                 </div>

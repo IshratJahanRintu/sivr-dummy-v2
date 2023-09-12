@@ -10,11 +10,11 @@
                 <ul class="metismenu list-unstyled" id="side-menu">
 
                     <li>
-                        <a href="{{ route('sivr-pages.index') }}" class="waves-effect">
-                            <i class="bi bi-chat-quote"></i>
-                            <span>SIVR Tree</span>
-                        </a>
 
+                        <a href="{{ route('vivr.index') }}" class="waves-effect">
+                            <i class="ph-fill ph-play-circle"></i>
+                            <span>VIVR </span>
+                        </a>
                     </li>
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -74,7 +74,6 @@
             <!-- Sidebar -->
         </div>
     </div>
-
 
 
     <!-- Close Icon -->

@@ -8,11 +8,13 @@ class SivrPageRepository
 {
 
 
-    public function listing()
+    public function listing($vivrId)
     {
-        $allSivrPages = SivrPage::with('children', 'pageElements')->get();
-        $ParentSivrPages = $allSivrPages->where('parent_page_id', null);
-        return [$ParentSivrPages, $allSivrPages];
+        $sivrPages = SivrPage::with('children', 'pageElements')
+            ->where('vivr_id', $vivrId)
+            ->get();
+
+        return $sivrPages;
     }
 
 
@@ -22,7 +24,7 @@ class SivrPageRepository
         SivrPage::query()->create([
 
             'parent_page_id' => $data['parent_page_id']??null,
-            'vivr_id' => $data['vivr_id'],
+            'vivr_id' => $data['vivr_id']??null,
             'page_heading_ban' => $data['page_heading_ban'],
             'page_heading_en' => $data['page_heading_en'],
             'task' => $data['task'],
@@ -39,7 +41,7 @@ class SivrPageRepository
         $updated = $sivrPage->update([
 
 
-            'vivr_id' => $data['vivr_id'],
+            'vivr_id' => $data['vivr_id']??null,
             'page_heading_ban' => $data['page_heading_ban'],
             'page_heading_en' => $data['page_heading_en'],
             'task' =>$data['task'],

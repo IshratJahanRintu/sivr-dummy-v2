@@ -65,21 +65,6 @@
                                                                    value="{{old('element_order',$sivr_page_element->element_order)}}" min="1">
                                                         </div>
 
-                                                        <div class="form-group col-md-4 mb-3">
-                                                            <label for="edit-element-text-en">Text (EN)</label>
-                                                            <input class="form-control " type="text"
-                                                                   name="display_name_en"
-                                                                   id="edit-element-text-en"
-                                                                   value="{{old('display_name_en',$sivr_page_element->display_name_en)}}">
-                                                        </div>
-
-                                                        <div class="form-group col-md-4 mb-3">
-                                                            <label for="edit-element-text-bn">Text (BN)</label>
-                                                            <input class="form-control " type="text"
-                                                                   name="display_name_bn"
-                                                                   id="edit-element-text-bn"
-                                                                   value="{{old('display_name_bn',$sivr_page_element->display_name_bn)}}">
-                                                        </div>
 
                                                         <div class="form-group col-md-4 mb-3">
 

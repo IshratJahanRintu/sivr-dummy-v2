@@ -3,13 +3,12 @@
 
 @section('content')
 
-        <script>
-        $(document).ready(function() {
+    @php $vivrId=session('vivrId') @endphp
+    <script>
+        $(document).ready(function () {
             $('.sivr-parent-pages').select2();
         });
-        $(document).ready(function() {
-            $('.vivr-list').select2();
-        });
+
     </script>
 
     <main class="g-page-wrap">
@@ -47,78 +46,119 @@
                                                 <form action="{{route("sivr-pages.store")}}" method="POST">
                                                     @csrf
                                                     <div class="row">
+                                                        @if(count($sivrPages)>0)
+                                                            <div class="form-group col-md-4 mb-3">
+                                                                <label for="add-parent-page-id">Parent Page</label>
+                                                                <select class="sivr-parent-pages form-control"
+                                                                        name="parent_page_id" id="add-parent-page-id">
+                                                                    @foreach($sivrPages as $sivrPage)
+                                                                        <option
+                                                                            value={{$sivrPage->id}}>{{$sivrPage->page_heading_en}}</option>
 
-                                                        <div class="form-group col-md-4 mb-3">
-                                                            <label for="add-parent-page-id">Parent Page</label>
-                                                            <select class="sivr-parent-pages form-control" name="parent_page_id" id="add-parent-page-id">
-                                                                @foreach($sivrPages as $sivrPage)
-                                                                    <option value={{$sivrPage->id}}>{{$sivrPage->page_heading_en}}</option>
+                                                                    @endforeach
 
-                                                                @endforeach
+                                                                </select>
 
-                                                            </select>
+                                                                {{--                                                            <select class="form-control" name="parent_page_id" id="add-parent-page-id">--}}
+                                                                {{--                                                               --}}
 
-{{--                                                            <select class="form-control" name="parent_page_id" id="add-parent-page-id">--}}
-{{--                                                               --}}
+                                                                {{--                                                            </select>--}}
+                                                            </div>
+                                                        @endif
+                                                            <input type="hidden" name="vivr_id" value="{{$vivrId}}">
 
-{{--                                                            </select>--}}
-                                                        </div>
 
                                                         <div class="form-group col-md-4 mb-3">
                                                             <label for="service_title_id">Service Title ID</label>
-                                                            <select class="form-control" name="service_title_id" id="service_title_id">
+                                                            <select class="form-control" name="service_title_id"
+                                                                    id="service_title_id">
 
-                                                                <option value="123" {{ old('service_title_id') == '123' ? 'selected' : '' }}>123</option>
-                                                                <option value="456" {{ old('service_title_id') == '456' ? 'selected' : '' }}>456</option>
-                                                                <option value="789" {{ old('service_title_id') == '789' ? 'selected' : '' }}>789</option>
+                                                                <option
+                                                                    value="123" {{ old('service_title_id') == '123' ? 'selected' : '' }}>
+                                                                    123
+                                                                </option>
+                                                                <option
+                                                                    value="456" {{ old('service_title_id') == '456' ? 'selected' : '' }}>
+                                                                    456
+                                                                </option>
+                                                                <option
+                                                                    value="789" {{ old('service_title_id') == '789' ? 'selected' : '' }}>
+                                                                    789
+                                                                </option>
                                                             </select>
-                                                        </div>
-
-                                                        <div class="form-group col-md-4 mb-3">
-                                                            <label for="vivr-id">VIVR ID</label>
-                                                            <select class="vivr-list form-control" name="vivr_id" id="vivr-id">
-                                                                @foreach($vivrList as $vivr)
-                                                                    <option value={{$vivr->id}} {{ old('vivr_id') == $vivr->id ? 'selected' : '' }}>{{$vivr->title}}</option>
-
-                                                                @endforeach
-
-                                                            </select>
-
                                                         </div>
 
                                                         <div class="form-group col-md-4 mb-3">
                                                             <label for="task">Task</label>
                                                             <select class="form-control" name="task" id="task">
-                                                                <option value="navigation" {{ old('task') == 'navigation' ? 'selected' : '' }}>Navigation</option>
-                                                                <option value="compare" {{ old('task') == 'compare' ? 'selected' : '' }}>Compare</option>
-                                                                <option value="others" {{ old('task') == 'others' ? 'selected' : '' }}>Others</option>
+                                                                <option
+                                                                    value="navigation" {{ old('task') == 'navigation' ? 'selected' : '' }}>
+                                                                    Navigation
+                                                                </option>
+                                                                <option
+                                                                    value="compare" {{ old('task') == 'compare' ? 'selected' : '' }}>
+                                                                    Compare
+                                                                </option>
+
+                                                                <option
+                                                                    value="language_change" {{ old('task') == 'language_change' ? 'selected' : '' }}>
+                                                                    Language Change
+                                                                </option>
+
+                                                                <option
+                                                                    value="call_agent" {{ old('task') == 'call_agent' ? 'selected' : '' }}>
+                                                                    Call Agent
+                                                                </option>
+                                                                <option
+                                                                    value="input_error" {{ old('task') == 'input_error' ? 'selected' : '' }}>
+                                                                    Input Error
+                                                                </option>
                                                             </select>
                                                         </div>
 
                                                         <div class="form-group col-md-4 mb-3">
                                                             <label for="page_heading_en">Page Heading (EN)</label>
-                                                            <input type="text" class="form-control" name="page_heading_en" id="page_heading_en"
-                                                                   placeholder="Page Heading (EN)" value="{{ old('page_heading_en') }}">
+                                                            <input type="text" class="form-control"
+                                                                   name="page_heading_en" id="page_heading_en"
+                                                                   placeholder="Page Heading (EN)"
+                                                                   value="{{ old('page_heading_en') }}">
                                                         </div>
 
                                                         <div class="form-group col-md-4 mb-3">
                                                             <label for="page_heading_ban">Page Heading (BN)</label>
-                                                            <input type="text" class="form-control" name="page_heading_ban" id="page_heading_ban"
-                                                                   placeholder="Page Heading (BN)" value="{{ old('page_heading_ban') }}">
+                                                            <input type="text" class="form-control"
+                                                                   name="page_heading_ban" id="page_heading_ban"
+                                                                   placeholder="Page Heading (BN)"
+                                                                   value="{{ old('page_heading_ban') }}">
                                                         </div>
 
                                                         <div class="form-group col-md-4 mb-3">
                                                             <label for="has_main_menu">Navigate To Main Page</label>
-                                                            <select class="form-control" name="has_main_menu" id="has_main_menu">
-                                                                <option value="Y" {{ old('has_main_menu') == 'Y' ? 'selected' : '' }}>YES</option>
-                                                                <option value="N" {{ old('has_main_menu') == 'N' ? 'selected' : '' }}>NO</option>
+                                                            <select class="form-control" name="has_main_menu"
+                                                                    id="has_main_menu">
+                                                                <option
+                                                                    value="Y" {{ old('has_main_menu') == 'Y' ? 'selected' : '' }}>
+                                                                    YES
+                                                                </option>
+                                                                <option
+                                                                    value="N" {{ old('has_main_menu') == 'N' ? 'selected' : '' }}>
+                                                                    NO
+                                                                </option>
                                                             </select>
                                                         </div>
                                                         <div class="form-group col-md-4 mb-3">
-                                                            <label for="has_previous_menu">Navigate To Previous Page</label>
-                                                            <select class="form-control" name="has_previous_menu" id="has_previous_menu">
-                                                                <option value="Y" {{ old('has_previous_menu') == 'Y' ? 'selected' : '' }}>YES</option>
-                                                                <option value="N" {{ old('has_previous_menu') == 'N' ? 'selected' : '' }}>NO</option>
+                                                            <label for="has_previous_menu">Navigate To Previous
+                                                                Page</label>
+                                                            <select class="form-control" name="has_previous_menu"
+                                                                    id="has_previous_menu">
+                                                                <option
+                                                                    value="Y" {{ old('has_previous_menu') == 'Y' ? 'selected' : '' }}>
+                                                                    YES
+                                                                </option>
+                                                                <option
+                                                                    value="N" {{ old('has_previous_menu') == 'N' ? 'selected' : '' }}>
+                                                                    NO
+                                                                </option>
                                                             </select>
                                                         </div>
 

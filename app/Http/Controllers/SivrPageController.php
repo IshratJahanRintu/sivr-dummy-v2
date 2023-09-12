@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SivrPage;
+use App\Models\Vivr;
 use App\Services\SivrPageService;
 use App\Services\VivrService;
 use Illuminate\Database\Eloquent\Collection;
@@ -27,36 +28,50 @@ class SivrPageController extends Controller
      *
      *
      */
-    function index()
+//    function index()
+//    {
+//        if(Auth::check()) {
+//            $result = $this->sivrPageService->listItems();
+//
+//            if ($result->status == 200) {
+//                $data = $result->data;
+//                $sivrPages = $data[0];
+//                $allPages = $data[1];
+//
+//                return view('sivr.sivrPages.index', compact('sivrPages', 'allPages'));
+//
+//            }
+//        }
+//        return redirect("login")->withSuccess('Opps! You do not have access');
+//    }
+
+    public function show($vivrId)
     {
-        if(Auth::check()) {
-            $result = $this->sivrPageService->listItems();
+        session(['vivrId'=>$vivrId]);
+        $result = $this->sivrPageService->listItems($vivrId);
 
-            if ($result->status == 200) {
-                $data = $result->data;
-                $sivrPages = $data[0];
-                $allPages = $data[1];
+        if ($result->status == 200) {
+            $allPages=$result->data;
+            $rootPage=$allPages->where('parent_page_id', null);
 
-                return view('sivr.sivrPages.index', compact('sivrPages', 'allPages'));
 
-            }
+            return view('sivr.sivrPages.index', compact('rootPage', 'allPages'));
+
         }
-        return redirect("login")->withSuccess('Opps! You do not have access');
     }
-
 
     public function create()
     {
+        $vivrId=session('vivrId');
         if(Auth::check()) {
-            $sivrPages = $this->sivrPageService->listItems();
-            $vivrListResult = $this->vivrService->listItems();
-            if ($sivrPages->status == 200 && $vivrListResult->status == 200) {
-                $data = $sivrPages->data;
-                $sivrPages = $data[1];
-                $vivrList = $vivrListResult->data;
+            $result= $this->sivrPageService->listItems($vivrId);
+
+            if ($result->status == 200 ) {
+
+                $sivrPages = $result->data;
 
 
-                return view('sivr.sivrPages.create', compact('sivrPages', 'vivrList'));
+                return view('sivr.sivrPages.create', compact('sivrPages'));
             }
         }
         return redirect("login")->withSuccess('Opps! You do not have access');
@@ -64,7 +79,9 @@ class SivrPageController extends Controller
 
     public function store(Request $request)
     {
+        $vivrId=session('vivrId');
         if(Auth::check()) {
+
             $result = $this->sivrPageService->createItem($request);
             if ($result->status == 201) {
                 session()->flash('success', 'Record ' . $result->messages . ' successfully!');
@@ -74,20 +91,21 @@ class SivrPageController extends Controller
 
             }
 
-            return redirect(route('sivr-pages.index'));
+            return redirect( route('sivr-pages.show',['sivr_page'=>$vivrId]));
         }
         return redirect("login")->withSuccess('Opps! You do not have access');
     }
 
     public function uploadAudio(SivrPage $sivrPage = null)
     {
+        $vivrId=session('vivrId');
         if(Auth::check()) {
         $allPages = null;
-        $result = $this->sivrPageService->listItems();
+        $result = $this->sivrPageService->listItems($vivrId);
 
         if ($result->status == 200) {
-            $data = $result->data;
-            $allPages = $data[1];
+
+            $allPages = $result->data;
         }
         else{
             dd('No data found');
@@ -117,17 +135,7 @@ class SivrPageController extends Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public
-    function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -137,12 +145,10 @@ class SivrPageController extends Controller
     public function edit(SivrPage $sivrPage)
     {
         if(Auth::check()) {
-        $vivrListResult=$this->vivrService->listItems();
-        if ( $vivrListResult->status==200) {
-            $vivrList=$vivrListResult->data;
-            return view('sivr.sivrPages.edit', compact('sivrPage','vivrList'));
+
+            return view('sivr.sivrPages.edit', compact('sivrPage'));
         }
-        }
+
         return redirect("login")->withSuccess('Opps! You do not have access');
 
     }
@@ -152,11 +158,12 @@ class SivrPageController extends Controller
     function update(Request $request, SivrPage $sivrPage)
     {
         if(Auth::check()) {
+            $vivrId=session('vivrId');
         $result = $this->sivrPageService->updateItem($request, $sivrPage);
 
         if ($result->status == 208) {
             session()->flash('success', 'Sivr Page ' . $result->messages . ' successfully!');
-            return redirect(route('sivr-pages.index'));
+            return redirect( route('sivr-pages.show',['sivr_page'=>$vivrId]));
         } else {
             session()->flash('error', 'Cannot Edit !');
             return redirect()->route('sivr-pages.edit', $sivrPage)->withInput()->withErrors($result->validator ?? $result->messages);
@@ -176,6 +183,7 @@ class SivrPageController extends Controller
     function destroy(SivrPage $sivrPage)
     {
         if(Auth::check()) {
+            $vivrId=session('vivrId');
         $result = $this->sivrPageService->deleteItem($sivrPage);
 
         if ($result->status == 209) {
@@ -186,7 +194,7 @@ class SivrPageController extends Controller
 
             session()->flash('error', 'Can not Delete !');
         }
-        return redirect(route('sivr-pages.index'));
+            return redirect( route('sivr-pages.show',['sivr_page'=>$vivrId]));
         }
         return redirect("login")->withSuccess('Opps! You do not have access');
 

@@ -7,8 +7,13 @@ class CompareApi {
         let containerId='compare-api-elements';
     let createdElements = [];
     let count = 1;
+let displayNameEnglish='';
+let displayNameBangla='';
 
-
+     if(typeof pageElement !== 'undefined' ){
+        displayNameEnglish= pageElement.display_name_en??'';
+         displayNameBangla= pageElement.display_name_bn??'';
+     }
 
     if (elementProperties && elementProperties.compare_count) {
         count = elementProperties.compare_count;
@@ -22,14 +27,14 @@ class CompareApi {
                                                             <input class="form-control" type="text"
                                                                    name="display_name_en"
                                                                    id="g-element-text-en"
-                                                                   value="">
+                                                                   value="${displayNameEnglish}">
                                                         </div>
                                                         <div class="form-group col-md-4 mb-3">
                                                             <label for="g-element-text-bn">Display Text (BN)</label>
                                                             <input class="form-control" type="text"
                                                                    name="display_name_bn"
                                                                    id="g-element-text-bn"
-                                                                   value="">
+                                                                   value="${displayNameBangla}">
                                                         </div>
 
         <div class="form-group col-md-4 mb-3">

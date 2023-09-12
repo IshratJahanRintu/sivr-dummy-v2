@@ -39,4 +39,7 @@ class SivrPage extends Model
     public function  compareApis(){
         return $this->hasMany(SivrApiCompare::class,'page_id');
     }
+    public function vivr(){
+        return $this->belongsTo(Vivr::class,'vivr_id');
+    }
 }
