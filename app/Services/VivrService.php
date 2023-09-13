@@ -108,7 +108,7 @@ $messages=[
     public function deleteItem( $vivr)
     {
 
-if ($vivr->sivrPage===null){
+if (count($vivr->sivrPages)==0){
     try {
 
 

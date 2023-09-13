@@ -13,8 +13,8 @@ class Vivr extends Model
     protected $fillable=[
         'title',
     ];
-    public function sivrPage(){
-        return $this->hasOne(SivrPage::class,'vivr_id');
+    public function sivrPages(){
+        return $this->hasMany(SivrPage::class,'vivr_id');
     }
 
 }
