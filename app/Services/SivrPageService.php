@@ -71,7 +71,7 @@ class SivrPageService
 
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
-            // Redirect back to the edit form with errors and old input
+
             return (object)[
                 'status' => '424',
                 'validator' => $validator,
@@ -163,7 +163,7 @@ class SivrPageService
 
         try {
 
-             $this->sivrPageRepository->create($data);
+          $sivrPage=   $this->sivrPageRepository->create($data);
 
 
         } catch (Exception $e) {
@@ -183,6 +183,7 @@ class SivrPageService
         return (object)[
             'status' => 201,
             'messages' => config('status.status_code.201'),
+            'sivrPage'=>$sivrPage
 
         ];
     }

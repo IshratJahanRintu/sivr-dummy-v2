@@ -379,24 +379,52 @@ document.addEventListener('DOMContentLoaded', function () {
     let files = document.querySelectorAll('.file');
 
     folders.forEach(function (folder) {
+
         folder.addEventListener('click', function (e) {
             this.classList.toggle('folder-open');
+            saveState()
             e.stopPropagation();
+
         });
     });
 
     files.forEach(function (file) {
         file.addEventListener('click', function (e) {
+            saveState()
             e.stopPropagation();
         });
     });
 
+    function saveState(){
+        const state = {};
+        folders.forEach(function(item){
+            state[item.id] = item.classList.contains("folder-open");
+        })
+
+        // Store the state in local storage
+        localStorage.setItem("nestedListState", JSON.stringify(state));
+    }
 
 
 
 
+    function loadState() {
+        const state = JSON.parse(localStorage.getItem("nestedListState")) || {};
 
-
+        // Apply the saved state to each list item
+        Object.keys(state).forEach(function (itemId) {
+            const item = document.getElementById(itemId);
+            if (item) {
+                if (state[itemId]) {
+                    item.classList.add("folder-open");
+                } else {
+                    item.classList.remove("folder-open");
+                }
+            }
+        });
+    }
+    // Load the state when the page is loaded
+    loadState();
 });
 
 

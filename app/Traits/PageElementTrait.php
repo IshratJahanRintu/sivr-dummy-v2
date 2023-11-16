@@ -105,6 +105,8 @@ protected function createElementProperties(array &$data){
     foreach ($inputFields as $fieldName) {
         if (isset($data[$fieldName])) {
 
+
+
                  if($fieldName=='input_select_count') {
                     // For dynamically created select input fields, create an object for each select value
                     $selectValuesCount = $data[$fieldName];
@@ -161,6 +163,8 @@ protected function createElementProperties(array &$data){
                 $jsonObject['paragraph_api_values']=$paragraphApiValuesObject;
                 $jsonObject[$fieldName] = $data[$fieldName];
             }
+
+
 
 
             $jsonObject[$fieldName] = $data[$fieldName];

@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
-        'reference' => '7b07fe5ffa4e717a073c27eb1b261bccc58163e2',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '8d71b030a6a452413b47a48606f8a3b5e25ff2e9',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -25,6 +25,15 @@
             'reference' => '8674e51bb65af933a5ffaf1c308a660387c35c22',
             'type' => 'library',
             'install_path' => __DIR__ . '/../bacon/bacon-qr-code',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'barryvdh/laravel-cors' => array(
+            'pretty_version' => 'v3.0.0',
+            'version' => '3.0.0.0',
+            'reference' => '7c036ec08972d8d5d9db637e772af6887828faf5',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../barryvdh/laravel-cors',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -106,6 +115,15 @@
             'reference' => '783a74f5e3431d7b9805be8afb60fd0a8f743534',
             'type' => 'library',
             'install_path' => __DIR__ . '/../fruitcake/laravel-cors',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'fruitcake/php-cors' => array(
+            'pretty_version' => 'v1.2.0',
+            'version' => '1.2.0.0',
+            'reference' => '58571acbaa5f9f462c9c77e911700ac66f446d4e',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../fruitcake/php-cors',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -323,9 +341,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => '7b07fe5ffa4e717a073c27eb1b261bccc58163e2',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '8d71b030a6a452413b47a48606f8a3b5e25ff2e9',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -496,8 +514,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0',
             ),
         ),
         'psr/simple-cache' => array(

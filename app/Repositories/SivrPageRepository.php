@@ -18,10 +18,11 @@ class SivrPageRepository
     }
 
 
+
     public function create(array $data)
     {
 
-        SivrPage::query()->create([
+      return $sivrPage=  SivrPage::query()->create([
 
             'parent_page_id' => $data['parent_page_id']??null,
             'vivr_id' => $data['vivr_id']??null,

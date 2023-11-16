@@ -315,9 +315,10 @@ class Button {
  <div class="form-group col-md-4 mb-3">
                <label for="button-back-page-id">Back page id:</label>
               <select class="form-control"  name="button_back_page_id" id="button-back-page-id" >
-             <option value="" <option value="" selected>No Page</option>
+              <option value="" selected>No Page</option>
 
-             ${backOptionsHtml}</select>`;
+             ${backOptionsHtml}</select>
+</div>`;
             const gotoPage = document.getElementById('button-go-to');
             const backPage = document.getElementById('button-back-page-id');
             gotoPage.addEventListener('change', function () {

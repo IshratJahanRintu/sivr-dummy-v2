@@ -45,6 +45,7 @@ class SivrPageController extends Controller
 //        return redirect("login")->withSuccess('Opps! You do not have access');
 //    }
 
+
     public function show($vivrId)
     {
         session(['vivrId'=>$vivrId]);

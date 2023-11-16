@@ -356,6 +356,8 @@ class ComposerStaticInit5bc870e946f8fe715948aae67a20d2da
         'Fruitcake\\Cors\\' => 
         array (
             0 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            1 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
+            2 => __DIR__ . '/..' . '/barryvdh/laravel-cors/src',
         ),
         'Fideloper\\Proxy\\' => 
         array (
@@ -438,6 +440,7 @@ class ComposerStaticInit5bc870e946f8fe715948aae67a20d2da
         'App\\Http\\Controllers\\SivrPageElementController' => __DIR__ . '/../..' . '/app/Http/Controllers/SivrPageElementController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Controllers\\UserDetailController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserDetailController.php',
+        'App\\Http\\Controllers\\VivrController' => __DIR__ . '/../..' . '/app/Http/Controllers/VivrController.php',
         'App\\Http\\Controllers\\WebHookController' => __DIR__ . '/../..' . '/app/Http/Controllers/WebHookController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\ACLMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/ACLMiddleware.php',
@@ -503,6 +506,7 @@ class ComposerStaticInit5bc870e946f8fe715948aae67a20d2da
         'App\\Repositories\\SivrPageRepository' => __DIR__ . '/../..' . '/app/Repositories/SivrPageRepository.php',
         'App\\Repositories\\SocialMediaRepository' => __DIR__ . '/../..' . '/app/Repositories/SocialMediaRepository.php',
         'App\\Repositories\\UserRepository' => __DIR__ . '/../..' . '/app/Repositories/UserRepository.php',
+        'App\\Repositories\\VivrRepository' => __DIR__ . '/../..' . '/app/Repositories/VivrRepository.php',
         'App\\Services\\AgentService' => __DIR__ . '/../..' . '/app/Services/AgentService.php',
         'App\\Services\\PermissionGroupService' => __DIR__ . '/../..' . '/app/Services/PermissionGroupService.php',
         'App\\Services\\PermissionService' => __DIR__ . '/../..' . '/app/Services/PermissionService.php',
@@ -511,6 +515,7 @@ class ComposerStaticInit5bc870e946f8fe715948aae67a20d2da
         'App\\Services\\SivrPageService' => __DIR__ . '/../..' . '/app/Services/SivrPageService.php',
         'App\\Services\\SocialMediaService' => __DIR__ . '/../..' . '/app/Services/SocialMediaService.php',
         'App\\Services\\UserService' => __DIR__ . '/../..' . '/app/Services/UserService.php',
+        'App\\Services\\VivrService' => __DIR__ . '/../..' . '/app/Services/VivrService.php',
         'App\\Services\\WebHookService' => __DIR__ . '/../..' . '/app/Services/WebHookService.php',
         'App\\Traits\\FileUploadTrait' => __DIR__ . '/../..' . '/app/Traits/FileUploadTrait.php',
         'App\\Traits\\HasPermissionsTrait' => __DIR__ . '/../..' . '/app/Traits/HasPermissionsTrait.php',
@@ -871,7 +876,9 @@ class ComposerStaticInit5bc870e946f8fe715948aae67a20d2da
         'Egulias\\EmailValidator\\Warning\\Warning' => __DIR__ . '/..' . '/egulias/email-validator/src/Warning/Warning.php',
         'Fideloper\\Proxy\\TrustProxies' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustProxies.php',
         'Fideloper\\Proxy\\TrustedProxyServiceProvider' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustedProxyServiceProvider.php',
+        'Fruitcake\\Cors\\CorsService' => __DIR__ . '/..' . '/fruitcake/php-cors/src/CorsService.php',
         'Fruitcake\\Cors\\CorsServiceProvider' => __DIR__ . '/..' . '/fruitcake/laravel-cors/src/CorsServiceProvider.php',
+        'Fruitcake\\Cors\\Exceptions\\InvalidOptionException' => __DIR__ . '/..' . '/fruitcake/php-cors/src/Exceptions/InvalidOptionException.php',
         'Fruitcake\\Cors\\HandleCors' => __DIR__ . '/..' . '/fruitcake/laravel-cors/src/HandleCors.php',
         'GrahamCampbell\\ResultType\\Error' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Error.php',
         'GrahamCampbell\\ResultType\\Result' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Result.php',

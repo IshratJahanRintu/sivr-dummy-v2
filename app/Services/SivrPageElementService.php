@@ -54,7 +54,6 @@ class SivrPageElementService
             'text_color' => 'required',
             'element_order' => 'required|numeric|min:1',
             'is_visible' => 'required|string|min:1|max:1',
-
             'compare_api_comparison' => 'min:1',
             'compare_api_transfer_page_id' => 'min:1',
         ];
