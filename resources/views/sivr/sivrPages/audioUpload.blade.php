@@ -6,9 +6,6 @@
 
             <div class="g-page-content-main">
 
-                <!--**********************************
-                        EDIT SIVR PAGE FORM
-                 ***********************************-->
                 <div class="g-create-form-area">
                     <div class="container-fluid">
                         <div class="g-create-form-main">

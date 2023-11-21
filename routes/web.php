@@ -44,6 +44,7 @@ Route::post('whatsapp-webhook', [WebHookController::class, 'whatsAppWebHookData'
 ///////////Routes for sivr //////////
 
 Route::resource('sivr-pages', SivrPageController::class);
+Route::get('/sivr-pages/create/{sivrPage?}',[SivrPageController::class,'create']);
 Route::resource('sivr-page-elements', SivrPageElementController::class);
 Route::get('upload-audio/{sivrPage?}', [SivrPageController::class, 'uploadAudio']);
 Route::post('/sivr-pages/delete-audio/{sivrPage}', [SivrPageController::class, 'deleteAudio']);

@@ -61,7 +61,7 @@ class SivrPageController extends Controller
         }
     }
 
-    public function create()
+    public function create(SivrPage $sivrPage = null)
     {
         $vivrId=session('vivrId');
         if(Auth::check()) {
@@ -72,7 +72,7 @@ class SivrPageController extends Controller
                 $sivrPages = $result->data;
 
 
-                return view('sivr.sivrPages.create', compact('sivrPages'));
+                return view('sivr.sivrPages.create', compact('sivrPage','sivrPages'));
             }
         }
         return redirect("login")->withSuccess('Opps! You do not have access');

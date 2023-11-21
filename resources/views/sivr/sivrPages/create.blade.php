@@ -46,6 +46,10 @@
                                                 <form action="{{route("sivr-pages.store")}}" method="POST">
                                                     @csrf
                                                     <div class="row">
+
+                                                        @if($sivrPage)
+                                                            <input type="hidden" name="parent_page_id" id="add-parent-page-id" value="{{$sivrPage->id}}">
+                                                        @else
                                                         @if(count($sivrPages)>0)
                                                             <div class="form-group col-md-4 mb-3">
                                                                 <label for="add-parent-page-id">Parent Page</label>
@@ -64,6 +68,7 @@
 
                                                                 {{--                                                            </select>--}}
                                                             </div>
+                                                        @endif
                                                         @endif
                                                             <input type="hidden" name="vivr_id" value="{{$vivrId}}">
 

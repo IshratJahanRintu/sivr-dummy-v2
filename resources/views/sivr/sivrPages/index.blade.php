@@ -19,7 +19,7 @@
                          ***********************************-->
                         <div id="contextMenu-{{$sivrPage->id}}" class="context-menu">
                             <ul class="list-group">
-
+                                <li ><a href="{{url('/sivr-pages/create',$sivrPage)}}"> <i class="ph-fill ph-plus"></i>Add Branch</a></li>
                                 <li class=""
                                 ><a href="{{route("sivr-pages.edit", $sivrPage)}}"> <i
                                             class="ph-fill ph-pencil-simple"></i>
@@ -59,7 +59,7 @@
                                         <div id="navMenu" class="nav-menu">
                                             <ul class="nav-list-group">
 
-                                                <li id="add-option"><a href="{{route('sivr-pages.create')}}">
+                                                <li id="add-option"><a href="{{url('/sivr-pages/create')}}">
 
                                                         <i class="ph-fill ph-plus"></i> {{count($allPages)>0?'Add Branch':'Add root Node'}}
                                                     </a></li>
@@ -78,7 +78,10 @@
                                                 @if(($rootPage->count() >0))
 
                                                     @foreach ($rootPage as $sivrPage)
-                                                        <li id="{{$sivrPage->id}}" class="{{$sivrPage->hasChildren()?'folder':'file'}} "> <span
+
+                                                        <li id="{{$sivrPage->id}}" class="{{$sivrPage->hasChildren()?'folder':'file'}} ">
+
+                                                            <span
                                                                 data-sivrpage-id={{$sivrPage->id}} class="node-name">{{$sivrPage->page_heading_en}}</span>
 
 
